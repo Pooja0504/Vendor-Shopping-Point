@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Vendor-Shopping-Point</string>
+
+    <string name="s_pref_name">com.shopping</string>
+    <string name="s_pref_login_status">com.shopping</string>
+
+    <string name="s_pref_login_name">sh_pref_login_name</string>
+    <string name="s_pref_login_email">sh_pref_login_email</string>
+    <string name="s_pref_login_date">sh_pref_login_date</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>
