@@ -1,5 +1,6 @@
 package com.shopping_point.vendor_shopping_point;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -59,6 +60,7 @@ public class Registration extends AppCompatActivity {
                             if (response.isSuccessful()) {
                                 String stat= null;
                                 if (response.body() != null) {
+                                    startActivity(new Intent(Registration.this,Login.class));
                                     Toast.makeText(Registration.this, "Success", Toast.LENGTH_SHORT).show();
                                     stat = response.body().getStatus().toUpperCase();
                                 }
