@@ -49,7 +49,7 @@ public class Forgot_Password extends AppCompatActivity
         edt_forgot_OTP=findViewById(R.id.edt_forgot_otp);
         progressBar=findViewById(R.id.progress_bar_forgot_otp);
         forgot_layout=findViewById(R.id.forgot_layout);
-        edt_forgot_email.setFilters(new InputFilter[]{new Registration.EmojiExcludeFilter()});
+       // edt_forgot_email.setFilters(new InputFilter[]{new Registration.EmojiExcludeFilter()});
         btn_forgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -49,8 +49,8 @@ public class Login extends AppCompatActivity {
         btn_login = findViewById(R.id.btn_login);
         progressBar = findViewById(R.id.progress_bar_login);
         login_Llayout = findViewById(R.id.vendorLogin_Llayout);
-        edt_email_login.setFilters(new InputFilter[]{new Registration.EmojiExcludeFilter()});
-        edt_pass_login.setFilters(new InputFilter[]{new Registration.EmojiExcludeFilter()});
+//        edt_email_login.setFilters(new InputFilter[]{new Registration.EmojiExcludeFilter()});
+//        edt_pass_login.setFilters(new InputFilter[]{new Registration.EmojiExcludeFilter()});
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

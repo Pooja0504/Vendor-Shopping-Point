@@ -1,196 +1,116 @@
 package com.shopping_point.vendor_shopping_point;
 
-import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.text.InputFilter;
-import android.text.Spanned;
 import android.view.View;
+
 import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.snackbar.Snackbar;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.shopping_point.vendor_shopping_point.ApiClient.ApiClient;
+import com.shopping_point.vendor_shopping_point.requestbyapp.UserRequest;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Registration extends AppCompatActivity {
+    EditText sname, semail, sphone, spassword;
+    public String v_name, v_email, v_phone, v_password;
+    Button button;
+    LinearLayout linearLayout;
 
-    private ProgressBar progressBar;
-    TextView link_to_login;
-    int RC_SIGN_IN = 0;
-    static final String URL_SELLER_REG = "https://ar-application.000webhostapp.com/AR_Shopping/vendor_register.php";
-    TextInputEditText edt_name, edt_email, edt_pass, edt_conf_pass,edt_contact;
-    Button btn_reg;
-    public static String emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-            + "[A-Za-z0-9-]{2,}+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        btn_reg = findViewById(R.id.btn_register);
-        edt_name = findViewById(R.id.edt_name);
-        edt_contact=findViewById(R.id.edt_phone_no);
-        edt_email = findViewById(R.id.edt_email);
-        edt_pass = findViewById(R.id.edt_pass);
-        edt_conf_pass = findViewById(R.id.edt_confpass);
-        progressBar = findViewById(R.id.progress_bar);
-        link_to_login = findViewById(R.id.link_to_login);
+        sname = findViewById(R.id.name);
+        semail = findViewById(R.id.email);
+        sphone = findViewById(R.id.phone);
+        spassword = findViewById(R.id.password);
+        button = findViewById(R.id.button);
+        linearLayout = findViewById(R.id.linlat);
 
-        edt_name.setFilters(new InputFilter[]{new EmojiExcludeFilter()});
-        edt_contact.setFilters(new InputFilter[]{new EmojiExcludeFilter()});
-        edt_email.setFilters(new InputFilter[]{new EmojiExcludeFilter()});
-        edt_pass.setFilters(new InputFilter[]{new EmojiExcludeFilter()});
-        edt_conf_pass.setFilters(new InputFilter[]{new EmojiExcludeFilter()});
-        btn_reg.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String sname = edt_name.getText().toString().toUpperCase().trim();
-                final String semail = edt_email.getText().toString().toLowerCase().trim();
-                final String scontact = edt_contact.getText().toString().toLowerCase().trim();
-                final String spass = edt_pass.getText().toString().trim();
-                final String conf_pass=edt_conf_pass.getText().toString().trim();
+                v_name = sname.getText().toString().trim();
+                v_email = semail.getText().toString().trim();
+                v_phone = sphone.getText().toString().trim();
+                v_password = spassword.getText().toString().trim();
+                if (validinput()) {
+                    final String vendor_name = v_name;
+                    final String vendor_email = v_email;
+                    final String vendor_phone = v_phone;
+                    final String vendor_password = v_password;
 
-
-                if (sname.isEmpty()) {
-                    edt_name.setError("Please Enter Organisation Name");
-                    edt_name.requestFocus();
-                    return;
-                } else if (semail.isEmpty() || !semail.matches(emailPattern)) {
-
-                    edt_email.setError("Please enter right email Address");
-                    edt_email.requestFocus();
-                    return;
-
-
-                } else if (spass.isEmpty() || conf_pass.isEmpty()) {
-                    edt_pass.setError("Please Enter Password");
-                    edt_pass.requestFocus();
-
-                } else if(!spass.equals(conf_pass))
-                {
-                    edt_pass.setError("Password and conform password not matched");
-                    edt_pass.requestFocus();
-
-                }else if(scontact.isEmpty()){
-                    edt_contact.setError("Please Enter Organisation Name");
-                    edt_contact.requestFocus();
-                    return;
-                }
-
-                else
-
-
-                    {
-                    progressBar.setVisibility(View.VISIBLE);
-
-                    StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_SELLER_REG, new Response.Listener<String>() {
+                    Call<UserRequest> userRequestCall = ApiClient.getUserService().saveUsers(vendor_name, vendor_email, vendor_phone, vendor_password);
+                    userRequestCall.enqueue(new Callback<UserRequest>() {
                         @Override
-                        public void onResponse(String response) {
-                            try {
-                                JSONObject jsonObject = new JSONObject(response);
-                                String success = jsonObject.getString("success");
-                                // Toast.makeText(AdminPanel.this, success, Toast.LENGTH_SHORT).show();
-                                if (success.equals("1")) {
-
-
-                                    Toast.makeText(Registration.this, "Register Successful", Toast.LENGTH_SHORT).show();
-                                    clearText();
-                                    startActivity(new Intent(Registration.this, Login.class));
-                                    progressBar.setVisibility(View.GONE);
-
-
-                                } else if(success.equals("already_registred")) {
-                                  edt_email.setError("email id already registred");
-                                  edt_email.requestFocus();
-                                    progressBar.setVisibility(View.GONE);
-
-                                }else
-                                {
-                                    progressBar.setVisibility(View.GONE);
-                                    Toast.makeText(Registration.this, "Please Try Again", Toast.LENGTH_SHORT).show();
-                                    edt_name.requestFocus();
+                        public void onResponse(@NonNull Call<UserRequest> call, @NonNull Response<UserRequest> response) {
+                            if (response.isSuccessful()) {
+                                String stat= null;
+                                if (response.body() != null) {
+                                    Toast.makeText(Registration.this, "Success", Toast.LENGTH_SHORT).show();
+                                    stat = response.body().getStatus().toUpperCase();
                                 }
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                                Toast.makeText(Registration.this, "Error ! " + e.toString(), Toast.LENGTH_SHORT).show();
-                                progressBar.setVisibility(View.GONE);
-
-
+                                String msg= null;
+                                if (response.body() != null) {
+                                    msg = response.body().getMessage().toUpperCase();
+                                }
+                                showMsg(stat, msg);
                             }
                         }
-                    },
-                            new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    Toast.makeText(Registration.this, "Error ! " + error.toString(), Toast.LENGTH_SHORT).show();
 
-                                }
-                            }) {
                         @Override
-                        protected Map<String, String> getParams() throws AuthFailureError {
-                            Map<String, String> params = new HashMap<>();
-                            params.put("organisation", sname);
-                            params.put("email", semail);
-                            params.put("contact", scontact);
-                            params.put("password", spass);
-                            return params;
+                        public void onFailure(@NonNull Call<UserRequest> call, @NonNull Throwable t) {
+                            showMsg("Fail", t.getMessage());
+                            System.out.println("Fail" + t.getMessage());
                         }
-                    };
-                    RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-                    requestQueue.add(stringRequest);
-
+                    });
 
                 }
             }
         });
+
     }
 
-    public void vendorlogin(View view) {
-        clearText();
-        Intent intent = new Intent(Registration.this, Login.class);
-        startActivity(intent);
-    }
-    public static class EmojiExcludeFilter implements InputFilter {
-        @Override
-        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-            for (int i = start; i < end; i++) {
-                int type = Character.getType(source.charAt(i));
-                if (type == Character.SURROGATE || type == Character.OTHER_SYMBOL) {
-                    return "";
-                }
-            }
 
-            return null;
+    private boolean validinput() {
+        if (v_name.isEmpty() || v_email.isEmpty() || v_phone.isEmpty() || v_password.isEmpty()|| v_password.length()>6) {
+            showMsg("Error", "Kindly Fill Details Properly");
+            return false;
+        } else {
+            return true;
         }
     }
 
-   public void clearText()
-   {
-       edt_name.setText("");
-       edt_email.setText("");
-       edt_contact.setText("");
-       edt_pass.setText("");
-       edt_conf_pass.setText("");
-   }
-    @Override
-    public void onBackPressed() {
-        return;
+    private void showMsg(String titel, String message) {
+        Snackbar snackbar = Snackbar.make(linearLayout, titel + "\n" + message, Snackbar.LENGTH_SHORT);
+        snackbar.setAction("Re-Try", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clearText();
+            }
+        });
+        snackbar.setTextColor(Color.RED);
+        snackbar.setBackgroundTint(Color.TRANSPARENT);
+        snackbar.setActionTextColor(Color.BLUE);
+        snackbar.show();
+    }
+
+    private void clearText() {
+        sname.setText("");
+        semail.setText("");
+        sphone.setText("");
+        spassword.setText("");
     }
 }
