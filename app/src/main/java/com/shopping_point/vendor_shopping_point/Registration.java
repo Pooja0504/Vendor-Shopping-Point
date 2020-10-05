@@ -60,9 +60,21 @@ public class Registration extends AppCompatActivity {
                             if (response.isSuccessful()) {
                                 String stat= null;
                                 if (response.body() != null) {
-                                    startActivity(new Intent(Registration.this,Login.class));
-                                    Toast.makeText(Registration.this, "Success", Toast.LENGTH_SHORT).show();
-                                    stat = response.body().getStatus().toUpperCase();
+
+                                    if(response.body().getStatus().equals("true")) {
+
+                                        startActivity(new Intent(Registration.this, Login.class));
+
+                                        stat = response.body().getStatus().toUpperCase();
+                                        showMsg(stat,"error");
+                                    }else
+                                    {
+                                        Toast.makeText(Registration.this, "False", Toast.LENGTH_SHORT).show();
+                                    }
+
+                                }else
+                                {
+                                    Toast.makeText(Registration.this, "ERROR", Toast.LENGTH_SHORT).show();
                                 }
                                 String msg= null;
                                 if (response.body() != null) {
