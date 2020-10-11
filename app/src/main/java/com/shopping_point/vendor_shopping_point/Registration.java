@@ -33,7 +33,7 @@ public class Registration extends AppCompatActivity {
     private ProgressBar progressBar;
     TextView link_to_login;
     int RC_SIGN_IN = 0;
-    static final String URL_SELLER_REG = "http://myleader.sparsematrix.co.in/vrshop/vendor_register.php";
+    static final String URL_SELLER_REG = "http://myleader.sparsematrix.co.in/vrshop/temp/vendor/vendor_register.php";
     TextInputEditText edt_name, edt_email, edt_pass, edt_conf_pass,edt_contact;
     Button btn_reg;
     public static String emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
@@ -127,7 +127,8 @@ public class Registration extends AppCompatActivity {
                                     edt_name.requestFocus();
                                 }
 
-                            } catch (JSONException e) {
+                            } catch (JSONException e)
+                            {
                                 e.printStackTrace();
                                 Toast.makeText(Registration.this, "Error ! " + e.toString(), Toast.LENGTH_SHORT).show();
                                 progressBar.setVisibility(View.GONE);

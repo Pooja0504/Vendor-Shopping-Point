@@ -30,7 +30,7 @@ public class Login extends AppCompatActivity {
     TextInputEditText edt_email_login, edt_pass_login;
     Button btn_login;
     LinearLayout login_Llayout;
-    static final String URL_LOGIN_VENDOR = "http://myleader.sparsematrix.co.in/vrshop/vendor_login.php";
+    static final String URL_LOGIN_VENDOR = "http://myleader.sparsematrix.co.in/vrshop/temp/vendor/vendor_login.php";
     private ProgressBar progressBar;
     static String emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
             + "[A-Za-z0-9-]{2,}+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
