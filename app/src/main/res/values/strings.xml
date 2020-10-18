@@ -9,4 +9,37 @@
     <string name="s_pref_login_email">sh_pref_login_email</string>
     <string name="s_pref_login_date">sh_pref_login_date</string>
     <string name="new_here_create_an_account">New User? <font color='#008CFF'>Create an Account</font></string>
+
+
+    <string name="splash">Splash screen</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="name">Name</string>
+    <string name="address">Address</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="register">Register</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="forget_password">Forgot Password?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="new_customer_create_your_account">New Customer? <font color='#008CFF'>Create Your Account</font></string>
+    <string name="_2020_shoppingpoint" />
+    <string name="eight_characters">Password must be at least 8 characters</string>
+    <string name="create_your_account">Sign up</string>
+    <string name="sign_in_already_a_customer">Already a member?<font color='#008CFF'> Sign-in</font></string>
+    <!--    <string name="boldText">Sign-in.</string>-->
+    <!--    <string name="normalText">" "Already a customer?</string>-->
+    <string name="enter_at_least_3_characters">Enter at least 3 characters</string>
+    <string name="email_required">Email Required</string>
+    <string name="enter_a_valid_email_address">Enter a valid email address</string>
+    <string name="password_required">Password Required</string>
+    <string name="password__at_least_8_characters">Password should be at least 8 characters</string>
+    <string name="loading">loading...</string>
+    <string name="Phone_Required">Phone Required</string>
+    <string name="Name_Required">Name Required</string>
+    <string name="conform_password">Confirm Password</string>
+    <string name="contact">Contact</string>
+    <string name="organisation_name">Organisation Name</string>
+
 </resources>
