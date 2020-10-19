@@ -16,7 +16,7 @@
             android:gravity="center"
             android:padding="@dimen/dimen20dp"
             android:textColor="@color/white"
-            android:text="@string/app_name"
+            android:text="@string/shoping_point"
             android:textStyle="bold"
             android:background="@color/blue"
             android:textSize="@dimen/dimen35sp" />
@@ -27,6 +27,7 @@
             android:paddingStart="@dimen/dimen24dp"
             android:paddingEnd="@dimen/dimen24dp"
             android:text="@string/sign_in"
+            android:gravity="center"
             android:textColor="@color/black"
             android:layout_marginTop="@dimen/dimen20dp"
             android:textSize="@dimen/dimen30sp"
