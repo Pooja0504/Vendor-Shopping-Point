@@ -145,8 +145,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void goToPasswordAssistantActivity() {
-//        Intent intent = new Intent(this, PasswordAssistantActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent(this, PasswordAssistantActivity.class);
+        startActivity(intent);
     }
 
 }

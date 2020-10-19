@@ -33,6 +33,18 @@
         <activity
             android:name=".view.SignUpActivity"
             android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".view.PasswordActivity"
+            android:label="@string/change_password"
+            >
+
+        </activity>
+        <activity
+            android:name=".view.PasswordAssistantActivity"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".view.AuthenticationActivity"
+            android:theme="@style/NoActionBar" />
     </application>
 
 

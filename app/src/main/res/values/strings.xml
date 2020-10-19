@@ -42,4 +42,35 @@
     <string name="contact">Contact</string>
     <string name="organisation_name">Organisation Name</string>
 
+
+
+
+
+
+    <string name="change_password">Change Password</string>
+    <string name="current_password">Current password</string>
+    <string name="new_password">New Password</string>
+    <string name="re_type_new_password">Re-type new password</string>
+    <string name="cancel">Cancel</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="text_length">150</string>
+    <string name="password_not_match">Password Does not match</string>
+    <string name="enter_current_password">Please Enter your current password</string>
+
+    <string name="password_assistance">Password assistance</string>
+    <string name="enter_the_email_address_associated_with_your_account">Enter the email address associated with your account.</string>
+    <string name="proceed">Continue</string>
+    <string name="email_address">Email Address</string>
+    <string name="authentication_required">Authentication Required</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="description2">For your security, we need to authenticate your request. We\'ve sent a code from <b>Shoping Point</b> to the email %1$s. Please enter it below.</string>
+    <string name="enter_your_email">Please Enter your correct email</string>
+    <string name="incorrect_code">Incorrect Code</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="counter">60</string>
+    <string name="you_have_exceeded_number_of_requests">You have exceeded number of requests.</string>
+
+
+
+
 </resources>

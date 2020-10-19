@@ -2,6 +2,7 @@ package com.shopping_point.vendor_shopping_point.net;
 
 
 import com.shopping_point.vendor_shopping_point.model.LoginApiResponse;
+import com.shopping_point.vendor_shopping_point.model.Otp;
 import com.shopping_point.vendor_shopping_point.model.RegisterApiResponse;
 import com.shopping_point.vendor_shopping_point.model.Vendor;
 
@@ -22,6 +23,10 @@ public interface Api {
 
     @GET("vendor/deleteuser.php")
     Call<ResponseBody> deleteAccount(@Query("userId") int userId);
+    @GET("vendor/updatePassword.php")
+    Call<ResponseBody> updatePassword(@Query("password") String newPassword, @Query("email") String email);
 
+    @GET("vendor/otp.php")
+    Call<Otp> getOtp(@Query("email") String email);
 
 }
