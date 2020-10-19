@@ -26,7 +26,7 @@ public class VendorImageRepository {
         this.application = application;
     }
 
-    public LiveData<Image> getUserImage(int userId) {
+    public LiveData<Image> getVendorImage(int userId) {
         final MutableLiveData<Image> mutableLiveData = new MutableLiveData<>();
         RetrofitClient.getInstance().getApi().getUserImage(LoginUtils.getInstance(application).getVendorInfo().getId()).enqueue(new Callback<Image>() {
             @Override

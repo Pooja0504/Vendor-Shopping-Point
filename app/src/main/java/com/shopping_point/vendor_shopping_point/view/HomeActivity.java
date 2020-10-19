@@ -1,6 +1,7 @@
 package com.shopping_point.vendor_shopping_point.view;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.Manifest;
 import android.app.Dialog;
@@ -30,6 +32,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.shopping_point.vendor_shopping_point.R;
@@ -39,6 +45,7 @@ import com.shopping_point.vendor_shopping_point.storage.LoginUtils;
 import com.shopping_point.vendor_shopping_point.utils.OnNetworkListener;
 import com.shopping_point.vendor_shopping_point.utils.Slide;
 import com.shopping_point.vendor_shopping_point.viewModel.UploadPhotoViewModel;
+import com.shopping_point.vendor_shopping_point.viewModel.VendorImageViewModel;
 
 import java.util.ArrayList;
 
@@ -48,6 +55,7 @@ import static com.shopping_point.vendor_shopping_point.storage.LanguageUtils.loa
 import static com.shopping_point.vendor_shopping_point.utils.Constant.CAMERA_PERMISSION_CODE;
 import static com.shopping_point.vendor_shopping_point.utils.Constant.CAMERA_REQUEST;
 import static com.shopping_point.vendor_shopping_point.utils.Constant.GALLERY_REQUEST;
+import static com.shopping_point.vendor_shopping_point.utils.Constant.LOCALHOST;
 import static com.shopping_point.vendor_shopping_point.utils.Constant.READ_EXTERNAL_STORAGE_CODE;
 import static com.shopping_point.vendor_shopping_point.utils.ImageUtils.getImageUri;
 import static com.shopping_point.vendor_shopping_point.utils.ImageUtils.getRealPathFromURI;
@@ -61,6 +69,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private CircleImageView circleImageView;
     private Uri selectedImage;
     private UploadPhotoViewModel uploadPhotoViewModel;
+    private VendorImageViewModel vendorImageViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,15 +77,20 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         loadLocale(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
 
-
+        uploadPhotoViewModel = ViewModelProviders.of(this).get(UploadPhotoViewModel.class);
+        vendorImageViewModel = ViewModelProviders.of(this).get(VendorImageViewModel.class);
         snack = Snackbar.make(findViewById(android.R.id.content), getResources().getString(R.string.no_internet_connection), Snackbar.LENGTH_INDEFINITE);
         setUpViews();
         flipImages(Slide.getSlides());
+        getVendorImage();
+        
         mNetworkReceiver = new NetworkChangeReceiver();
         mNetworkReceiver.setOnNetworkListener(this);
 
 
     }
+
+
 
     private void flipImages(ArrayList<Integer> images) {
         for (int image : images) {
@@ -114,9 +128,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         organisation_name.setText(LoginUtils.getInstance(this).getVendorInfo().getOrganisation_name());
         TextView seller_mail = headerContainer.findViewById(R.id.email_of_vendor);
         seller_mail.setText(LoginUtils.getInstance(this).getVendorInfo().getEmail());
-
-
-
+String test=LoginUtils.getInstance(this).getVendorInfo().getEmail();
+        Toast.makeText(this, ""+test, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -189,7 +202,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == GALLERY_REQUEST && resultCode == RESULT_OK) {
@@ -218,6 +231,30 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "Image Uploaded", Toast.LENGTH_SHORT).show();
         });
     }
+
+
+    private void getVendorImage() {
+        vendorImageViewModel.getVendorImage(LoginUtils.getInstance(this).getVendorInfo().getId()).observe(this, response -> {
+            if (response != null) {
+                String imageUrl = LOCALHOST + response.getImage().replaceAll("\\\\", "/");
+                Toast.makeText(this, imageUrl, Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "GET USER IMAGE : " + imageUrl);
+                RequestOptions options = new RequestOptions()
+                        .centerCrop()
+                        .placeholder(R.drawable.profile_picture)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .priority(Priority.HIGH)
+                        .dontAnimate()
+                        .dontTransform();
+
+                Glide.with(getApplicationContext())
+                        .load(imageUrl)
+                        .apply(options)
+                        .into(circleImageView);
+            }
+        });
+    }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

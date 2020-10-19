@@ -20,7 +20,7 @@ public class VendorImageViewModel extends AndroidViewModel {
         vendorImageRepository = new VendorImageRepository(application);
     }
 
-    public LiveData<Image> getVendorImage(int userId) {
-        return vendorImageRepository.getUserImage(userId);
+    public LiveData<Image> getVendorImage(int vendorId) {
+        return vendorImageRepository.getVendorImage(vendorId);
     }
 }

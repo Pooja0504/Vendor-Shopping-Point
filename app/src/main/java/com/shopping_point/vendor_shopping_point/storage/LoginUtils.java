@@ -31,7 +31,7 @@ public class LoginUtils {
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         editor.putInt("id", response.getId());
-        editor.putString("name", response.getName());
+        editor.putString("name", response.getOrganisation_name());
         editor.putString("email", response.getEmail());
         editor.putString("password", response.getPassword());
         editor.putString("phone_no",response.getPhone_no());

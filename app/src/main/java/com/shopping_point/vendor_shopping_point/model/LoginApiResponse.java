@@ -28,7 +28,7 @@ public class LoginApiResponse {
         return id;
     }
 
-    public String getName() {
+    public String getOrganisation_name() {
         return name;
     }
 

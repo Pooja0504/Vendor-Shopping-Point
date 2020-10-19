@@ -27,7 +27,7 @@ public interface Api {
 
     @GET("vendor/vendor_login.php")
     Call<LoginApiResponse> logInVendor(@Query("email") String email, @Query("password") String password);
-
+////////////////////////////////////
     @GET("vendor/deleteuser.php")
     Call<ResponseBody> deleteAccount(@Query("userId") int userId);
 
