@@ -3,7 +3,10 @@
     package="com.shopping_point.vendor_shopping_point">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +16,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
+        <activity android:name=".view.NavNotification"
+            android:label="@string/notifications"
+            android:parentActivityName=".view.HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.shopping_point.vendor_shopping_point.view.HomeActivity" />
+        </activity>
+        <activity android:name=".view.NavSettings"
+            android:label="@string/settings"
+            android:parentActivityName=".view.HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.shopping_point.vendor_shopping_point.view.HomeActivity" />
+        </activity>
         <activity
             android:name=".view.SplashActivity"
             android:theme="@style/NoActionBar">
@@ -23,17 +39,55 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".view.HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".view.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.SignUpActivity"
             android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".view.AccountActivity"
+            android:label="@string/my_account"
+            android:parentActivityName=".view.HomeActivity"
+            android:theme="@style/AccountTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.shopping_point.vendor_shopping_point.view.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".view.HelpActivity"
+            android:label="@string/help_center"
+            android:parentActivityName=".view.HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.shopping_point.vendor_shopping_point.view.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".view.PasswordActivity"
+            android:label="@string/change_password"
+            android:parentActivityName=".view.AccountActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.shopping_point.vendor_shopping_point.view.AccountActivity" />
+        </activity>
+        <activity
+            android:name=".view.PasswordAssistantActivity"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".view.AuthenticationActivity"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".view.NewsFeedActivity"
+            android:label="@string/news_feed"
+            android:parentActivityName=".view.HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.shopping_point.vendor_shopping_point.view.HomeActivity" />
+        </activity>
     </application>
-
 
 </manifest>

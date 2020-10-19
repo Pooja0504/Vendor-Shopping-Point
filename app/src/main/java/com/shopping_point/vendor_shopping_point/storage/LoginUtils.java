@@ -26,7 +26,7 @@ public class LoginUtils {
         return mInstance;
     }
 
-    public void saveUserInfo(LoginApiResponse response) {
+    public void saveVendorInfo(LoginApiResponse response) {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
@@ -45,7 +45,7 @@ public class LoginUtils {
         return sharedPreferences.getInt("id", -1) != -1;
     }
 
-    public void saveUserInfo(Vendor vendor) {
+    public void saveVendorInfo(Vendor vendor) {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
@@ -58,7 +58,7 @@ public class LoginUtils {
         editor.apply();
     }
 
-    public Vendor getUserInfo() {
+    public Vendor getVendorInfo() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return new Vendor(
                 sharedPreferences.getInt("id", -1),

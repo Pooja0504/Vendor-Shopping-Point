@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context=".view.AccountActivity">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/gradient"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image_account"
+                    android:layout_width="100dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/profile_picture"
+                    android:src="@drawable/profile_picture"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/nameOfVendor"
+                    android:layout_width="match_parent"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/dimen20dp"
+                    android:layout_height="43dp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:text="Shopping Point" />
+
+                <TextView
+                    android:id="@+id/email_of_vendor"
+                    android:layout_width="match_parent"
+                    android:layout_height="31dp"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="shoppingpoint@gmail.com" />
+            </LinearLayout>
+
+
+
+
+            <TextView
+                android:id="@+id/languages"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/touch_feedback"
+                android:drawableStart="@drawable/ic_language"
+                android:drawablePadding="20dp"
+                android:text="@string/languages"
+                android:gravity="start|center"
+                android:textColor="@color/vDarkGray"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/helpCenter"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/touch_feedback"
+                android:drawableStart="@drawable/ic_help"
+                android:drawablePadding="20dp"
+                android:text="@string/help_center"
+                android:gravity="start|center"
+                android:textColor="@color/vDarkGray"
+                android:textSize="18sp" />
+
+
+
+
+
+            <TextView
+                android:id="@+id/changePassword"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/touch_feedback"
+                android:drawableStart="@drawable/ic_secure"
+                android:drawablePadding="20dp"
+                android:gravity="start|center"
+                android:text="@string/change_password"
+                android:textColor="@color/vDarkGray"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/deleteAccount"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/touch_feedback"
+                android:drawableStart="@drawable/ic_sad"
+                android:drawablePadding="20dp"
+                android:gravity="start|center"
+                android:text="@string/delete_my_account"
+                android:textColor="@color/vDarkGray"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</layout>
