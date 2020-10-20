@@ -20,6 +20,8 @@ import com.shopping_point.vendor_shopping_point.utils.Validation;
 import com.shopping_point.vendor_shopping_point.viewModel.LoginViewModel;
 import static com.shopping_point.vendor_shopping_point.view.PasswordAssistantActivity.emailEntered;
 
+
+
 import static com.shopping_point.vendor_shopping_point.storage.LanguageUtils.loadLocale;
 
 

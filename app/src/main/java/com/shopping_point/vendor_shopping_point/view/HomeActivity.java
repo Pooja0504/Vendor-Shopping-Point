@@ -97,6 +97,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             ImageView imageView = new ImageView(this);
             imageView.setBackgroundResource(image);
             binding.included.content.imageSlider.addView(imageView);
+
         }
 
         binding.included.content.imageSlider.setFlipInterval(2000);
