@@ -67,10 +67,10 @@
         <activity
             android:name=".view.HelpActivity"
             android:label="@string/help_center"
-            android:parentActivityName=".view.HomeActivity">
+            android:parentActivityName=".view.AccountActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.shopping_point.vendor_shopping_point.view.HomeActivity" />
+                android:value="com.shopping_point.vendor_shopping_point.view.AccountActivity" />
         </activity>
         <activity
             android:name=".view.PasswordActivity"
@@ -82,10 +82,12 @@
         </activity>
         <activity
             android:name=".view.PasswordAssistantActivity"
-            android:theme="@style/NoActionBar" />
+            android:theme="@style/NoActionBar"
+            android:parentActivityName=".view.AccountActivity"/>
         <activity
             android:name=".view.AuthenticationActivity"
-            android:theme="@style/NoActionBar" />
+            android:theme="@style/NoActionBar"
+            android:parentActivityName=".view.AccountActivity"/>
         <activity
             android:name=".view.NewsFeedActivity"
             android:label="@string/news_feed"
