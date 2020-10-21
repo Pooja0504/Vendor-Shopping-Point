@@ -16,10 +16,34 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.MyProductActivity"></activity>
-        <activity android:name=".view.AddProductActivity" />
-        <activity android:name=".view.PromotionActivity" />
-        <activity android:name=".view.ProductActivity" />
+        <activity android:name=".view.ActivateProductActivity"
+            android:label="@string/activate_products"
+            android:parentActivityName=".view.HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.shopping_point.vendor_shopping_point.view.HomeActivity" /></activity>
+        <activity
+            android:name=".view.MyProductActivity"
+            android:label="@string/my_products"
+            android:parentActivityName=".view.HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.shopping_point.vendor_shopping_point.view.HomeActivity" />
+        </activity>
+        <activity android:name=".view.AddProductActivity"
+            android:label="@string/add_products"
+            android:parentActivityName=".view.HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.shopping_point.vendor_shopping_point.view.HomeActivity" />
+        </activity>
+        <activity android:name=".view.PromotionActivity"
+            android:label="Promotions"
+            android:parentActivityName=".view.HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.shopping_point.vendor_shopping_point.view.HomeActivity" />
+        </activity>
         <activity
             android:name=".view.NavNotification"
             android:label="@string/notifications"
