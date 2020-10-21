@@ -38,7 +38,7 @@
 
                             <com.google.android.material.textfield.TextInputEditText
 
-                                android:id="@+id/product_name"
+                                android:id="@+id/productname"
                                 android:layout_width="340dp"
                                 android:layout_height="64dp"
                                 android:layout_gravity="center"
