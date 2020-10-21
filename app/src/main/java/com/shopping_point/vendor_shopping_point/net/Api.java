@@ -4,6 +4,7 @@ package com.shopping_point.vendor_shopping_point.net;
 import com.shopping_point.vendor_shopping_point.model.AddProductApiResponse;
 import com.shopping_point.vendor_shopping_point.model.Image;
 import com.shopping_point.vendor_shopping_point.model.LoginApiResponse;
+import com.shopping_point.vendor_shopping_point.model.MyProductResponse;
 import com.shopping_point.vendor_shopping_point.model.NewsFeedResponse;
 import com.shopping_point.vendor_shopping_point.model.Otp;
 import com.shopping_point.vendor_shopping_point.model.Product;
@@ -52,7 +53,10 @@ public interface Api {
     @GET("posters/getPosters.php")
     Call<NewsFeedResponse> getPosters();
 
-    @POST("vendor/vendor_register.php")
-    Call<AddProductApiResponse> createPendor(@Body Product product);
+    @POST("vendor/addProduct.php")
+    Call<AddProductApiResponse> createProduct(@Body Product product);
+
+    @GET("vendor/get_product.php")
+    Call<MyProductResponse> getMyproduct();
 
 }

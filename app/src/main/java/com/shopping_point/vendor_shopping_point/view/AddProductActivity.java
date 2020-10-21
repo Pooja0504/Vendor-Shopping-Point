@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.shopping_point.vendor_shopping_point.R;
 import com.shopping_point.vendor_shopping_point.databinding.ActivityAddProductBinding;
+import com.shopping_point.vendor_shopping_point.model.Product;
 import com.shopping_point.vendor_shopping_point.model.Vendor;
 import com.shopping_point.vendor_shopping_point.viewModel.AddProductViewModel;
 
@@ -79,9 +80,9 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        addProductViewModel.getAddProductResponseLiveData(new Vendor(product_name, price, description,category)).observe(this, addProductApiResponse -> {
+        addProductViewModel.getAddProductResponseLiveData(new Product(product_name, price, description,category)).observe(this, addProductApiResponse -> {
             if (!addProductApiResponse.isError()) {
-                Toast.makeText(this, addProductApiResponse.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, addProductApiResponse.getMessage()+"ERRRROOOORRR", Toast.LENGTH_LONG).show();
                 //LoginUtils.getInstance(this).saveUserInfo(addProductApiResponse.getUser());
                 progressDialog.dismiss();
             }else

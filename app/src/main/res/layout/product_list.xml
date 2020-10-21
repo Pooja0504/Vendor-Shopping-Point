@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,7 +18,7 @@
             android:padding="4dp" />
 
         <TextView
-            android:id="@+id/textViewTitle"
+            android:id="@+id/Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -27,10 +29,10 @@
             android:textColor="#000000" />
 
         <TextView
-            android:id="@+id/textViewShortDesc"
+            android:id="@+id/ShortDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textViewTitle"
+            android:layout_below="@id/Title"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/imageView"
@@ -38,10 +40,10 @@
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
         <TextView
-            android:id="@+id/textViewRating"
+            android:id="@+id/Rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textViewShortDesc"
+            android:layout_below="@id/ShortDesc"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:textColor="@color/white"
@@ -54,10 +56,10 @@
              />
 
         <TextView
-            android:id="@+id/textViewPrice"
+            android:id="@+id/Price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textViewRating"
+            android:layout_below="@id/Rating"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/imageView"
@@ -67,4 +69,4 @@
 
     </RelativeLayout>
 
-</LinearLayout>
+</LinearLayout></layout>

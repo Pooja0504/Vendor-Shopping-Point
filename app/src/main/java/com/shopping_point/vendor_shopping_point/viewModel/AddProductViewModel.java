@@ -7,6 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.shopping_point.vendor_shopping_point.model.AddProductApiResponse;
+import com.shopping_point.vendor_shopping_point.model.Product;
 import com.shopping_point.vendor_shopping_point.model.RegisterApiResponse;
 import com.shopping_point.vendor_shopping_point.model.Vendor;
 import com.shopping_point.vendor_shopping_point.repository.AddProductRepository;
@@ -23,7 +24,7 @@ public class AddProductViewModel extends AndroidViewModel {
     }
 
 
-    public LiveData<AddProductApiResponse> getAddProductResponseLiveData(Vendor vendor) {
-        return addProductRepository.getAddProductResponseData(vendor);
+    public LiveData<AddProductApiResponse> getAddProductResponseLiveData(Product product) {
+        return addProductRepository.getAddProductResponseData(product);
     }
 }

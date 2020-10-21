@@ -9,8 +9,6 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.shopping_point.vendor_shopping_point.model.AddProductApiResponse;
 import com.shopping_point.vendor_shopping_point.model.Product;
-import com.shopping_point.vendor_shopping_point.model.RegisterApiResponse;
-import com.shopping_point.vendor_shopping_point.model.Vendor;
 import com.shopping_point.vendor_shopping_point.net.RetrofitClient;
 
 import retrofit2.Callback;
@@ -30,7 +28,7 @@ public class AddProductRepository {
     public LiveData<AddProductApiResponse> getAddProductResponseData(Product product) {
         final MutableLiveData<AddProductApiResponse> mutableLiveData = new MutableLiveData<>();
 
-        RetrofitClient.getInstance().getApi().createPendor(product).enqueue(new Callback<AddProductApiResponse>() {
+        RetrofitClient.getInstance().getApi().createProduct(product).enqueue(new Callback<AddProductApiResponse>() {
             @Override
             public void onResponse(retrofit2.Call<AddProductApiResponse> call, Response<AddProductApiResponse> response) {
 
