@@ -6,6 +6,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
@@ -76,7 +77,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         loadLocale(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
-
+        binding.included.content.myproduct.setOnClickListener(this);
+        binding.included.content.addproduct.setOnClickListener(this);
+        binding.included.content.activateproduct.setOnClickListener(this);
+        binding.included.content.promotions.setOnClickListener(this);
         uploadPhotoViewModel = ViewModelProviders.of(this).get(UploadPhotoViewModel.class);
         vendorImageViewModel = ViewModelProviders.of(this).get(VendorImageViewModel.class);
         snack = Snackbar.make(findViewById(android.R.id.content), getResources().getString(R.string.no_internet_connection), Snackbar.LENGTH_INDEFINITE);
@@ -121,15 +125,17 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         binding.navView.setNavigationItemSelectedListener(this);
 
+
+
         View headerContainer = binding.navView.getHeaderView(0);
         circleImageView = headerContainer.findViewById(R.id.profile_image);
         circleImageView.setOnClickListener(this);
+
         TextView organisation_name = headerContainer.findViewById(R.id.nameOfVendor);
         organisation_name.setText(LoginUtils.getInstance(this).getVendorInfo().getOrganisation_name());
         TextView seller_mail = headerContainer.findViewById(R.id.email_of_vendor);
         seller_mail.setText(LoginUtils.getInstance(this).getVendorInfo().getEmail());
-String test=LoginUtils.getInstance(this).getVendorInfo().getEmail();
-        Toast.makeText(this, ""+test, Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
@@ -137,6 +143,22 @@ String test=LoginUtils.getInstance(this).getVendorInfo().getEmail();
         switch (view.getId()) {
             case R.id.profile_image:
                 showCustomAlertDialog();
+                break;
+            case R.id.myproduct:
+                Intent myproduct = new Intent(getApplicationContext(), MyProductActivity.class);
+                startActivity(myproduct);
+                break;
+            case R.id.addproduct:
+                Intent addproduct = new Intent(getApplicationContext(), AddProductActivity.class);
+                startActivity(addproduct);
+                break;
+            case R.id.activateproduct:
+                Intent activateproduct = new Intent(HomeActivity.this, ActivateProductActivity.class);
+                startActivity(activateproduct);
+                break;
+            case R.id.promotions:
+                Intent promotions = new Intent(HomeActivity.this, PromotionActivity.class);
+                startActivity(promotions);
                 break;
         }
 
