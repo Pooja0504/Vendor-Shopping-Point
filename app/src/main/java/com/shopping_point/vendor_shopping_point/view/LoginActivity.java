@@ -18,6 +18,9 @@ import com.shopping_point.vendor_shopping_point.databinding.ActivityLoginBinding
 import com.shopping_point.vendor_shopping_point.storage.LoginUtils;
 import com.shopping_point.vendor_shopping_point.utils.Validation;
 import com.shopping_point.vendor_shopping_point.viewModel.LoginViewModel;
+import static com.shopping_point.vendor_shopping_point.view.PasswordAssistantActivity.emailEntered;
+
+
 
 import static com.shopping_point.vendor_shopping_point.storage.LanguageUtils.loadLocale;
 
@@ -89,7 +92,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         loginViewModel.getLoginResponseLiveData(email,password).observe(this, loginApiResponse -> {
             if (!loginApiResponse.isError()) {
                 LoginUtils.getInstance(this).saveVendorInfo(loginApiResponse);
-
+                emailEntered=loginApiResponse.getEmail();
                 Toast.makeText(this, loginApiResponse.getMessage(), Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
                 goToProductActivity();

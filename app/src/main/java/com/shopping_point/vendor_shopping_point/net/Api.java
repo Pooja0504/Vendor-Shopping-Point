@@ -27,7 +27,7 @@ public interface Api {
 
     @GET("vendor/vendor_login.php")
     Call<LoginApiResponse> logInVendor(@Query("email") String email, @Query("password") String password);
-////////////////////////////////////
+
     @GET("vendor/deleteuser.php")
     Call<ResponseBody> deleteAccount(@Query("userId") int userId);
 
@@ -41,7 +41,7 @@ public interface Api {
     @GET("vendor/getImage.php")
     Call<Image> getUserImage(@Query("id") int vendorId);
 
-    @GET("users/info.php")
+    @GET("vendor/info.php")
     Call<ResponseBody> updatePassword(@Query("password") String newPassword, @Query("email") String email);
 
     @GET("users/otp.php")
