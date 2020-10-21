@@ -59,15 +59,27 @@
                     android:layout_height="0dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
+                    app:cardBackgroundColor="@color/blue"
+                    android:outlineSpotShadowColor="@color/darkGray"
                     android:layout_margin="16dp"
                     app:cardCornerRadius="@dimen/dimen5dp">
 
+      <androidx.appcompat.widget.AppCompatImageView
+          android:layout_width="50dp"
+          android:layout_height="50dp"
+            android:src="@drawable/ic_myproduct"
+          android:layout_marginBottom="@dimen/dimen30dp"
+            android:layout_gravity="center" />
+
                     <TextView
+                       android:paddingTop="@dimen/dimen30dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="My Products"
-                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen15dp"
+
+                        android:textColor="@color/white"
                         android:textStyle="bold" />
                 </androidx.cardview.widget.CardView>
 
@@ -76,15 +88,27 @@
                     android:layout_height="0dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
+                    android:elevation="@dimen/dimen30dp"
                     android:layout_margin="16dp"
+                 android:outlineSpotShadowColor="@color/darkGray"
+                    app:cardBackgroundColor="@color/blue"
                     app:cardCornerRadius="@dimen/dimen5dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/add_product_icon"
+                        android:layout_marginBottom="@dimen/dimen30dp"
+                        android:layout_gravity="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Add Products"
-                        android:textColor="@color/black"
+                        android:layout_marginTop="@dimen/dimen20dp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen15dp"
                         android:textStyle="bold" />
                 </androidx.cardview.widget.CardView>
 
@@ -93,15 +117,25 @@
                     android:layout_height="0dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
+                    app:cardBackgroundColor="@color/blue"
                     android:layout_margin="16dp"
                     app:cardCornerRadius="@dimen/dimen5dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_activate_product"
+                        android:layout_marginBottom="@dimen/dimen30dp"
+                        android:layout_gravity="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/dimen20dp"
                         android:text="Activate Products"
-                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen15dp"
+                        android:textColor="@color/white"
                         android:textStyle="bold" />
                 </androidx.cardview.widget.CardView>
 
@@ -109,16 +143,25 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_rowWeight="1"
+                    app:cardBackgroundColor="@color/blue"
                     android:layout_columnWeight="1"
                     android:layout_margin="16dp"
                     app:cardCornerRadius="@dimen/dimen5dp">
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_promotion"
+                        android:layout_marginBottom="@dimen/dimen30dp"
+                        android:layout_gravity="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/dimen20dp"
                         android:text="Promotions"
-                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen15dp"
+                        android:textColor="@color/white"
                         android:textStyle="bold" />
                 </androidx.cardview.widget.CardView>
 
