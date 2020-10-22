@@ -12,6 +12,7 @@ import android.os.Bundle;
 import com.shopping_point.vendor_shopping_point.R;
 import com.shopping_point.vendor_shopping_point.adapter.MyProductAdapter;
 import com.shopping_point.vendor_shopping_point.databinding.ActivityMyProductBinding;
+import com.shopping_point.vendor_shopping_point.storage.LoginUtils;
 import com.shopping_point.vendor_shopping_point.viewModel.MyProductViewModel;
 
 import static com.shopping_point.vendor_shopping_point.storage.LanguageUtils.loadLocale;
@@ -34,8 +35,8 @@ public class MyProductActivity extends AppCompatActivity {
         myProductViewModel = ViewModelProviders.of(this).get(MyProductViewModel.class);
 
         setUpRecyclerView();
-
-        getMyProduct();
+        int seller_id = LoginUtils.getInstance(getApplication()).getVendorInfo().getId();
+        getMyProduct(seller_id);
     }
     private void setUpRecyclerView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -46,9 +47,9 @@ public class MyProductActivity extends AppCompatActivity {
         binding.productlist.addItemDecoration(dividerItemDecoration);
     }
 
-    private void getMyProduct() {
-        myProductViewModel.getMyProduct().observe(this, MyProductResponse -> {
-            myProductAdapter = new MyProductAdapter(getApplicationContext(), MyProductResponse.getMyProduct());
+    private void getMyProduct(int seller_id) {
+        myProductViewModel.getMyProduct(seller_id).observe(this, MyProductResponse -> {
+            myProductAdapter = new MyProductAdapter(getApplicationContext(), MyProductResponse.getMyProduct(seller_id));
             binding.productlist.setAdapter(myProductAdapter);
             myProductAdapter.notifyDataSetChanged();
         });

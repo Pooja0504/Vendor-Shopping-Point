@@ -57,6 +57,6 @@ public interface Api {
     Call<AddProductApiResponse> createProduct(@Body Product product);
 
     @GET("vendor/get_product.php")
-    Call<MyProductResponse> getMyproduct();
+    Call<MyProductResponse> getMyproduct(@Query("id")int seller_id);
 
 }

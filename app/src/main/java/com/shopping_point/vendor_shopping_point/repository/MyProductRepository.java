@@ -10,6 +10,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.shopping_point.vendor_shopping_point.model.MyProductResponse;
 import com.shopping_point.vendor_shopping_point.net.RetrofitClient;
+import com.shopping_point.vendor_shopping_point.storage.LoginUtils;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,11 +24,11 @@ public class MyProductRepository {
     public MyProductRepository(Application application) {
         this.application = application;
     }
-
-    public LiveData<MyProductResponse> getMyProduct() {
+    int seller_id = LoginUtils.getInstance(application).getVendorInfo().getId();
+    public LiveData<MyProductResponse> getMyProduct(int seller_id) {
         final MutableLiveData<MyProductResponse> mutableLiveData = new MutableLiveData<>();
 
-        RetrofitClient.getInstance().getApi().getMyproduct().enqueue(new Callback<MyProductResponse>() {
+        RetrofitClient.getInstance().getApi().getMyproduct(this.seller_id).enqueue(new Callback<MyProductResponse>() {
             @Override
             public void onResponse(Call<MyProductResponse> call, Response<MyProductResponse> response) {
 
