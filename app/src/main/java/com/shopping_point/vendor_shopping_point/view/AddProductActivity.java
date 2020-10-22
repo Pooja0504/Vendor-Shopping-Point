@@ -1,12 +1,17 @@
 package com.shopping_point.vendor_shopping_point.view;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Toast;
 
@@ -16,14 +21,18 @@ import com.shopping_point.vendor_shopping_point.model.Product;
 import com.shopping_point.vendor_shopping_point.model.Vendor;
 import com.shopping_point.vendor_shopping_point.viewModel.AddProductViewModel;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
 import static com.shopping_point.vendor_shopping_point.storage.LanguageUtils.loadLocale;
+import static com.shopping_point.vendor_shopping_point.utils.Constant.GALLERY_REQUEST;
 
 public class AddProductActivity extends AppCompatActivity implements View.OnClickListener{
 
     private static final String TAG = "AddProduct";
     private ActivityAddProductBinding binding;
     private AddProductViewModel addProductViewModel;
-
+    Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,9 +117,42 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void browseImage() {
-//        Intent intent = new Intent(this, LoginActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), GALLERY_REQUEST);
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == GALLERY_REQUEST && resultCode == RESULT_OK && data != null ) {
+            Uri path = data.getData();
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getApplication().getContentResolver(), path);
+                binding.img.setImageBitmap(bitmap);
+                binding.img.setVisibility(View.VISIBLE);
+
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+
+        }
     }
 
 
+
+    private String imageToString()
+    {
+        ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+        byte[] imgByte = byteArrayOutputStream.toByteArray();
+        return Base64.encodeToString(imgByte, Base64.DEFAULT);
+    }
 }
