@@ -23,11 +23,12 @@ import static com.shopping_point.vendor_shopping_point.utils.Constant.LOCALHOST;
 public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyProductViewHolder>{
 
     private Context mContext;
-    private List<MyProduct> myProductList;
+    private List<MyProduct> productlist;
 
-    public MyProductAdapter(Context mContext, List<MyProduct> myProductList) {
+
+    public MyProductAdapter(Context mContext, List<MyProduct> productlist) {
         this.mContext = mContext;
-        this.myProductList = myProductList;
+        this.productlist = productlist;
     }
 
     @NonNull
@@ -39,31 +40,31 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyPr
 
     @Override
     public void onBindViewHolder(@NonNull MyProductViewHolder holder, int position) {
-        MyProduct myProduct = myProductList.get(position);
-
-        if (myProduct != null) {
-            String imageUrl = LOCALHOST + myProduct.getImage().replaceAll("\\\\", "/");
+        MyProduct myProduct = productlist.get(position);
+        if(myProduct!=null){
+            String productUrl = LOCALHOST + myProduct.getImage().replaceAll("\\\\", "/");
             Glide.with(mContext)
-                    .load(imageUrl)
+                    .load(productUrl)
                     .into(holder.binding.imageView);
-
-            String Title = myProduct.getTitle();
-            holder.binding.Title.setText(Title);
-            String ShortDesc = myProduct.getShortDesc();
-            holder.binding.ShortDesc.setText(ShortDesc);
-            String Rating = myProduct.getRating();
-            holder.binding.Rating.setText(Rating);
-            String Price = myProduct.getPrice();
-            holder.binding.Price.setText(Price);
+            String productname = myProduct.getTitle();
+            holder.binding.title.setText(productname);
+            String description= myProduct.getShortDesc();
+            holder.binding.ShortDesc.setText(description);
+            String rating= myProduct.getRating();
+            holder.binding.Rating.setText(rating);
+            String price= myProduct.getPrice();
+            holder.binding.Price.setText(price);
         }
+
+
     }
 
     @Override
     public int getItemCount() {
-        if (myProductList == null) {
+        if (productlist == null) {
             return 0;
         }
-        return myProductList.size();
+        return productlist.size();
     }
 
     class MyProductViewHolder extends RecyclerView.ViewHolder {

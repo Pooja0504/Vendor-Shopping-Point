@@ -24,7 +24,7 @@ public class MyProductRepository {
         this.application = application;
     }
 
-    public LiveData<MyProductResponse> getMyproduct() {
+    public LiveData<MyProductResponse> getMyProduct() {
         final MutableLiveData<MyProductResponse> mutableLiveData = new MutableLiveData<>();
 
         RetrofitClient.getInstance().getApi().getMyproduct().enqueue(new Callback<MyProductResponse>() {
@@ -34,7 +34,7 @@ public class MyProductRepository {
                 Log.d("onResponse", "" + response.code());
 
                 MyProductResponse responseBody = response.body();
-                Toast.makeText(application, response.body() + " ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(application, response.body() + "Vendor Repo ", Toast.LENGTH_SHORT).show();
                 if (response.body() != null) {
                     mutableLiveData.setValue(responseBody);
                 }
@@ -43,7 +43,7 @@ public class MyProductRepository {
             @Override
             public void onFailure(Call<MyProductResponse> call, Throwable t) {
                 Log.d(TAG, "onFailure: " + t.getMessage());
-                Toast.makeText(application, "My Product : FAILURE", Toast.LENGTH_SHORT).show();
+                Toast.makeText(application, "VENDOR : FAILURE", Toast.LENGTH_SHORT).show();
             }
         });
 

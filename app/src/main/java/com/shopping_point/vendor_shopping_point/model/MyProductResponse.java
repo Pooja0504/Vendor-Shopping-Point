@@ -5,12 +5,11 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class MyProductResponse {
-
-    @SerializedName("MyProduct")
-    private List<MyProduct> MyProduct;
+    @SerializedName("products")
+    private List<MyProduct> myProducts;
 
     public List<MyProduct> getMyProduct() {
-        return MyProduct;
+        return myProducts;
     }
 
 
