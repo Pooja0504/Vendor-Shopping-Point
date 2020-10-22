@@ -56,9 +56,9 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyPr
             String ShortDesc = myProduct.getShortDesc();
             holder.binding.ShortDesc.setText(ShortDesc);
             String Rating = myProduct.getRating();
-            holder.binding.Rating.setText(Rating);
+            holder.binding.Rating.setText(Rating + " ★ ");
             String Price = myProduct.getPrice();
-            holder.binding.Price.setText(Price);
+            holder.binding.Price.setText(Price + " ₹ ");
         }
     }
 
