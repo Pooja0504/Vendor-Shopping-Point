@@ -33,6 +33,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
     private ActivityAddProductBinding binding;
     private AddProductViewModel addProductViewModel;
     Bitmap bitmap;
+    String encode_image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,9 +90,9 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        addProductViewModel.getAddProductResponseLiveData(new Product(product_name, price, description,category)).observe(this, addProductApiResponse -> {
+        addProductViewModel.getAddProductResponseLiveData(new Product(product_name, price, description,category,encode_image)).observe(this, addProductApiResponse -> {
             if (!addProductApiResponse.isError()) {
-                Toast.makeText(this, addProductApiResponse.getMessage()+"ERRRROOOORRR", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, addProductApiResponse.getMessage()+"SUCESSSSSS", Toast.LENGTH_LONG).show();
                 //LoginUtils.getInstance(this).saveUserInfo(addProductApiResponse.getUser());
                 progressDialog.dismiss();
             }else
@@ -135,6 +136,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
                 binding.img.setImageBitmap(bitmap);
                 binding.img.setVisibility(View.VISIBLE);
 
+                encode_image= imageToString(bitmap);
 
 
             } catch (IOException e) {
@@ -148,7 +150,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
 
 
 
-    private String imageToString()
+    private String imageToString(Bitmap bitmap)
     {
         ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);

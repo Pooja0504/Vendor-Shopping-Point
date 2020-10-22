@@ -4,7 +4,7 @@ public class AddProductApiResponse {
 
     private boolean error;
     private String message;
-    private Product product;
+
 
     public AddProductApiResponse(boolean error, String message) {
         this.error = error;
@@ -20,7 +20,5 @@ public class AddProductApiResponse {
         return message;
     }
 
-    public Product getProduct() {
-        return product;
-    }
+
 }

@@ -6,16 +6,16 @@ public class Product {
     private String description;
     private String category;
 
+    private String image;
 
 
-    public Product(String product_name, String price, String description, String category) {
+    public Product(String product_name, String price, String description, String category, String image) {
         this.product_name = product_name;
         this.price = price;
-        this.description=description;
+        this.description = description;
         this.category = category;
-
+        this.image = image;
     }
-
 
     public String getProduct_name() {
         return product_name;
@@ -29,8 +29,12 @@ public class Product {
         return description;
     }
 
-    public String getCategory(){return category;}
+    public String getCategory() {
+        return category;
+    }
 
-
+    public String getImage() {
+        return image;
+    }
 
 }

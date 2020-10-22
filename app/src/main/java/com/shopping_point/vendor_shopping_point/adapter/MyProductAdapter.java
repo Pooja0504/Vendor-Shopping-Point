@@ -43,7 +43,7 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyPr
         MyProduct myProduct = myProductList.get(position);
 
         if (myProduct != null) {
-            String imageUrl = LOCALHOST + myProduct.getImage().replaceAll("\\\\", "/");
+            String imageUrl =  myProduct.getImage().replaceAll("\\\\", "/");
             Toast.makeText(mContext, myProduct.getTitle() + "  IN PRODUCT ADAPTER ", Toast.LENGTH_SHORT).show();
 
 
