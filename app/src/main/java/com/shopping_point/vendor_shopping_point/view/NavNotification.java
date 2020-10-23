@@ -13,6 +13,6 @@ public class NavNotification extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_notification);
-        Toast.makeText(this, "Notification Opened", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Notification Opened", Toast.LENGTH_SHORT).show();
     }
 }

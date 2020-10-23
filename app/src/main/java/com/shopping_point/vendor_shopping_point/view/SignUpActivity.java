@@ -118,14 +118,14 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         registerViewModel.getRegisterResponseLiveData(new Vendor(name, email, phone_no,password)).observe(this, registerApiResponse -> {
             if (!registerApiResponse.isError()) {
-                Toast.makeText(this, registerApiResponse.getMessage(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(this, registerApiResponse.getMessage(), Toast.LENGTH_LONG).show();
                 //LoginUtils.getInstance(this).saveUserInfo(registerApiResponse.getUser());
                 progressDialog.dismiss();
                 goToLoginActivity();
             }else
                 {
                 progressDialog.cancel();
-                Toast.makeText(this, registerApiResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, registerApiResponse.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 

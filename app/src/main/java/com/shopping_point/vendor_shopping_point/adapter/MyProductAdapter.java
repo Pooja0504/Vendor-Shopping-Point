@@ -44,7 +44,7 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyPr
 
         if (myProduct != null) {
             String imageUrl =  myProduct.getImage().replaceAll("\\\\", "/");
-            Toast.makeText(mContext, myProduct.getTitle() + "  IN PRODUCT ADAPTER ", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(mContext, myProduct.getTitle() + "  IN PRODUCT ADAPTER ", Toast.LENGTH_SHORT).show();
 
 
             Glide.with(mContext)

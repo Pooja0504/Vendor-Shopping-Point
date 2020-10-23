@@ -13,6 +13,6 @@ public class NavSettings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_settings);
-        Toast.makeText(this, "SETTIIINNNGGGSSSSSS OOPPEENN", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "SETTIIINNNGGGSSSSSS OOPPEENN", Toast.LENGTH_SHORT).show();
     }
 }

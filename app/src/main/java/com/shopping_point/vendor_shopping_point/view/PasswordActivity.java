@@ -104,7 +104,7 @@ if(!isActivityRunning) {
                 startActivity(new Intent(this,LoginActivity.class));
             } catch (IOException e) {
                 e.printStackTrace();
-                Toast.makeText(this, "ERRORRRR", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "ERRORRRR", Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -32,7 +32,7 @@ public class AddProductRepository {
             @Override
             public void onResponse(retrofit2.Call<AddProductApiResponse> call, Response<AddProductApiResponse> response) {
 
-                Toast.makeText(application, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(application, response.body().getMessage(), Toast.LENGTH_SHORT).show();
 
 
                 AddProductApiResponse addProductApiResponse = response.body();

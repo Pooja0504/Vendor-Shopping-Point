@@ -151,7 +151,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
             if(responseBody!= null){
                 LoginUtils.getInstance(getApplicationContext()).clearAll();
                 try {
-                    Toast.makeText(AccountActivity.this, responseBody.string() + "", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(AccountActivity.this, responseBody.string() + "", Toast.LENGTH_SHORT).show();
                     Log.d(TAG, "onResponse: delete account" + responseBody.string());
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -203,14 +203,14 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     private void chooseEnglish() {
         setLocale(this,"en");
         recreate();
-        Toast.makeText(this, "English", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "English", Toast.LENGTH_SHORT).show();
         setEnglishState(this, true);
     }
 
     private void chooseHindi() {
         setLocale(this,"hi");
         recreate();
-        Toast.makeText(this, "Hindi", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "Hindi", Toast.LENGTH_SHORT).show();
         setEnglishState(this, false);
     }
     @Override

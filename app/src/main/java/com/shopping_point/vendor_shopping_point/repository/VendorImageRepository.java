@@ -32,7 +32,7 @@ public class VendorImageRepository {
             @Override
             public void onResponse(Call<Image> call, Response<Image> response) {
                 Log.d("onResponse", "" + response.code());
-                Toast.makeText(application, response.body() + " IMAGEEEEEEEEEEEEEEEEEEEEEEEEE", Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(application, response.body() + " IMAGEEEEEEEEEEEEEEEEEEEEEEEEE", Toast.LENGTH_SHORT).show();
                 Image responseBody = response.body();
 
                 if (response.body() != null) {

@@ -251,7 +251,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     private void uploadPhoto(String pathname) {
         uploadPhotoViewModel.uploadPhoto(pathname).observe(this, responseBody -> {
-            Toast.makeText(this, "Image Uploaded", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Image Uploaded", Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -260,7 +260,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         vendorImageViewModel.getVendorImage(LoginUtils.getInstance(this).getVendorInfo().getId()).observe(this, response -> {
             if (response != null) {
                 String imageUrl = LOCALHOST + response.getImage().replaceAll("\\\\", "/");
-                Toast.makeText(this, imageUrl, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, imageUrl, Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "GET USER IMAGE : " + imageUrl);
                 RequestOptions options = new RequestOptions()
                         .centerCrop()

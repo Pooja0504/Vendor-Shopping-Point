@@ -90,14 +90,14 @@ public class AuthenticationActivity extends AppCompatActivity implements View.On
     public void onStart() {
         super.onStart();
         isActivityRunning = true;
-        Toast.makeText(this, "isActivityRunning TRUE", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "isActivityRunning TRUE", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onStop() {
         super.onStop();
        // isActivityRunning = false;
-        Toast.makeText(this, "isActivityRunning FALSE", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "isActivityRunning FALSE", Toast.LENGTH_SHORT).show();
     }
 
     private void countDownTimer(TextView textView) {

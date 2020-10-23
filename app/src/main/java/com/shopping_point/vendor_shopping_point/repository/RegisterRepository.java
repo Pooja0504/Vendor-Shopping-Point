@@ -33,7 +33,7 @@ public class RegisterRepository {
             @Override
             public void onResponse(retrofit2.Call<RegisterApiResponse> call, Response<RegisterApiResponse> response) {
 
-                Toast.makeText(application, response.message(), Toast.LENGTH_SHORT).show();
+            //    Toast.makeText(application, response.message(), Toast.LENGTH_SHORT).show();
 
                 Log.d(TAG, "onResponse: Succeeded" + response.body().getMessage());
 

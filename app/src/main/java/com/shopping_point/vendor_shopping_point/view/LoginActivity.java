@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             if (!loginApiResponse.isError()) {
                 LoginUtils.getInstance(this).saveVendorInfo(loginApiResponse);
                 emailEntered=loginApiResponse.getEmail();
-                Toast.makeText(this, loginApiResponse.getMessage(), Toast.LENGTH_SHORT).show();
+               // Toast.makeText(this, loginApiResponse.getMessage(), Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
                 goToProductActivity();
             }else {

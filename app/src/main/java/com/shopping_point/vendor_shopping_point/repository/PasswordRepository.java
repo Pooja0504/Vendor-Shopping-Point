@@ -33,7 +33,7 @@ public class PasswordRepository {
 
                 if (response.body() != null) {
                     mutableLiveData.setValue(responseBody);
-                    Toast.makeText(application, " Password Changed Successfully!!", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(application, " Password Changed Successfully!!", Toast.LENGTH_SHORT).show();
 
                 }
             }
