@@ -108,7 +108,7 @@
                     android:layout_height="0dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    app:cardBackgroundColor="@color/blue"
+                   app:cardBackgroundColor="@color/blue"
                     android:layout_margin="16dp"
                     app:cardCornerRadius="@dimen/dimen5dp">
 
