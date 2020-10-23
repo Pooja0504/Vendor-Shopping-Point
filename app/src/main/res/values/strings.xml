@@ -105,5 +105,5 @@
     <string name="activate_products">Activate Products</string>
     <string name="add_products">Add Products</string>
     <string name="add_image">Add Image</string>
-    <string name="upload_to_server">Upload to Server</string>
+    <string name="upload_to_server">Upload</string>
 </resources>
