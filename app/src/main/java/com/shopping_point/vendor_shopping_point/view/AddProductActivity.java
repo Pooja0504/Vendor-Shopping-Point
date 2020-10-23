@@ -19,6 +19,7 @@ import com.shopping_point.vendor_shopping_point.R;
 import com.shopping_point.vendor_shopping_point.databinding.ActivityAddProductBinding;
 import com.shopping_point.vendor_shopping_point.model.Product;
 import com.shopping_point.vendor_shopping_point.model.Vendor;
+import com.shopping_point.vendor_shopping_point.storage.LoginUtils;
 import com.shopping_point.vendor_shopping_point.viewModel.AddProductViewModel;
 
 import java.io.ByteArrayOutputStream;
@@ -51,6 +52,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
 
 
     private void uplodVendor() {
+        int seller_id = LoginUtils.getInstance(this).getVendorInfo().getId();
         String product_name = binding.productname.getText().toString();
         String price = binding.price.getText().toString();
         String description = binding.description.getText().toString();
@@ -101,7 +103,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        addProductViewModel.getAddProductResponseLiveData(new Product(product_name, price, description,category,brand,quantity,encode_image)).observe(this, addProductApiResponse -> {
+        addProductViewModel.getAddProductResponseLiveData(new Product(seller_id,product_name, price, description,category,brand,quantity,encode_image)).observe(this, addProductApiResponse -> {
             if (!addProductApiResponse.isError()) {
                 Toast.makeText(this, addProductApiResponse.getMessage()+"SUCESSSSSS", Toast.LENGTH_LONG).show();
                 //LoginUtils.getInstance(this).saveUserInfo(addProductApiResponse.getUser());

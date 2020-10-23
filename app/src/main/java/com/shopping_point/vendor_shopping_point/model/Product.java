@@ -1,6 +1,7 @@
 package com.shopping_point.vendor_shopping_point.model;
 
 public class Product {
+    private int seller_id;
     private String product_name;
     private String price;
     private String description;
@@ -11,7 +12,8 @@ public class Product {
     private String image;
 
 
-    public Product(String product_name, String price, String description, String category,String quantity, String brand,String image) {
+    public Product(int seller_id, String product_name, String price, String description, String category, String quantity, String brand, String image) {
+        this.seller_id=seller_id;
         this.product_name = product_name;
         this.price = price;
         this.description = description;
@@ -19,6 +21,7 @@ public class Product {
         this.quantity = quantity;
         this.brand = brand;
         this.image = image;
+
 
     }
 
@@ -50,4 +53,7 @@ public class Product {
         return image;
     }
 
+    public int getSeller_id() {
+        return seller_id;
+    }
 }
