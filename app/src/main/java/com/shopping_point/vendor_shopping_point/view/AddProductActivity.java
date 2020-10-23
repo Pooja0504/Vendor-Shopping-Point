@@ -55,6 +55,8 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         String price = binding.price.getText().toString();
         String description = binding.description.getText().toString();
         String category = binding.category.getText().toString();
+        String brand = binding.brand.getText().toString();
+        String quantity = binding.quantity.getText().toString();
 
 
         if (product_name.isEmpty()) {
@@ -82,7 +84,16 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
             binding.category.requestFocus();
             return;
         }
-
+        if (brand.isEmpty()) {
+            binding.brand.setError("Mention Brand Name");
+            binding.brand.requestFocus();
+            return;
+        }
+        if (quantity.isEmpty()) {
+            binding.quantity.setError("Mention Quantity");
+            binding.quantity.requestFocus();
+            return;
+        }
 
 
         ProgressDialog progressDialog = new ProgressDialog(this, R.style.AppTheme_Dialog);
@@ -90,7 +101,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        addProductViewModel.getAddProductResponseLiveData(new Product(product_name, price, description,category,encode_image)).observe(this, addProductApiResponse -> {
+        addProductViewModel.getAddProductResponseLiveData(new Product(product_name, price, description,category,brand,quantity,encode_image)).observe(this, addProductApiResponse -> {
             if (!addProductApiResponse.isError()) {
                 Toast.makeText(this, addProductApiResponse.getMessage()+"SUCESSSSSS", Toast.LENGTH_LONG).show();
                 //LoginUtils.getInstance(this).saveUserInfo(addProductApiResponse.getUser());
