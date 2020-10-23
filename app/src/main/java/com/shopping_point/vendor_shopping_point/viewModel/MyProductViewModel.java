@@ -19,7 +19,7 @@ public class MyProductViewModel extends AndroidViewModel {
         myProductRepository = new MyProductRepository(application);
     }
 
-    public LiveData<MyProductResponse> getMyProduct() {
-        return myProductRepository.getMyProduct();
+    public LiveData<MyProductResponse> getMyProduct(int seller_id) {
+        return myProductRepository.getMyProduct(seller_id);
     }
 }

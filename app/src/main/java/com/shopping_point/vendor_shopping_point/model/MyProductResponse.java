@@ -8,7 +8,7 @@ public class MyProductResponse {
     @SerializedName("products")
     private List<MyProduct> myProducts;
 
-    public List<MyProduct> getMyProduct() {
+    public List<MyProduct> getMyProduct(int seller_id) {
         return myProducts;
     }
 
