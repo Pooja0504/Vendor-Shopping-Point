@@ -22,23 +22,14 @@
                 android:gravity="center"
                 android:scaleType="fitXY"
                 android:src="@drawable/slide1"
+                android:layout_margin="@dimen/dimen10dp"
                 android:textSize="@dimen/dimen16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:background="@drawable/slide1" />
 
-            <TextView
-                android:id="@+id/textViewSelect"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="25dp"
-                android:text="Select Action"
-                android:textColor="@color/darkGray"
-                android:textSize="@dimen/dimen20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageSlider" />
+
 
             <GridLayout
                 android:layout_width="match_parent"
@@ -49,10 +40,8 @@
                 android:columnCount="2"
                 android:columnOrderPreserved="false"
                 android:rowCount="1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textViewSelect"
-                app:layout_constraintStart_toEndOf="@+id/imageSlider"
-                app:layout_constraintTop_toBottomOf="@+id/textViewSelect">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageSlider" >
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/myproduct"
@@ -61,7 +50,6 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     app:cardBackgroundColor="@color/blue"
-                    android:outlineSpotShadowColor="@color/darkGray"
                     android:layout_margin="16dp"
                     app:cardCornerRadius="@dimen/dimen5dp">
 
@@ -92,7 +80,7 @@
                     android:layout_columnWeight="1"
                     android:elevation="@dimen/dimen30dp"
                     android:layout_margin="16dp"
-                 android:outlineSpotShadowColor="@color/darkGray"
+
                     app:cardBackgroundColor="@color/blue"
                     app:cardCornerRadius="@dimen/dimen5dp">
 

@@ -218,7 +218,7 @@
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
-                        android:text="Browse Image" />
+                        android:text="@string/add_image" />
 
 
                     <Button
@@ -230,7 +230,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/custom_button_border2"
                         android:shadowColor="#FFB6A8A8"
-                        android:text="Upload to Server"
+                        android:text="@string/upload_to_server"
                         android:textColor="#FFF"
                         android:textColorLink="#B6A8A8" />
 

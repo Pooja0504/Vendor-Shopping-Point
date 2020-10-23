@@ -17,8 +17,8 @@
             android:padding="@dimen/dimen20dp"
             android:text="@string/app_name"
             android:textColor="@color/white"
-            android:textSize="@dimen/dimen35sp"
-            android:textStyle="bold|italic"
+            android:textSize="@dimen/dimen30sp"
+            android:textStyle="bold"
             tools:ignore="MissingConstraints" />
 
 
