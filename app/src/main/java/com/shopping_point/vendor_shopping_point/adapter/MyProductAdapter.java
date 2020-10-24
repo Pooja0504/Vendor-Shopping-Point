@@ -2,6 +2,7 @@ package com.shopping_point.vendor_shopping_point.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ import com.shopping_point.vendor_shopping_point.model.MyProduct;
 import java.util.List;
 
 import static com.shopping_point.vendor_shopping_point.utils.Constant.LOCALHOST;
+import static com.shopping_point.vendor_shopping_point.view.MyProductActivity.isActivityRunning;
 
 
 public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyProductViewHolder>{
@@ -44,7 +46,7 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyPr
 
         if (myProduct != null) {
             String imageUrl =  myProduct.getImage().replaceAll("\\\\", "/");
-            //Toast.makeText(mContext, myProduct.getTitle() + "  IN PRODUCT ADAPTER ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, myProduct.getTitle() + "  IN PRODUCT ADAPTER ", Toast.LENGTH_SHORT).show();
 
 
             Glide.with(mContext)
@@ -59,6 +61,10 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyPr
             holder.binding.Rating.setText(Rating + " ★ ");
             String Price = myProduct.getPrice();
             holder.binding.Price.setText(Price + " ₹ ");
+            if(isActivityRunning){
+                holder.binding.status.setVisibility(View.GONE);
+
+            }
         }
     }
 

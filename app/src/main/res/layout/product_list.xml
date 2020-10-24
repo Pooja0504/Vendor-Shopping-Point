@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <RelativeLayout
@@ -49,7 +50,7 @@
             android:paddingRight="15dp"
             android:text="4.7"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
-             />
+            />
 
         <TextView
             android:id="@+id/Price"
@@ -62,6 +63,20 @@
             android:text="₹ 56990"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Price"
+            android:layout_margin="@dimen/dimen30dp"
+
+            android:background="@drawable/custom_button_border2"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:text="Active/Dactivate"
+
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
     </RelativeLayout>
 

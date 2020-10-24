@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
+import android.view.View;
 
 
 import com.shopping_point.vendor_shopping_point.R;
@@ -16,6 +17,7 @@ import com.shopping_point.vendor_shopping_point.storage.LoginUtils;
 import com.shopping_point.vendor_shopping_point.viewModel.MyProductViewModel;
 
 import static com.shopping_point.vendor_shopping_point.storage.LanguageUtils.loadLocale;
+import static com.shopping_point.vendor_shopping_point.view.AuthenticationActivity.isActivityRunning;
 
 public class MyProductActivity extends AppCompatActivity {
 
@@ -25,6 +27,19 @@ public class MyProductActivity extends AppCompatActivity {
     private static final String TAG = "MyProductActivity";
     private MyProductViewModel myProductViewModel;
     private MyProductAdapter myProductAdapter;
+    public static boolean isActivityRunning = false;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        isActivityRunning=true;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        isActivityRunning=false;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +52,7 @@ public class MyProductActivity extends AppCompatActivity {
         setUpRecyclerView();
         int seller_id = LoginUtils.getInstance(getApplication()).getVendorInfo().getId();
         getMyProduct(seller_id);
+
     }
     private void setUpRecyclerView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
