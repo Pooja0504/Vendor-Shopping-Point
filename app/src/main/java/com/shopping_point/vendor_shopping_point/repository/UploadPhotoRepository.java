@@ -30,27 +30,19 @@ public class UploadPhotoRepository {
         this.application = application;
     }
 
-    public LiveData<ResponseBody> uploadPhoto(String pathname) {
+    public LiveData<ResponseBody> uploadPhoto(String photo, int id) {
         final MutableLiveData<ResponseBody> mutableLiveData = new MutableLiveData<>();
-
-        File file = new File(pathname);
-
-        RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"), file);
-
-        MultipartBody.Part photo = MultipartBody.Part.createFormData("image", file.getName(), requestFile);
-
-        RequestBody id = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(LoginUtils.getInstance(application).getVendorInfo().getId()));
 
         RetrofitClient.getInstance().getApi().uploadPhoto(photo, id).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 Log.d(TAG, "onResponse: " + "Image Updated");
-                //Toast.makeText(application, "SUCESS : IMAGE UPLOADED ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(application, "SUCESS : IMAGE UPLOADED ", Toast.LENGTH_SHORT).show();
                 ResponseBody responseBody = response.body();
 
                 if (response.body() != null) {
                     mutableLiveData.setValue(responseBody);
-                    //Toast.makeText(application, "IN RESPONSE BODY", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(application, "IN RESPONSE BODY", Toast.LENGTH_SHORT).show();
                 }
             }
 

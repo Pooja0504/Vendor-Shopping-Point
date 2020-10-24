@@ -24,6 +24,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -48,6 +49,8 @@ import com.shopping_point.vendor_shopping_point.utils.Slide;
 import com.shopping_point.vendor_shopping_point.viewModel.UploadPhotoViewModel;
 import com.shopping_point.vendor_shopping_point.viewModel.VendorImageViewModel;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -58,8 +61,7 @@ import static com.shopping_point.vendor_shopping_point.utils.Constant.CAMERA_REQ
 import static com.shopping_point.vendor_shopping_point.utils.Constant.GALLERY_REQUEST;
 import static com.shopping_point.vendor_shopping_point.utils.Constant.LOCALHOST;
 import static com.shopping_point.vendor_shopping_point.utils.Constant.READ_EXTERNAL_STORAGE_CODE;
-import static com.shopping_point.vendor_shopping_point.utils.ImageUtils.getImageUri;
-import static com.shopping_point.vendor_shopping_point.utils.ImageUtils.getRealPathFromURI;
+
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener, OnNetworkListener {
 
@@ -228,30 +230,45 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+        Uri path = data.getData();
+        Bitmap bitmap = null;
         if (requestCode == GALLERY_REQUEST && resultCode == RESULT_OK) {
+
+
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getApplication().getContentResolver(), path);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
             selectedImage = data.getData();
             circleImageView.setImageURI(selectedImage);
 
-            String filePath = getRealPathFromURI(this, selectedImage);
-            Log.d(TAG, "onActivityResult: " + filePath);
+            int id = LoginUtils.getInstance(this).getVendorInfo().getId();
+            String encodephoto = imageToString(bitmap);
 
-            uploadPhoto(String.valueOf(filePath));
+
+            uploadPhoto(encodephoto,id);
+
         } else if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             circleImageView.setImageBitmap(photo);
-
-            Uri uriForImage = getImageUri(this, photo);
-            String filePath = getRealPathFromURI(this, uriForImage);
-            Log.d(TAG, "onActivityResult: Camera" + filePath);
-
-            uploadPhoto(String.valueOf(filePath));
+            int id = LoginUtils.getInstance(this).getVendorInfo().getId();
+            String encodePhoto = imageToString(photo);
+            uploadPhoto(encodePhoto,id);
 
         }
     }
+    private String imageToString(Bitmap bitmap)
+    {
+        ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+        byte[] imgByte = byteArrayOutputStream.toByteArray();
+        return Base64.encodeToString(imgByte,Base64.DEFAULT);
+    }
 
-    private void uploadPhoto(String pathname) {
-        uploadPhotoViewModel.uploadPhoto(pathname).observe(this, responseBody -> {
+    private void uploadPhoto(String photo,int id) {
+        uploadPhotoViewModel.uploadPhoto(photo,id).observe(this, responseBody -> {
             //Toast.makeText(this, "Image Uploaded", Toast.LENGTH_SHORT).show();
         });
     }
@@ -260,7 +277,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private void getVendorImage() {
         vendorImageViewModel.getVendorImage(LoginUtils.getInstance(this).getVendorInfo().getId()).observe(this, response -> {
             if (response != null) {
-                String imageUrl = LOCALHOST + response.getImage().replaceAll("\\\\", "/");
+                String imageUrl = response.getImage().replaceAll("\\\\", "/");
                 //Toast.makeText(this, imageUrl, Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "GET USER IMAGE : " + imageUrl);
                 RequestOptions options = new RequestOptions()

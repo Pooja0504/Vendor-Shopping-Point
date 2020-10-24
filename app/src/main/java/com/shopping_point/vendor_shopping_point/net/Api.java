@@ -36,7 +36,7 @@ public interface Api {
 
     @Multipart
     @POST("vendor/upload.php")
-    Call<ResponseBody> uploadPhoto(@Part MultipartBody.Part userPhoto, @Part("id") RequestBody userId);
+    Call<ResponseBody> uploadPhoto(@Query("image") String image, @Query("id") int id);
 
     @DELETE("history/remove.php")
     Call<ResponseBody> removeAllFromHistory();

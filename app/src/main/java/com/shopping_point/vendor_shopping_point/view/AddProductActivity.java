@@ -105,13 +105,13 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
 
         addProductViewModel.getAddProductResponseLiveData(new Product(seller_id,product_name, price, description,category,brand,quantity,encode_image)).observe(this, addProductApiResponse -> {
             if (!addProductApiResponse.isError()) {
-                //Toast.makeText(this, addProductApiResponse.getMessage()+"SUCESSSSSS", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, addProductApiResponse.getMessage(), Toast.LENGTH_LONG).show();
                 //LoginUtils.getInstance(this).saveUserInfo(addProductApiResponse.getUser());
                 progressDialog.dismiss();
             }else
             {
                 progressDialog.cancel();
-               // Toast.makeText(this, addProductApiResponse.getMessage(), Toast.LENGTH_SHORT).show();
+               Toast.makeText(this, addProductApiResponse.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 

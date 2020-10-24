@@ -55,7 +55,7 @@
                     android:id="@+id/userName"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
 
                     android:background="@drawable/custom_border"
                     android:inputType="textPersonName"

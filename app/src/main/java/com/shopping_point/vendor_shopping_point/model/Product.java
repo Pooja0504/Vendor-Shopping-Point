@@ -12,7 +12,7 @@ public class Product {
     private String image;
 
 
-    public Product(int seller_id, String product_name, String price, String description, String category, String quantity, String brand, String image) {
+    public Product(int seller_id, String product_name, String price, String description, String category,  String brand,String quantity,String image) {
         this.seller_id=seller_id;
         this.product_name = product_name;
         this.price = price;
