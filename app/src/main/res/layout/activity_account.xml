@@ -74,7 +74,7 @@
                 android:background="@drawable/touch_feedback"
                 android:drawableStart="@drawable/ic_help"
                 android:drawablePadding="20dp"
-                android:text="@string/help_center"
+                android:text="@string/faq"
                 android:gravity="start|center"
                 android:textColor="@color/vDarkGray"
                 android:textSize="18sp" />
