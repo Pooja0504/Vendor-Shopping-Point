@@ -15,8 +15,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-
-
                 <TableLayout
                     android:id="@+id/tableLayout"
                     android:layout_width="match_parent"
@@ -44,11 +42,11 @@
                                 android:layout_gravity="center"
                                 android:layout_margin="10dp"
                                 android:layout_weight="10"
-                                android:digits="a-z A-Z"
+
                                 android:background="#FFFF"
                                 android:ems="10"
                                 android:hint="  Enter Product Name"
-                                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
 
                                 android:inputType="textEmailAddress"
                                 android:padding="10dp"
