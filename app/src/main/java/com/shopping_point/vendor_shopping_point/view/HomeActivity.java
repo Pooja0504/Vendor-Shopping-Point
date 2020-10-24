@@ -67,7 +67,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private ActivityHomeBinding binding;
     private Snackbar snack;
     private NetworkChangeReceiver mNetworkReceiver;
-    private CircleImageView circleImageView;
+    private CircleImageView circleImageView,circleImageView2;
     private Uri selectedImage;
     private UploadPhotoViewModel uploadPhotoViewModel;
     private VendorImageViewModel vendorImageViewModel;
@@ -129,8 +129,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
 
         View headerContainer = binding.navView.getHeaderView(0);
-        circleImageView = headerContainer.findViewById(R.id.profile_image);
-        circleImageView.setOnClickListener(this);
+        circleImageView = headerContainer.findViewById(R.id.profilePic);
+        circleImageView2 = headerContainer.findViewById(R.id.plus);
+        circleImageView2.setOnClickListener(this);
 
         TextView organisation_name = headerContainer.findViewById(R.id.nameOfVendor);
         organisation_name.setText(LoginUtils.getInstance(this).getVendorInfo().getOrganisation_name());
@@ -142,7 +143,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.profile_image:
+            case R.id.plus:
                 showCustomAlertDialog();
                 break;
             case R.id.myproduct:
