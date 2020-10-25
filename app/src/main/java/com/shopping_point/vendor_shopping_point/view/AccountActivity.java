@@ -78,7 +78,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     private void getVendorImage() {
         vendorImageViewModel.getVendorImage(LoginUtils.getInstance(this).getVendorInfo().getId()).observe(this, response -> {
             if (response != null) {
-                String imageUrl = LOCALHOST + response.getImage().replaceAll("\\\\", "/");
+                String imageUrl =  response.getImage().replaceAll("\\\\", "/");
 
                 RequestOptions options = new RequestOptions()
                         .centerCrop()

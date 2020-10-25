@@ -13,28 +13,41 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import com.shopping_point.vendor_shopping_point.R;
+import com.shopping_point.vendor_shopping_point.adapter.CategoryAdapter;
+import com.shopping_point.vendor_shopping_point.viewModel.CategoryViewModel;
 import com.shopping_point.vendor_shopping_point.databinding.ActivityAddProductBinding;
+
 import com.shopping_point.vendor_shopping_point.model.Category;
 import com.shopping_point.vendor_shopping_point.model.Product;
-import com.shopping_point.vendor_shopping_point.model.Vendor;
+import com.shopping_point.vendor_shopping_point.model.CategoryResponse.*;
 import com.shopping_point.vendor_shopping_point.storage.LoginUtils;
 import com.shopping_point.vendor_shopping_point.viewModel.AddProductViewModel;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.shopping_point.vendor_shopping_point.storage.LanguageUtils.loadLocale;
 import static com.shopping_point.vendor_shopping_point.utils.Constant.GALLERY_REQUEST;
 
-public class AddProductActivity extends AppCompatActivity implements View.OnClickListener{
+public class AddProductActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "AddProduct";
     private ActivityAddProductBinding binding;
     private AddProductViewModel addProductViewModel;
+    private CategoryViewModel categoryViewModel;
     Bitmap bitmap;
+    ArrayAdapter<String> stringArrayAdapter;
+    ArrayList<String> category = new ArrayList<>();
+
     String encode_image;
 
     @Override
@@ -42,10 +55,41 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         loadLocale(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_product);
-
+        categoryViewModel = ViewModelProviders.of(this).get(CategoryViewModel.class);
         binding.browse.setOnClickListener(this);
         binding.upload.setOnClickListener(this);
-binding.category.setOnClickListener(this);
+
+
+        Toast.makeText(this, "BEFORE", Toast.LENGTH_SHORT).show();
+        categoryViewModel.getCategory().observe(this, CategoryResponse -> {
+            List<Category> list=  CategoryResponse.getCategory();
+
+            for(Category value : list){
+                category.add(value.getCategory_name());
+            }
+            stringArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,category);
+            stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            binding.categorySpinner.setAdapter(stringArrayAdapter);
+
+        });
+
+
+
+
+
+
+
+        binding.categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(AddProductActivity.this, "CLicked", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
         addProductViewModel = ViewModelProviders.of(this).get(AddProductViewModel.class);
 
 
@@ -57,7 +101,7 @@ binding.category.setOnClickListener(this);
         String product_name = binding.productname.getText().toString();
         String price = binding.price.getText().toString();
         String description = binding.description.getText().toString();
-        String category = binding.category.getText().toString();
+        //String category = binding.category.getText().toString();
         String brand = binding.brand.getText().toString();
         String quantity = binding.quantity.getText().toString();
 
@@ -82,11 +126,11 @@ binding.category.setOnClickListener(this);
             return;
         }
 
-        if (category.isEmpty()) {
-            binding.category.setError("Mention Category");
-            binding.category.requestFocus();
-            return;
-        }
+//        if (category.isEmpty()) {
+//            binding.category.setError("Mention Category");
+//            binding.category.requestFocus();
+//            return;
+//        }
         if (brand.isEmpty()) {
             binding.brand.setError("Mention Brand Name");
             binding.brand.requestFocus();
@@ -104,7 +148,7 @@ binding.category.setOnClickListener(this);
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        addProductViewModel.getAddProductResponseLiveData(new Product(seller_id,product_name, price, description,category,brand,quantity,encode_image)).observe(this, addProductApiResponse -> {
+        addProductViewModel.getAddProductResponseLiveData(new Product(seller_id,product_name, price, description,"Mobile",brand,quantity,encode_image)).observe(this, addProductApiResponse -> {
             if (!addProductApiResponse.isError()) {
                 Toast.makeText(this, addProductApiResponse.getMessage(), Toast.LENGTH_LONG).show();
                 //LoginUtils.getInstance(this).saveUserInfo(addProductApiResponse.getUser());
@@ -128,16 +172,31 @@ binding.category.setOnClickListener(this);
             case R.id.upload:
                 uplodVendor();
                 break;
-                case R.id.category:
-                selectCategory();
-                break;
+//                case R.id.category_spinner:
+//                selectCategory();
+//                break;
         }
     }
 
-    private void selectCategory() {
-        Intent intent=new Intent(getApplicationContext(), CategoryActivity.class);
-        startActivity(intent);
-    }
+//    private void selectCategory() {
+//        Toast.makeText(this, "In select category function ", Toast.LENGTH_SHORT).show();
+//        categoryViewModel.getCategory().observe(this, CategoryResponse -> {
+//           List<Category> list=  CategoryResponse.getCategory();
+//
+//           for(Category value : list){
+//               category.add(String.valueOf(value));
+//           }
+//            stringArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,category);
+//           stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//            binding.categorySpinner.setAdapter(stringArrayAdapter);
+//
+//        });
+//
+//
+//
+//       //Intent intent=new Intent(getApplicationContext(), CategoryActivity.class);
+//       // startActivity(intent);
+//    }
 
     private void browseImage() {
         Intent intent = new Intent();
@@ -179,4 +238,17 @@ binding.category.setOnClickListener(this);
         byte[] imgByte = byteArrayOutputStream.toByteArray();
         return Base64.encodeToString(imgByte, Base64.DEFAULT);
     }
+
+
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+
+
+
+
+
+
 }

@@ -118,25 +118,13 @@
 
                         <com.google.android.material.textfield.TextInputLayout>
 
-                            <TextView
+                            <androidx.appcompat.widget.AppCompatSpinner
+                                android:id="@+id/category_spinner"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/dimen24dp"
 
-                                android:id="@+id/category"
-                                android:layout_width="340dp"
-                                android:layout_height="64dp"
-                                android:layout_margin="10dp"
-                                android:layout_weight="10"
-                                android:background="#FFFF"
-                                android:ems="10"
-                                android:gravity="center_vertical"
-                                android:hint="  Select Category"
-                                android:inputType="text"
-                                android:padding="10dp"
-                                android:textColor="#000"
-                                android:textColorHint="#9C8585"
-                                android:textSize="@dimen/dimen18sp"
-                                />
 
-                        </com.google.android.material.textfield.TextInputLayout>
+/>                        </com.google.android.material.textfield.TextInputLayout>
                     </TableRow>
 
                     <TableRow

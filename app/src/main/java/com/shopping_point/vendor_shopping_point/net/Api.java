@@ -1,7 +1,10 @@
 package com.shopping_point.vendor_shopping_point.net;
 
 
+import android.app.DownloadManager;
+
 import com.shopping_point.vendor_shopping_point.model.AddProductApiResponse;
+import com.shopping_point.vendor_shopping_point.model.CategoryResponse;
 import com.shopping_point.vendor_shopping_point.model.Image;
 import com.shopping_point.vendor_shopping_point.model.LoginApiResponse;
 import com.shopping_point.vendor_shopping_point.model.MyProductResponse;
@@ -9,18 +12,16 @@ import com.shopping_point.vendor_shopping_point.model.NewsFeedResponse;
 import com.shopping_point.vendor_shopping_point.model.Otp;
 import com.shopping_point.vendor_shopping_point.model.Product;
 import com.shopping_point.vendor_shopping_point.model.RegisterApiResponse;
+import com.shopping_point.vendor_shopping_point.model.Update;
+import com.shopping_point.vendor_shopping_point.model.UpdateApiResponse;
 import com.shopping_point.vendor_shopping_point.model.Vendor;
 
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
-import retrofit2.http.Multipart;
 import retrofit2.http.POST;
-import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 public interface Api {
@@ -34,8 +35,8 @@ public interface Api {
     @GET("vendor/deleteuser.php")
     Call<ResponseBody> deleteAccount(@Query("userId") int userId);
 
-    @Multipart
-    @POST("vendor/upload.php")
+
+    @GET("vendor/upload.php")
     Call<ResponseBody> uploadPhoto(@Query("image") String image, @Query("id") int id);
 
     @DELETE("history/remove.php")
@@ -59,4 +60,10 @@ public interface Api {
     @GET("vendor/get_product.php")
     Call<MyProductResponse> getMyproduct(@Query("id")int seller_id);
 
+
+    @GET("admin/get_category.php")
+    Call<CategoryResponse> getCategory();
+
+    @POST("admin/update_profile.php")
+    Call<UpdateApiResponse> updateProfile(@Body Update update);
 }
