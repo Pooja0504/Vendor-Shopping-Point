@@ -47,7 +47,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
     Bitmap bitmap;
     ArrayAdapter<String> stringArrayAdapter;
     ArrayList<String> category = new ArrayList<>();
-
+    String category_name;
     String encode_image;
 
     @Override
@@ -81,13 +81,13 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
 
         binding.categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(AddProductActivity.this, "CLicked", Toast.LENGTH_SHORT).show();
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                category_name = category.get(position);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                Toast.makeText(AddProductActivity.this, "SELECT CATEGORY", Toast.LENGTH_SHORT).show();
             }
         });
         addProductViewModel = ViewModelProviders.of(this).get(AddProductViewModel.class);
@@ -148,7 +148,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        addProductViewModel.getAddProductResponseLiveData(new Product(seller_id,product_name, price, description,"Mobile",brand,quantity,encode_image)).observe(this, addProductApiResponse -> {
+        addProductViewModel.getAddProductResponseLiveData(new Product(seller_id,product_name, price, description,category_name,brand,quantity,encode_image)).observe(this, addProductApiResponse -> {
             if (!addProductApiResponse.isError()) {
                 Toast.makeText(this, addProductApiResponse.getMessage(), Toast.LENGTH_LONG).show();
                 //LoginUtils.getInstance(this).saveUserInfo(addProductApiResponse.getUser());
