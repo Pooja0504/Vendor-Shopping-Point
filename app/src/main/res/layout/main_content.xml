@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    >
 
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -38,6 +39,7 @@
                 android:layout_marginBottom="8dp"
                 android:alignmentMode="alignMargins"
                 android:columnCount="2"
+                android:background="@color/white"
                 android:columnOrderPreserved="false"
                 android:rowCount="1"
                 app:layout_constraintStart_toStartOf="parent"
@@ -47,6 +49,7 @@
                     android:id="@+id/myproduct"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
+                    app:cardElevation="@dimen/dimen10dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="16dp"
@@ -56,13 +59,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
-                        android:background="@drawable/gradient">
+                        android:background="@drawable/gradient"
+                        >
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="@dimen/dimen30dp"
+
                         android:src="@drawable/ic_myproduct" />
 
                     <TextView
@@ -81,12 +86,10 @@
                     android:id="@+id/addproduct"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
+                    app:cardElevation="@dimen/dimen10dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:elevation="@dimen/dimen30dp"
                     android:layout_margin="16dp"
-
-                    app:cardBackgroundColor="@color/blue"
                     app:cardCornerRadius="@dimen/dimen5dp">
 
                     <LinearLayout
@@ -98,6 +101,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
+
                         android:src="@drawable/add_product_icon"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="@dimen/dimen30dp"
@@ -119,9 +123,9 @@
                     android:id="@+id/activateproduct"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
+                    app:cardElevation="@dimen/dimen10dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                   app:cardBackgroundColor="@color/blue"
                     android:layout_margin="16dp"
                     app:cardCornerRadius="@dimen/dimen5dp">
 
@@ -154,8 +158,8 @@
                     android:id="@+id/promotions"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
+                    app:cardElevation="@dimen/dimen10dp"
                     android:layout_rowWeight="1"
-                    app:cardBackgroundColor="@color/blue"
                     android:layout_columnWeight="1"
                     android:layout_margin="16dp"
                     app:cardCornerRadius="@dimen/dimen5dp">

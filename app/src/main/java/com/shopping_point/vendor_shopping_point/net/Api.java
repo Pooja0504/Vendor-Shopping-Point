@@ -2,6 +2,7 @@ package com.shopping_point.vendor_shopping_point.net;
 
 
 import com.shopping_point.vendor_shopping_point.model.AddProductApiResponse;
+import com.shopping_point.vendor_shopping_point.model.CategoryResponse;
 import com.shopping_point.vendor_shopping_point.model.Image;
 import com.shopping_point.vendor_shopping_point.model.LoginApiResponse;
 import com.shopping_point.vendor_shopping_point.model.MyProductResponse;
@@ -58,5 +59,8 @@ public interface Api {
 
     @GET("vendor/get_product.php")
     Call<MyProductResponse> getMyproduct(@Query("id")int seller_id);
+
+    @GET("admin/get_category.php")
+    Call<CategoryResponse> getCategory();
 
 }
