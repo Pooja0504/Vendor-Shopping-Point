@@ -16,6 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".view.CategoryActivity"
+            android:label="Add Category"
+            android:parentActivityName=".view.AddProductActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.shopping_point.vendor_shopping_point.view.AddProductActivity" />
+        </activity>
         <activity android:name=".view.ActivateProductActivity"
             android:label="@string/activate_products"
             android:parentActivityName=".view.HomeActivity">
