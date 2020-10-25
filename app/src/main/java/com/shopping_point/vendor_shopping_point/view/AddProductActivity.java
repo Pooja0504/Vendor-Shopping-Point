@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.shopping_point.vendor_shopping_point.R;
 import com.shopping_point.vendor_shopping_point.databinding.ActivityAddProductBinding;
+import com.shopping_point.vendor_shopping_point.model.Category;
 import com.shopping_point.vendor_shopping_point.model.Product;
 import com.shopping_point.vendor_shopping_point.model.Vendor;
 import com.shopping_point.vendor_shopping_point.storage.LoginUtils;
@@ -44,7 +45,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
 
         binding.browse.setOnClickListener(this);
         binding.upload.setOnClickListener(this);
-
+binding.category.setOnClickListener(this);
         addProductViewModel = ViewModelProviders.of(this).get(AddProductViewModel.class);
 
 
@@ -127,7 +128,15 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
             case R.id.upload:
                 uplodVendor();
                 break;
+                case R.id.category:
+                selectCategory();
+                break;
         }
+    }
+
+    private void selectCategory() {
+        Intent intent=new Intent(getApplicationContext(), CategoryActivity.class);
+        startActivity(intent);
     }
 
     private void browseImage() {

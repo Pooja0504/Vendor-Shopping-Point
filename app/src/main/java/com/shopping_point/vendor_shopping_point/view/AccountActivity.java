@@ -55,6 +55,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(getResources().getString(R.string.my_account));
+        binding.updateProfile.setOnClickListener(this);
 
         deleteUserViewModel = ViewModelProviders.of(this).get(DeleteUserViewModel.class);
         fromHistoryViewModel = ViewModelProviders.of(this).get(FromHistoryViewModel.class);
@@ -128,6 +129,10 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.update_profile:
+                Intent updateprofileIntent = new Intent(this, UpdateProfileActivity.class);
+                startActivity(updateprofileIntent);
+                break;
 
             case R.id.languages:
                 showCustomAlertDialog();
