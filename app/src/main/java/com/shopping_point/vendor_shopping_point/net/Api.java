@@ -9,6 +9,8 @@ import com.shopping_point.vendor_shopping_point.model.NewsFeedResponse;
 import com.shopping_point.vendor_shopping_point.model.Otp;
 import com.shopping_point.vendor_shopping_point.model.Product;
 import com.shopping_point.vendor_shopping_point.model.RegisterApiResponse;
+import com.shopping_point.vendor_shopping_point.model.Update;
+import com.shopping_point.vendor_shopping_point.model.UpdateApiResponse;
 import com.shopping_point.vendor_shopping_point.model.Vendor;
 
 import okhttp3.MultipartBody;
@@ -58,5 +60,8 @@ public interface Api {
 
     @GET("vendor/get_product.php")
     Call<MyProductResponse> getMyproduct(@Query("id")int seller_id);
+
+    @POST("vendor/update_profile.php")
+    Call<UpdateApiResponse> updateProfile(@Body Update update);
 
 }

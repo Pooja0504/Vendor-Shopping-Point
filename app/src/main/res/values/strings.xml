@@ -107,4 +107,6 @@
     <string name="add_image">Add Image</string>
     <string name="upload_to_server">Upload</string>
     <string name="faq">FAQ\'s</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="update">Update</string>
 </resources>

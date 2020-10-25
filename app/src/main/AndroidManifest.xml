@@ -30,6 +30,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.shopping_point.vendor_shopping_point.view.HomeActivity" />
         </activity>
+        <activity android:name=".view.UpdateProfileActivity" />
+
         <activity android:name=".view.AddProductActivity"
             android:label="@string/add_products"
             android:parentActivityName=".view.HomeActivity">

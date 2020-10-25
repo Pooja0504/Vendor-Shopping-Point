@@ -1,18 +1,5 @@
 package com.shopping_point.vendor_shopping_point.view;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.GravityCompat;
-import androidx.databinding.DataBindingUtil;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
@@ -31,7 +18,18 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.databinding.DataBindingUtil;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
@@ -49,7 +47,6 @@ import com.shopping_point.vendor_shopping_point.viewModel.UploadPhotoViewModel;
 import com.shopping_point.vendor_shopping_point.viewModel.VendorImageViewModel;
 
 import java.util.ArrayList;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import static com.shopping_point.vendor_shopping_point.storage.LanguageUtils.loadLocale;
@@ -67,7 +64,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private ActivityHomeBinding binding;
     private Snackbar snack;
     private NetworkChangeReceiver mNetworkReceiver;
-    private CircleImageView circleImageView,circleImageView2;
+    private CircleImageView circleImageView;
     private Uri selectedImage;
     private UploadPhotoViewModel uploadPhotoViewModel;
     private VendorImageViewModel vendorImageViewModel;
@@ -91,22 +88,17 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         mNetworkReceiver = new NetworkChangeReceiver();
         mNetworkReceiver.setOnNetworkListener(this);
 
-
     }
-
-
 
     private void flipImages(ArrayList<Integer> images) {
         for (int image : images) {
             ImageView imageView = new ImageView(this);
             imageView.setBackgroundResource(image);
             binding.included.content.imageSlider.addView(imageView);
-
         }
 
         binding.included.content.imageSlider.setFlipInterval(2000);
         binding.included.content.imageSlider.setAutoStart(true);
-
         // Set the animation for the view that enters the screen
         binding.included.content.imageSlider.setInAnimation(this, R.anim.slide_in_right);
         // Set the animation for the view leaving th screen
@@ -116,34 +108,27 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private void setUpViews() {
         Toolbar toolbar = binding.included.toolbar;
         setSupportActionBar(toolbar);
-
         DrawerLayout drawer = binding.drawerLayout;
-
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
         binding.navView.setNavigationItemSelectedListener(this);
-
-
 
         View headerContainer = binding.navView.getHeaderView(0);
         circleImageView = headerContainer.findViewById(R.id.profilePic);
-        circleImageView2 = headerContainer.findViewById(R.id.plus);
-        circleImageView2.setOnClickListener(this);
+        circleImageView.setOnClickListener(this);
 
         TextView organisation_name = headerContainer.findViewById(R.id.nameOfVendor);
         organisation_name.setText(LoginUtils.getInstance(this).getVendorInfo().getOrganisation_name());
         TextView seller_mail = headerContainer.findViewById(R.id.email_of_vendor);
         seller_mail.setText(LoginUtils.getInstance(this).getVendorInfo().getEmail());
-
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.plus:
+            case R.id.profilePic:
                 showCustomAlertDialog();
                 break;
             case R.id.myproduct:
@@ -163,7 +148,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(promotions);
                 break;
         }
-
     }
 
     private void showCustomAlertDialog() {
@@ -199,7 +183,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 try {
                     Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
                     getIntent.setType("image/*");
-
                     Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
                     Intent chooserIntent = Intent.createChooser(getIntent, "Select Image");
@@ -212,7 +195,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
-
 
     private void launchCamera() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
