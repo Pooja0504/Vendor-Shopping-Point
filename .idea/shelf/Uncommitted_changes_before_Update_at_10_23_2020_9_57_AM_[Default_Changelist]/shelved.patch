@@ -1,0 +1,17 @@
+Index: app/src/main/java/com/shopping_point/vendor_shopping_point/model/Product.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.shopping_point.vendor_shopping_point.model;\r\n\r\npublic class Product {\r\n    private String product_name;\r\n    private String price;\r\n    private String description;\r\n    private String category;\r\n\r\n    private String image;\r\n\r\n\r\n    public Product(String product_name, String price, String description, String category, String image) {\r\n        this.product_name = product_name;\r\n        this.price = price;\r\n        this.description = description;\r\n        this.category = category;\r\n        this.image = image;\r\n    }\r\n\r\n    public String getProduct_name() {\r\n        return product_name;\r\n    }\r\n\r\n    public String getPrice() {\r\n        return price;\r\n    }\r\n\r\n    public String getDescription() {\r\n        return description;\r\n    }\r\n\r\n    public String getCategory() {\r\n        return category;\r\n    }\r\n\r\n    public String getImage() {\r\n        return image;\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/shopping_point/vendor_shopping_point/model/Product.java	(revision ce5df872b5fb69280a5b0f7f2a38ac94c44ec3e7)
++++ app/src/main/java/com/shopping_point/vendor_shopping_point/model/Product.java	(date 1603427220224)
+@@ -1,6 +1,7 @@
+ package com.shopping_point.vendor_shopping_point.model;
+ 
+ public class Product {
++    private String seller_id;
+     private String product_name;
+     private String price;
+     private String description;
