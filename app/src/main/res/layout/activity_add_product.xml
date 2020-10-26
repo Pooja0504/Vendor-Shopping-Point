@@ -111,8 +111,8 @@
                     </TableRow>
 
                     <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="340dp"
+                        android:layout_height="64dp"
                         android:gravity="center"
                         android:weightSum="10">
 
@@ -120,11 +120,11 @@
 
                             <androidx.appcompat.widget.AppCompatSpinner
                                 android:id="@+id/category_spinner"
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/dimen24dp"
-
-
-/>                        </com.google.android.material.textfield.TextInputLayout>
+                                android:layout_width="match_parent"
+                                android:layout_height="64dp"
+                                android:layout_margin="10dp"
+                                android:padding="@dimen/dimen10dp"/>
+                        </com.google.android.material.textfield.TextInputLayout>
                     </TableRow>
 
                     <TableRow

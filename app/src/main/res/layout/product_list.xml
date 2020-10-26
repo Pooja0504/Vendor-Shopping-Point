@@ -64,6 +64,7 @@
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:textStyle="bold" />
 
+
         <Button
             android:id="@+id/status"
             android:layout_width="match_parent"
