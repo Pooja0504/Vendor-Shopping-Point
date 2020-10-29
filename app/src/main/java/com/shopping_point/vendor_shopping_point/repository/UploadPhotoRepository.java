@@ -31,12 +31,25 @@ public class UploadPhotoRepository {
         RetrofitClient.getInstance().getApi().uploadPhoto(image,id).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                Log.d(TAG, "onResponse Upload User : without checking response");
+
+                if(response.code()==200)
+                {
+                    Toast.makeText(application, "SUceSSS", Toast.LENGTH_SHORT).show();
+                }else
+                {
+                    Toast.makeText(application, "FAILED", Toast.LENGTH_SHORT).show();
+                }
+
+
+                Log.d(TAG, "onResponse Upload User : without checking responsesssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
               //  Toast.makeText(application, response.body().toString(), Toast.LENGTH_SHORT).show();
                 ResponseBody responseBody = response.body();
-                if (response.body() != null) {
+                if (response.code()==200) {
                     Log.d(TAG, "onResponse Upload User image: Succeeded");
                     mutableLiveData.setValue(responseBody);
+                }else
+                {
+                    Log.d(TAG, "onResponse Upload User image: ERRORRRRR");
                 }
             }
 

@@ -247,15 +247,16 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             int id = LoginUtils.getInstance(this).getVendorInfo().getId();
             String encodephoto = imageToString(bitmap);
 
-
-            uploadPhoto(encodephoto,id);
+          //  Toast.makeText(this, encodephoto, Toast.LENGTH_SHORT).show();
+            uploadImage(encodephoto,id);
 
         } else if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             circleImageView.setImageBitmap(photo);
             int id = LoginUtils.getInstance(this).getVendorInfo().getId();
             String encodePhoto = imageToString(photo);
-            uploadPhoto(encodePhoto,id);
+          //  Toast.makeText(this, encodePhoto, Toast.LENGTH_SHORT).show();
+            uploadImage(encodePhoto,id);
 
         }
     }
@@ -267,9 +268,17 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         return Base64.encodeToString(imgByte,Base64.DEFAULT);
     }
 
-    private void uploadPhoto(String photo,int id) {
-        uploadPhotoViewModel.uploadPhoto(photo,id).observe(this, responseBody -> {
+    private void uploadImage(String photo,int id) {
+        uploadPhotoViewModel.uploadPhoto(photo,id).observe(this, response -> {
             //Toast.makeText(this, "Image Uploaded", Toast.LENGTH_SHORT).show();
+
+            if(response!= null){
+                Log.d(TAG, "onResponse: upload profile picture" + response);
+                Toast.makeText(this, "NOt Null", Toast.LENGTH_SHORT).show();
+            }else
+            {
+                Toast.makeText(this, "NULL", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 

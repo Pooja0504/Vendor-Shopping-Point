@@ -24,10 +24,10 @@
                 android:background="?attr/colorPrimary"
                 app:title="@string/shoping_point"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
+
             <include
                 android:id="@+id/content"
                 layout="@layout/main_content" />
-
 
 
         </com.google.android.material.appbar.AppBarLayout>

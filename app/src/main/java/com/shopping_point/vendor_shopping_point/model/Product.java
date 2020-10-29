@@ -25,6 +25,7 @@ public class Product {
 
     }
 
+
     public String getProduct_name() {
         return product_name;
     }
