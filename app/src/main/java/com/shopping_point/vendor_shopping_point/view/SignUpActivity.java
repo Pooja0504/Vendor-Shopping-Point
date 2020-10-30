@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.hbb20.CountryCodePicker;
 import com.shopping_point.vendor_shopping_point.R;
 import com.shopping_point.vendor_shopping_point.databinding.ActivitySignupBinding;
 import com.shopping_point.vendor_shopping_point.model.Vendor;
@@ -25,6 +26,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private static final String TAG = "SignUpActivity";
     private ActivitySignupBinding binding;
     private RegisterViewModel registerViewModel;
+
 
 
     @Override
@@ -52,7 +54,15 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private void signUpUser() {
         String name = binding.userName.getText().toString();
         String email = binding.userEmail.getText().toString();
-        String phone_no = binding.userContact.getText().toString();
+
+
+
+
+
+        
+        String phone_no =    binding.userContact.getText().toString();
+        String country_code = binding.ccp.getSelectedCountryCodeWithPlus();
+        String full_phone_no = country_code + phone_no;
         String con_password = binding.userConfirmPassword.getText().toString();
         String password = binding.userPassword.getText().toString();
 
@@ -78,7 +88,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             binding.userEmail.requestFocus();
             return;
         }
-
+        if (country_code.isEmpty()) {
+            binding.userContact.setError("Please Select Country Code ");
+            binding.userEmail.requestFocus();
+        }
         if(phone_no.isEmpty())
         {
             binding.userContact.setError(getString(R.string.Phone_Required));
@@ -116,7 +129,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        registerViewModel.getRegisterResponseLiveData(new Vendor(name, email, phone_no,password)).observe(this, registerApiResponse -> {
+        registerViewModel.getRegisterResponseLiveData(new Vendor(name, email,full_phone_no,password)).observe(this, registerApiResponse -> {
             if (!registerApiResponse.isError()) {
                 //Toast.makeText(this, registerApiResponse.getMessage(), Toast.LENGTH_LONG).show();
                 //LoginUtils.getInstance(this).saveUserInfo(registerApiResponse.getUser());
