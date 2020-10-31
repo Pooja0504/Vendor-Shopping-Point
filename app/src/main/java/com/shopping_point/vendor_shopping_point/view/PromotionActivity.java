@@ -68,7 +68,7 @@ public class PromotionActivity extends AppCompatActivity implements View.OnClick
         addBannerViewModel.getAddBannerResponseLiveData(encode_image).observe(this, addBannerApiResponse ->  {
             if (!addBannerApiResponse.isError()) {
                 Toast.makeText(this, addBannerApiResponse.getMessage(), Toast.LENGTH_LONG).show();
-                //LoginUtils.getInstance(this).saveUserInfo(addProductApiResponse.getUser());
+
                 progressDialog.dismiss();
             }else
             {
