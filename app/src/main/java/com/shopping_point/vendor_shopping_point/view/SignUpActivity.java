@@ -60,9 +60,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
 
         
-        String phone_no =    binding.userContact.getText().toString();
-        String country_code = binding.ccp.getSelectedCountryCodeWithPlus();
-        String full_phone_no = country_code + phone_no;
+        String phone_no = binding.ccp.getSelectedCountryCodeWithPlus() +   binding.userContact.getText().toString();
+
+
         String con_password = binding.userConfirmPassword.getText().toString();
         String password = binding.userPassword.getText().toString();
 
@@ -88,10 +88,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             binding.userEmail.requestFocus();
             return;
         }
-        if (country_code.isEmpty()) {
-            binding.userContact.setError("Please Select Country Code ");
-            binding.userEmail.requestFocus();
-        }
+
+
         if(phone_no.isEmpty())
         {
             binding.userContact.setError(getString(R.string.Phone_Required));
@@ -129,7 +127,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        registerViewModel.getRegisterResponseLiveData(new Vendor(name, email,full_phone_no,password)).observe(this, registerApiResponse -> {
+        registerViewModel.getRegisterResponseLiveData(new Vendor(name, email,phone_no,password)).observe(this, registerApiResponse -> {
             if (!registerApiResponse.isError()) {
                 //Toast.makeText(this, registerApiResponse.getMessage(), Toast.LENGTH_LONG).show();
                 //LoginUtils.getInstance(this).saveUserInfo(registerApiResponse.getUser());
