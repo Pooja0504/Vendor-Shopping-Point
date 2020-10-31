@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -50,13 +51,13 @@ public class PromotionActivity extends AppCompatActivity implements View.OnClick
                 browseImage();
                 break;
             case R.id.upload_banner:
-                uplodBanner(encode_image);
+                uplodBanner();
                 break;
 
         }
     }
 
-    private void uplodBanner(String encode_image) {
+    private void uplodBanner() {
 
 
 
@@ -64,9 +65,12 @@ public class PromotionActivity extends AppCompatActivity implements View.OnClick
         progressDialog.setMessage("Adding Poster");
         progressDialog.setCancelable(false);
         progressDialog.show();
-
+             Toast.makeText(this, encode_image + "Encode Image", Toast.LENGTH_SHORT).show();
         addBannerViewModel.getAddBannerResponseLiveData(encode_image).observe(this, addBannerApiResponse ->  {
+
             Toast.makeText(this, "MEOWWWWWWWWWW", Toast.LENGTH_SHORT).show();
+
+
             if (!addBannerApiResponse.isError()) {
                 Toast.makeText(this, addBannerApiResponse.getMessage(), Toast.LENGTH_LONG).show();
 
