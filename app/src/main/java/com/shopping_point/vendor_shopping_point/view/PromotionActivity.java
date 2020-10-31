@@ -50,13 +50,13 @@ public class PromotionActivity extends AppCompatActivity implements View.OnClick
                 browseImage();
                 break;
             case R.id.upload_banner:
-                uplodBanner();
+                uplodBanner(encode_image);
                 break;
 
         }
     }
 
-    private void uplodBanner() {
+    private void uplodBanner(String encode_image) {
 
 
 
@@ -66,6 +66,7 @@ public class PromotionActivity extends AppCompatActivity implements View.OnClick
         progressDialog.show();
 
         addBannerViewModel.getAddBannerResponseLiveData(encode_image).observe(this, addBannerApiResponse ->  {
+            Toast.makeText(this, "MEOWWWWWWWWWW", Toast.LENGTH_SHORT).show();
             if (!addBannerApiResponse.isError()) {
                 Toast.makeText(this, addBannerApiResponse.getMessage(), Toast.LENGTH_LONG).show();
 
@@ -98,7 +99,7 @@ public class PromotionActivity extends AppCompatActivity implements View.OnClick
                 binding.imageOfBanner.setVisibility(View.VISIBLE);
 
                 encode_image= imageToString(bitmap);
-
+                Toast.makeText(this, encode_image, Toast.LENGTH_SHORT).show();
 
             } catch (IOException e) {
                 e.printStackTrace();
