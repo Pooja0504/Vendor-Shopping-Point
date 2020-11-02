@@ -65,15 +65,18 @@
             android:textStyle="bold" />
 
 
-        <Button
+        <Switch
+            android:thumb="@drawable/thumb"
             android:id="@+id/status"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_below="@id/Price"
             android:layout_margin="@dimen/dimen30dp"
-
-            android:background="@drawable/custom_button_border2"
-            android:textColor="#fff"
+            android:paddingRight="20dp"
+android:track="@drawable/track"
+            android:showText="true"
+android:background="@color/white"
+            android:textColor="@color/black"
             android:gravity="center"
             android:text="Active/Dactivate"
 
