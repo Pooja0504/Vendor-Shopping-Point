@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -57,20 +59,25 @@
             android:layout_gravity="center"
             android:contentDescription="Image Of Product"
             tools:src="@drawable/slide2" />
-
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/upload_banner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen20dp"
+            android:layout_marginTop="@dimen/dimen100dp"
             android:layout_marginLeft="@dimen/dimen10dp"
             android:layout_marginRight="@dimen/dimen10dp"
             android:layout_marginBottom="@dimen/dimen10dp"
             android:background="@drawable/custom_button_border2"
             android:text="@string/upload_to_server"
+
             android:textColor="@color/white"
             android:textAllCaps="false"
             android:textSize="@dimen/dimen18sp"
             />
+</RelativeLayout>
     </LinearLayout>
+</ScrollView>
 </layout>

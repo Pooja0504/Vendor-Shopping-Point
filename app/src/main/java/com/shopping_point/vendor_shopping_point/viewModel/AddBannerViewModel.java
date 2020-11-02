@@ -5,7 +5,9 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-;import com.shopping_point.vendor_shopping_point.model.AddBannerApiResponse;
+
+import com.shopping_point.vendor_shopping_point.model.AddBannerApiResponse;
+import com.shopping_point.vendor_shopping_point.model.Banner;
 import com.shopping_point.vendor_shopping_point.repository.AddBannerRepository;
 
 
@@ -19,7 +21,7 @@ public class AddBannerViewModel extends AndroidViewModel {
     }
 
 
-    public LiveData<AddBannerApiResponse> getAddBannerResponseLiveData(String image) {
-        return addBannerRepository.getAddBannerResponseData(image);
+    public LiveData<AddBannerApiResponse> getAddBannerResponseLiveData(Banner banner) {
+        return addBannerRepository.getAddBannerResponseData(banner);
     }
 }

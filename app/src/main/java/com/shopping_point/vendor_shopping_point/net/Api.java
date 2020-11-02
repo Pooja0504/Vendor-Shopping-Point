@@ -1,10 +1,9 @@
 package com.shopping_point.vendor_shopping_point.net;
 
 
-import android.app.DownloadManager;
-
 import com.shopping_point.vendor_shopping_point.model.AddBannerApiResponse;
 import com.shopping_point.vendor_shopping_point.model.AddProductApiResponse;
+import com.shopping_point.vendor_shopping_point.model.Banner;
 import com.shopping_point.vendor_shopping_point.model.CategoryResponse;
 import com.shopping_point.vendor_shopping_point.model.Image;
 import com.shopping_point.vendor_shopping_point.model.LoginApiResponse;
@@ -68,7 +67,7 @@ public interface Api {
     @POST("admin/update_profile.php")
     Call<UpdateApiResponse> updateProfile(@Body Update update);
 
-
     @POST("vendor/addBanner.php")
-    Call<AddBannerApiResponse> createBanner(@Query("image") String image);
+    Call<AddBannerApiResponse> createBanner(@Body Banner banner);
+
 }

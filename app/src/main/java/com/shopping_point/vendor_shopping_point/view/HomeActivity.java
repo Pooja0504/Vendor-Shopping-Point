@@ -161,7 +161,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(activateproduct);
                 break;
             case R.id.promotions:
-                Intent promotions = new Intent(HomeActivity.this, PromotionActivity.class);
+                Intent promotions = new Intent(HomeActivity.this, AddBannerActivity.class);
                 startActivity(promotions);
                 break;
         }

@@ -20,7 +20,7 @@ public class UploadPhotoViewModel extends AndroidViewModel {
         uploadPhotoRepository = new UploadPhotoRepository(application);
     }
 
-    public LiveData<ResponseBody> uploadPhoto(String photo, int id) {
-        return uploadPhotoRepository.uploadPhoto(photo,id);
+    public LiveData<ResponseBody> uploadPhoto(String image, int id) {
+        return uploadPhotoRepository.uploadPhoto(image,id);
     }
 }
