@@ -54,10 +54,10 @@ public class ActivateProductActivity extends AppCompatActivity {
             myProductAdapter.notifyDataSetChanged();
         });
     }
+
     @Override
     public void onBackPressed() {
-        return;
+        super.onBackPressed();
     }
-
 
 }

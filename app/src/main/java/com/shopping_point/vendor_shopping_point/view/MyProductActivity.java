@@ -72,6 +72,6 @@ public class MyProductActivity extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        return;
+        super.onBackPressed();
     }
 }

@@ -51,6 +51,6 @@ public class NewsFeedActivity extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        return;
+        super.onBackPressed();
     }
 }
