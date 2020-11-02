@@ -42,6 +42,7 @@ public class AuthenticationActivity extends AppCompatActivity implements View.On
 
         Intent intent = getIntent();
         email = intent.getStringExtra(EMAIL);
+        Toast.makeText(this, "Authenticate " + email , Toast.LENGTH_SHORT).show();
         correctOtpCode = intent.getStringExtra(OTP);
         String formatted = getString(R.string.description2, email);
 

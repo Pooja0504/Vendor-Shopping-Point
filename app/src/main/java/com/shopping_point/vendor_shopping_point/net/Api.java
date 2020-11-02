@@ -49,7 +49,7 @@ public interface Api {
     @GET("vendor/info.php")
     Call<ResponseBody> updatePassword(@Query("password") String newPassword, @Query("email") String email);
 
-    @GET("users/otp.php")
+    @GET("vendor/otp.php")
     Call<Otp> getOtp(@Query("email") String email);
 
     @GET("posters/getPosters.php")

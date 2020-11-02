@@ -3,6 +3,7 @@ package com.shopping_point.vendor_shopping_point.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -47,7 +48,9 @@ public class PasswordAssistantActivity extends AppCompatActivity implements View
 
         otpViewModel.getOtpCode(emailEntered).observe(this, responseBody -> {
             if (!responseBody.isError()) {
+
                 userEmail = responseBody.getEmail();
+                Toast.makeText(this, userEmail, Toast.LENGTH_SHORT).show();
                 otpCode = responseBody.getOtp();
                 goToAuthenticationActivity();
             } else {
@@ -58,6 +61,7 @@ public class PasswordAssistantActivity extends AppCompatActivity implements View
 
     private void goToAuthenticationActivity() {
         Intent intent = new Intent(this, AuthenticationActivity.class);
+
         intent.putExtra(EMAIL, userEmail);
         intent.putExtra(OTP, otpCode);
         startActivity(intent);
