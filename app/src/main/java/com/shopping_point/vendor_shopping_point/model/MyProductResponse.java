@@ -12,5 +12,4 @@ public class MyProductResponse {
         return myProducts;
     }
 
-
 }

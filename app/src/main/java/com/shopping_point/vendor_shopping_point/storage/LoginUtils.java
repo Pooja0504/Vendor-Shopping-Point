@@ -76,5 +76,16 @@ public class LoginUtils {
         editor.clear().apply();
         editor.apply();
     }
+    public void saveVendorInfo(String name,String email,String phone_no) {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("name", name);
+        editor.putString("email", email);
+        editor.putString("phone_no",phone_no);
+
+        editor.apply();
+    }
+
+
 
 }

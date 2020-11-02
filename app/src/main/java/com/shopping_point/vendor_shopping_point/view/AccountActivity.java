@@ -220,6 +220,6 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     }
     @Override
     public void onBackPressed() {
-        return;
+        super.onBackPressed();
     }
 }

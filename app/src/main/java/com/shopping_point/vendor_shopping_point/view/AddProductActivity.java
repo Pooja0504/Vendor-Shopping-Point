@@ -245,10 +245,4 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
-
-
-
-
-
-
 }
