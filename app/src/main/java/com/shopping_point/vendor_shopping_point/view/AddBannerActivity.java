@@ -100,31 +100,10 @@ public class AddBannerActivity extends AppCompatActivity implements View.OnClick
             case R.id.upload_banner:
                 uplodBanner();
                 break;
-//                case R.id.category_spinner:
-//                selectCategory();
-//                break;
+
         }
     }
 
-//    private void selectCategory() {
-//        Toast.makeText(this, "In select category function ", Toast.LENGTH_SHORT).show();
-//        categoryViewModel.getCategory().observe(this, CategoryResponse -> {
-//           List<Category> list=  CategoryResponse.getCategory();
-//
-//           for(Category value : list){
-//               category.add(String.valueOf(value));
-//           }
-//            stringArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,category);
-//           stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//            binding.categorySpinner.setAdapter(stringArrayAdapter);
-//
-//        });
-//
-//
-//
-//       //Intent intent=new Intent(getApplicationContext(), CategoryActivity.class);
-//       // startActivity(intent);
-//    }
 
     private void browseImage() {
         Intent intent = new Intent();

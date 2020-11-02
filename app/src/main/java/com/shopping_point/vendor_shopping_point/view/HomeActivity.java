@@ -6,7 +6,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
@@ -15,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.Manifest;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
@@ -42,6 +42,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.shopping_point.vendor_shopping_point.R;
 import com.shopping_point.vendor_shopping_point.databinding.ActivityHomeBinding;
+import com.shopping_point.vendor_shopping_point.model.UploadPhoto;
 import com.shopping_point.vendor_shopping_point.receiver.NetworkChangeReceiver;
 import com.shopping_point.vendor_shopping_point.storage.LoginUtils;
 import com.shopping_point.vendor_shopping_point.utils.OnNetworkListener;
@@ -59,7 +60,6 @@ import static com.shopping_point.vendor_shopping_point.storage.LanguageUtils.loa
 import static com.shopping_point.vendor_shopping_point.utils.Constant.CAMERA_PERMISSION_CODE;
 import static com.shopping_point.vendor_shopping_point.utils.Constant.CAMERA_REQUEST;
 import static com.shopping_point.vendor_shopping_point.utils.Constant.GALLERY_REQUEST;
-import static com.shopping_point.vendor_shopping_point.utils.Constant.LOCALHOST;
 import static com.shopping_point.vendor_shopping_point.utils.Constant.READ_EXTERNAL_STORAGE_CODE;
 
 
@@ -73,6 +73,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private Uri selectedImage;
     private UploadPhotoViewModel uploadPhotoViewModel;
     private VendorImageViewModel vendorImageViewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -268,18 +269,27 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         return Base64.encodeToString(imgByte,Base64.DEFAULT);
     }
 
-    private void uploadImage(String photo,int id) {
-        uploadPhotoViewModel.uploadPhoto(photo,id).observe(this, response -> {
-            //Toast.makeText(this, "Image Uploaded", Toast.LENGTH_SHORT).show();
+    private void uploadImage(String encodephoto, int id) {
 
-            if(response!= null){
-                Log.d(TAG, "onResponse: upload profile picture" + response);
-                Toast.makeText(this, "NOt Null", Toast.LENGTH_SHORT).show();
+
+
+        ProgressDialog progressDialog = new ProgressDialog(this, R.style.AppTheme_Dialog);
+        progressDialog.setMessage("Profile Uploading");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        uploadPhotoViewModel.getUploadPhotoResponseLiveData(new UploadPhoto(encodephoto,id)).observe(this, uploadPhotoApiResponse -> {
+            if (!uploadPhotoApiResponse.isError()) {
+                Toast.makeText(this, uploadPhotoApiResponse.getMessage(), Toast.LENGTH_LONG).show();
+                //LoginUtils.getInstance(this).saveUserInfo(addBannerApiResponse.getUser());
+                progressDialog.dismiss();
             }else
             {
-                Toast.makeText(this, "NULL", Toast.LENGTH_SHORT).show();
+                progressDialog.cancel();
+                Toast.makeText(this, uploadPhotoApiResponse.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
 
