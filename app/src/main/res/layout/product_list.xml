@@ -19,11 +19,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:textSize="20dp"
             android:layout_toRightOf="@id/imageView"
             android:text="Apple MacBook Air Core i5 5th Gen - (8 GB/128 GB SSD/Mac OS Sierra)"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/ShortDesc"
@@ -35,7 +35,15 @@
             android:layout_toRightOf="@id/imageView"
             android:text="13.3 Inch, 256 GB"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
-
+        <ProgressBar
+            android:id="@+id/progress_bar_productlist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/Rating"
+            android:layout_alignBottom="@+id/status"
+            android:layout_marginTop="53dp"
+            android:layout_marginBottom="53dp"
+            android:visibility="gone" />
         <TextView
             android:id="@+id/Rating"
             android:layout_width="wrap_content"
@@ -43,14 +51,13 @@
             android:layout_below="@id/ShortDesc"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:textColor="@color/white"
             android:layout_toRightOf="@id/imageView"
             android:background="#2BCC7C"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:text="4.7"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
-            />
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/Price"
@@ -66,21 +73,21 @@
 
 
         <Switch
-            android:thumb="@drawable/thumb"
             android:id="@+id/status"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_below="@id/Price"
             android:layout_margin="@dimen/dimen30dp"
-            android:paddingRight="20dp"
-android:track="@drawable/track"
-            android:showText="true"
-android:background="@color/white"
-            android:textColor="@color/black"
+            android:background="@color/white"
             android:gravity="center"
+            android:paddingRight="20dp"
+            android:showText="true"
             android:text="Active/Dactivate"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textColor="@color/black"
+            android:thumb="@drawable/thumb"
 
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+            android:track="@drawable/track" />
 
     </RelativeLayout>
 

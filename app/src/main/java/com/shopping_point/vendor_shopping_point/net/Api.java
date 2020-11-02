@@ -73,4 +73,10 @@ public interface Api {
 
     @POST("vendor/upload_profile.php")
     Call<UploadPhotoApiResponse> uploadPhoto(@Body UploadPhoto uploadPhoto);
+
+    @GET("vendor/deactivate_product.php")
+    Call<ResponseBody> deactivateProduct(@Query("product_id") int product_id);
+
+    @GET("vendor/activate_product.php")
+    Call<ResponseBody> activateProduct(@Query("product_id") int product_id);
 }

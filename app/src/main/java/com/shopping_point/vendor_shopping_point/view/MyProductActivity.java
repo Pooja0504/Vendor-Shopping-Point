@@ -27,19 +27,10 @@ public class MyProductActivity extends AppCompatActivity {
     private static final String TAG = "MyProductActivity";
     private MyProductViewModel myProductViewModel;
     private MyProductAdapter myProductAdapter;
-    public static boolean isActivityRunning = false;
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        isActivityRunning=true;
-    }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        isActivityRunning=false;
-    }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +56,7 @@ public class MyProductActivity extends AppCompatActivity {
 
     private void getMyProduct(int seller_id) {
         myProductViewModel.getMyProduct(seller_id).observe(this, MyProductResponse -> {
-            myProductAdapter = new MyProductAdapter(getApplicationContext(), MyProductResponse.getMyProduct(seller_id));
+            myProductAdapter = new MyProductAdapter(getApplicationContext(), MyProductResponse.getMyProduct(seller_id),this);
             binding.productlist.setAdapter(myProductAdapter);
             myProductAdapter.notifyDataSetChanged();
         });

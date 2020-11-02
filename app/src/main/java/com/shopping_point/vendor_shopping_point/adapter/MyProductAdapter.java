@@ -4,10 +4,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -15,27 +17,36 @@ import com.shopping_point.vendor_shopping_point.R;
 
 import com.shopping_point.vendor_shopping_point.databinding.ProductListBinding;
 import com.shopping_point.vendor_shopping_point.model.MyProduct;
+import com.shopping_point.vendor_shopping_point.view.MyProductActivity;
+import com.shopping_point.vendor_shopping_point.viewModel.ActivateProductViewModel;
+import com.shopping_point.vendor_shopping_point.viewModel.DeactivateProductViewModel;
 
 
+import java.io.IOException;
 import java.util.List;
 
-import static com.shopping_point.vendor_shopping_point.utils.Constant.LOCALHOST;
-import static com.shopping_point.vendor_shopping_point.view.MyProductActivity.isActivityRunning;
 
 
 public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyProductViewHolder>{
 
     private Context mContext;
     private List<MyProduct> myProductList;
+    private ActivateProductViewModel activateProductViewModel;
+    private DeactivateProductViewModel deactivateProductViewModel;
+    private MyProductActivity myProductActivity;
 
-    public MyProductAdapter(Context mContext, List<MyProduct> myProductList) {
+
+    public MyProductAdapter(Context mContext, List<MyProduct> myProductList,MyProductActivity myProductActivity) {
         this.mContext = mContext;
         this.myProductList = myProductList;
+        this.myProductActivity=myProductActivity;
     }
 
     @NonNull
     @Override
     public MyProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
+        activateProductViewModel = ViewModelProviders.of(myProductActivity).get(ActivateProductViewModel.class);
+        deactivateProductViewModel = ViewModelProviders.of(myProductActivity).get(DeactivateProductViewModel.class);
         ProductListBinding productListBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.product_list,parent,false);
         return new MyProductViewHolder(productListBinding);
     }
@@ -46,7 +57,7 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyPr
 
         if (myProduct != null) {
             String imageUrl =  myProduct.getImage().replaceAll("\\\\", "/");
-            Toast.makeText(mContext, myProduct.getTitle() + "  IN PRODUCT ADAPTER ", Toast.LENGTH_SHORT).show();
+           //Toast.makeText(mContext, myProduct.getTitle() + "  IN PRODUCT ADAPTER ", Toast.LENGTH_SHORT).show();
 
 
             Glide.with(mContext)
@@ -61,10 +72,64 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyPr
             holder.binding.Rating.setText(Rating + " ★ ");
             String Price = myProduct.getPrice();
             holder.binding.Price.setText(Price + " ₹ ");
-            if(isActivityRunning){
-                holder.binding.status.setVisibility(View.GONE);
 
+
+            if(myProduct.getIsActive().equals("1")) {
+
+                holder.binding.status.setText("Active");
+                holder.binding.status.setChecked(true);
+
+            }else {
+                holder.binding.status.setText("Inactive");
+                holder.binding.status.setChecked(false);
             }
+
+            holder.binding.status.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    if(b)
+                    {
+                        deactivateProductViewModel.deactivateVendor(myProduct.getProduct_id()).observe( myProductActivity, responseBody -> {
+                            if(responseBody!= null){
+
+                                try {
+                                    holder.binding.progressBarProductlist.setVisibility(View.INVISIBLE);
+
+                                    holder.binding.status.setText("Inactive");
+                                    holder.binding.status.setChecked(false);
+                                    Toast.makeText(mContext, responseBody.string(), Toast.LENGTH_SHORT).show();
+
+                                } catch (IOException e) {
+                                    holder.binding.progressBarProductlist.setVisibility(View.INVISIBLE);
+
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        });
+                    }else {
+                        activateProductViewModel.activateVendor(myProduct.getProduct_id()).observe( myProductActivity, responseBody -> {
+                            if(responseBody!= null){
+
+                                try {
+                                    holder.binding.progressBarProductlist.setVisibility(View.INVISIBLE);
+
+                                    holder.binding.status.setText("Active");
+                                    holder.binding.status.setChecked(true);
+                                    Toast.makeText(mContext, responseBody.string(), Toast.LENGTH_SHORT).show();
+
+                                } catch (IOException e) {
+                                    holder.binding.progressBarProductlist.setVisibility(View.INVISIBLE);
+
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        });
+
+                    }
+                }
+            });
         }
     }
 
