@@ -92,18 +92,11 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyPr
                         deactivateProductViewModel.deactivateVendor(myProduct.getProduct_id()).observe( myProductActivity, responseBody -> {
                             if(responseBody!= null){
 
-                                try {
-                                    holder.binding.progressBarProductlist.setVisibility(View.INVISIBLE);
+                                holder.binding.progressBarProductlist.setVisibility(View.INVISIBLE);
 
-                                    holder.binding.status.setText("Inactive");
-                                    holder.binding.status.setChecked(false);
-                                    Toast.makeText(mContext, responseBody.string(), Toast.LENGTH_SHORT).show();
+                                holder.binding.status.setText("Inactive");
 
-                                } catch (IOException e) {
-                                    holder.binding.progressBarProductlist.setVisibility(View.INVISIBLE);
-
-                                    e.printStackTrace();
-                                }
+                                //Toast.makeText(mContext, responseBody.string(), Toast.LENGTH_SHORT).show();
 
                             }
                         });
@@ -111,18 +104,11 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyPr
                         activateProductViewModel.activateVendor(myProduct.getProduct_id()).observe( myProductActivity, responseBody -> {
                             if(responseBody!= null){
 
-                                try {
-                                    holder.binding.progressBarProductlist.setVisibility(View.INVISIBLE);
+                                holder.binding.progressBarProductlist.setVisibility(View.INVISIBLE);
 
-                                    holder.binding.status.setText("Active");
-                                    holder.binding.status.setChecked(true);
-                                    Toast.makeText(mContext, responseBody.string(), Toast.LENGTH_SHORT).show();
+                                holder.binding.status.setText("Active");
 
-                                } catch (IOException e) {
-                                    holder.binding.progressBarProductlist.setVisibility(View.INVISIBLE);
-
-                                    e.printStackTrace();
-                                }
+                                // Toast.makeText(mContext, responseBody.string(), Toast.LENGTH_SHORT).show();
 
                             }
                         });
