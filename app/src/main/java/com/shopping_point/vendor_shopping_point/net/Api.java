@@ -64,7 +64,7 @@ public interface Api {
     @GET("admin/get_category.php")
     Call<CategoryResponse> getCategory();
 
-    @POST("admin/update_profile.php")
+    @POST("vendor/update_profile.php")
     Call<UpdateApiResponse> updateProfile(@Body Update update);
 
     @POST("vendor/addBanner.php")

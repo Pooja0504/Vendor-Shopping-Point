@@ -1,6 +1,7 @@
 package com.shopping_point.vendor_shopping_point.view;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -76,6 +77,8 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
         updateProfileViewModel.getUpdateResponseLiveData(new Update(email, name, phone_no)).observe(this, updateApiResponse -> {
             if (!updateApiResponse.isError()) {
                 Toast.makeText(this, updateApiResponse.getMessage(), Toast.LENGTH_LONG).show();
+                LoginUtils.getInstance(this).saveVendorInfo(updateApiResponse.getName(),updateApiResponse.getEmail(),updateApiResponse.getPhone_no());
+                goToAccountActivity();
                 // LoginUtils.getInstance(this).saveUserInfo(updateApiResponse.getUser());
                 progressDialog.dismiss();
                 // goToLoginActivity();
@@ -87,7 +90,9 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
 
     }
 
-
+    private void goToAccountActivity() {
+        startActivity(new Intent(UpdateProfileActivity.this,AccountActivity.class));
+    }
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
