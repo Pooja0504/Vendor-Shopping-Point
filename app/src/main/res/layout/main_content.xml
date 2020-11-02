@@ -14,6 +14,7 @@
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             tools:context=".view.ProductActivity">
 
             <ViewFlipper
@@ -53,6 +54,7 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="16dp"
+                    android:background="@color/white"
                     app:cardCornerRadius="@dimen/dimen5dp">
 
                     <LinearLayout
@@ -90,6 +92,7 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="16dp"
+                    android:background="@color/white"
                     app:cardCornerRadius="@dimen/dimen5dp">
 
                     <LinearLayout
@@ -127,6 +130,7 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="16dp"
+                    android:background="@color/white"
                     app:cardCornerRadius="@dimen/dimen5dp">
 
                     <LinearLayout
@@ -162,6 +166,7 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="16dp"
+                    android:background="@color/white"
                     app:cardCornerRadius="@dimen/dimen5dp">
 
                     <LinearLayout
