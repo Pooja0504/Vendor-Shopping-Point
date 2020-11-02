@@ -84,23 +84,16 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyPr
                 holder.binding.status.setChecked(false);
             }
 
+
+
+
+
+
             holder.binding.status.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                     if(b)
                     {
-                        deactivateProductViewModel.deactivateVendor(myProduct.getProduct_id()).observe( myProductActivity, responseBody -> {
-                            if(responseBody!= null){
-
-                                holder.binding.progressBarProductlist.setVisibility(View.INVISIBLE);
-
-                                holder.binding.status.setText("Inactive");
-
-                                //Toast.makeText(mContext, responseBody.string(), Toast.LENGTH_SHORT).show();
-
-                            }
-                        });
-                    }else {
                         activateProductViewModel.activateVendor(myProduct.getProduct_id()).observe( myProductActivity, responseBody -> {
                             if(responseBody!= null){
 
@@ -112,12 +105,38 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyPr
 
                             }
                         });
+                    }else {
+                        deactivateProductViewModel.deactivateVendor(myProduct.getProduct_id()).observe( myProductActivity, responseBody -> {
+                            if(responseBody!= null){
+
+                                holder.binding.progressBarProductlist.setVisibility(View.INVISIBLE);
+
+                                holder.binding.status.setText("Inactive");
+
+                                //Toast.makeText(mContext, responseBody.string(), Toast.LENGTH_SHORT).show();
+
+                            }
+                        });
+
 
                     }
                 }
             });
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public int getItemCount() {
