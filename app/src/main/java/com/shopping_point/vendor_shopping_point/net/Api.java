@@ -9,6 +9,7 @@ import com.shopping_point.vendor_shopping_point.model.Image;
 import com.shopping_point.vendor_shopping_point.model.LoginApiResponse;
 import com.shopping_point.vendor_shopping_point.model.MyProductResponse;
 import com.shopping_point.vendor_shopping_point.model.NewsFeedResponse;
+import com.shopping_point.vendor_shopping_point.model.NotificationResponse;
 import com.shopping_point.vendor_shopping_point.model.Otp;
 import com.shopping_point.vendor_shopping_point.model.Product;
 import com.shopping_point.vendor_shopping_point.model.RegisterApiResponse;
@@ -54,6 +55,9 @@ public interface Api {
 
     @GET("posters/getPosters.php")
     Call<NewsFeedResponse> getPosters();
+
+    @GET("vendor/getNotification.php")
+    Call<NotificationResponse> getNotification(@Query("id")int seller_id);
 
     @POST("vendor/addProduct.php")
     Call<AddProductApiResponse> createProduct(@Body Product product);
