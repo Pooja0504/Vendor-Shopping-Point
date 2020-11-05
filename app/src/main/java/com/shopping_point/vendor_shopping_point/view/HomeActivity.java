@@ -73,7 +73,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private Uri selectedImage;
     private UploadPhotoViewModel uploadPhotoViewModel;
     private VendorImageViewModel vendorImageViewModel;
-
+Bitmap bitmap;
+    String encode_image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,8 +151,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 showCustomAlertDialog();
                 break;
             case R.id.myproduct:
-                Intent myproduct = new Intent(getApplicationContext(), MyProductActivity.class);
-                startActivity(myproduct);
+//                Intent myproduct = new Intent(getApplicationContext(), MyProductActivity.class);
+//                startActivity(myproduct);
                 break;
             case R.id.addproduct:
                 Intent addproduct = new Intent(getApplicationContext(), AddProductActivity.class);
@@ -231,32 +232,30 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Uri path = data.getData();
-        Bitmap bitmap = null;
-        if (requestCode == GALLERY_REQUEST && resultCode == RESULT_OK) {
 
-
+        int id = LoginUtils.getInstance(this).getVendorInfo().getId();
+        if (requestCode == GALLERY_REQUEST && resultCode == RESULT_OK && data != null ) {
+            Uri path = data.getData();
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getApplication().getContentResolver(), path);
+                circleImageView.setImageBitmap(bitmap);
+               circleImageView.setVisibility(View.VISIBLE);
+
+                encode_image= imageToString(bitmap);
+uploadImage(encode_image,id);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            selectedImage = data.getData();
-            circleImageView.setImageURI(selectedImage);
 
-            int id = LoginUtils.getInstance(this).getVendorInfo().getId();
-            String encodephoto = imageToString(bitmap);
-
-          //  Toast.makeText(this, encodephoto, Toast.LENGTH_SHORT).show();
-            uploadImage(encodephoto,id);
 
         } else if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             circleImageView.setImageBitmap(photo);
-            int id = LoginUtils.getInstance(this).getVendorInfo().getId();
+
             String encodePhoto = imageToString(photo);
-          //  Toast.makeText(this, encodePhoto, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, encodePhoto, Toast.LENGTH_SHORT).show();
             uploadImage(encodePhoto,id);
 
         }
@@ -271,14 +270,15 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     private void uploadImage(String encodephoto, int id) {
 
-
+        Toast.makeText(this, encodephoto, Toast.LENGTH_SHORT).show();
 
         ProgressDialog progressDialog = new ProgressDialog(this, R.style.AppTheme_Dialog);
         progressDialog.setMessage("Profile Uploading");
         progressDialog.setCancelable(false);
         progressDialog.show();
-
+        Toast.makeText(this, "Before upload", Toast.LENGTH_SHORT).show();
         uploadPhotoViewModel.getUploadPhotoResponseLiveData(new UploadPhoto(encodephoto,id)).observe(this, uploadPhotoApiResponse -> {
+            Toast.makeText(this, "In api response", Toast.LENGTH_SHORT).show();
             if (!uploadPhotoApiResponse.isError()) {
                 Toast.makeText(this, uploadPhotoApiResponse.getMessage(), Toast.LENGTH_LONG).show();
                 //LoginUtils.getInstance(this).saveUserInfo(addBannerApiResponse.getUser());

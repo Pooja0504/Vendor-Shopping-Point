@@ -19,7 +19,7 @@ import static com.shopping_point.vendor_shopping_point.utils.Constant.OTP;
 
 public class PasswordAssistantActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = "PasswordAssistantActivi";
+    private static final String TAG = "PasswordAssistantActivity";
     private ActivityPasswordAssistantBinding binding;
     private OtpViewModel otpViewModel;
     private String userEmail;
