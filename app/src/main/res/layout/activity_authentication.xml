@@ -8,46 +8,22 @@
         android:layout_height="597dp"
         tools:context=".view.AuthenticationActivity">
 
-        <TextView
-            android:id="@+id/shopingpoint"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/blue"
-            android:gravity="center"
-            android:padding="@dimen/dimen20dp"
-            android:text="@string/app_name"
-            android:textColor="@color/white"
-            android:textSize="@dimen/dimen30sp"
-            android:textStyle="bold"
-            tools:ignore="MissingConstraints" />
-
-
-        <TextView
-            android:id="@+id/authenticationRequired"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen10dp"
-            android:gravity="start"
-            android:text="@string/authentication_required"
-            android:textColor="@color/black"
-            android:textSize="@dimen/dimen25sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/shopingpoint" />
 
         <TextView
             android:id="@+id/authentication"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dimen10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
             android:gravity="start"
             android:text="@string/description2"
             android:textColor="@color/black"
             android:textSize="@dimen/dimen18sp"
+            app:layout_constraintBottom_toTopOf="@+id/otpCode"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/authenticationRequired" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <EditText
@@ -55,9 +31,9 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="@dimen/dimen10dp"
-            android:layout_marginTop="@dimen/dimen30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="@dimen/dimen10dp"
-            android:layout_marginBottom="@dimen/dimen10dp"
+            android:layout_marginBottom="9dp"
             android:background="@drawable/custom_border"
             android:hint="@string/enter_otp"
             android:importantForAutofill="no"
@@ -68,7 +44,9 @@
             android:paddingEnd="@dimen/dimen10dp"
             android:singleLine="true"
             android:textColorHint="@color/vDarkGray"
+            app:layout_constraintBottom_toTopOf="@+id/proceed"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.842"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/authentication" />
 
@@ -77,9 +55,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dimen10dp"
-            android:layout_marginTop="@dimen/dimen10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="@dimen/dimen10dp"
-            android:layout_marginBottom="@dimen/dimen10dp"
             android:background="@drawable/custom_button_border2"
             android:text="@string/proceed"
             android:textAllCaps="false"

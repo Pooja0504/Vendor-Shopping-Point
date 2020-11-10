@@ -121,4 +121,6 @@
     <string name="version_build">Version 0.0.1 Build 1</string>
     <string name="help">Help</string>
     <string name="desc_feedback_link"><font color='#008CFF'>Click here </font></string>
+    <string name="pass_authentication">Password Authentication</string>
+    <string name="passs_authentication">Password Authentication</string>
 </resources>
