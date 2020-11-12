@@ -34,6 +34,10 @@
                 android:icon="@drawable/ic_newsfeed"
                 android:title="@string/news_feed" />
 
+    <item
+        android:id="@+id/nav_signOut"
+        android:icon="@drawable/ic_logout"
+        android:title="@string/logout" />
 
 
 </menu>

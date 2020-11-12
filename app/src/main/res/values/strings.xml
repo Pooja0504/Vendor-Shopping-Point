@@ -123,4 +123,5 @@
     <string name="desc_feedback_link"><font color='#008CFF'>Click here </font></string>
     <string name="pass_authentication">Password Authentication</string>
     <string name="passs_authentication">Password Authentication</string>
+    <string name="logout">Logout</string>
 </resources>

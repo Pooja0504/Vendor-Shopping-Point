@@ -81,7 +81,7 @@ Bitmap bitmap;
         super.onCreate(savedInstanceState);
         loadLocale(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
-        binding.included.content.myproduct.setOnClickListener(this);
+
         binding.included.content.addproduct.setOnClickListener(this);
         binding.included.content.activateproduct.setOnClickListener(this);
         binding.included.content.promotions.setOnClickListener(this);
@@ -150,10 +150,7 @@ Bitmap bitmap;
             case R.id.plus:
                 showCustomAlertDialog();
                 break;
-            case R.id.myproduct:
-//                Intent myproduct = new Intent(getApplicationContext(), MyProductActivity.class);
-//                startActivity(myproduct);
-                break;
+
             case R.id.addproduct:
                 Intent addproduct = new Intent(getApplicationContext(), AddProductActivity.class);
                 startActivity(addproduct);
@@ -332,6 +329,11 @@ uploadImage(encode_image,id);
        }else if (id == R.id.nav_notification) {
            Intent NavNotification = new Intent(this, NavNotification.class);
            startActivity(NavNotification);
+       }else if(id==R.id.nav_signOut){
+           LoginUtils.getInstance(this).clearAll();
+           Intent intent = new Intent(this, LoginActivity.class);
+           intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+           startActivity(intent);
        }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
