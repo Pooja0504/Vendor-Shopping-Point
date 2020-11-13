@@ -47,7 +47,8 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
 
         if(isActivityRunning){
             binding.currentPassword.setVisibility(View.GONE);
-
+            binding.txtCurrentPassword.setVisibility(View.GONE);
+            binding.txtCurrentPassInputLayout.setVisibility(View.GONE);
         }
     }
 
