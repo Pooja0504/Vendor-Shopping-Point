@@ -8,147 +8,158 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-
         tools:context=".view.SignUpActivity">
+
+   <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen160dp"
+            android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen160dp"
+            android:background="@drawable/custom_back" />
+    </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="@dimen/dimen20dp"
+            android:layout_marginLeft="@dimen/dimen20dp">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="@dimen/dimen20dp"
-                android:textColor="@color/white"
-                android:text="@string/shoping_point"
+                android:layout_gravity="left"
+                android:text="Become A Member"
                 android:textStyle="bold"
-                android:background="@color/blue"
-                android:textSize="@dimen/dimen35sp" />
+                android:textColor="#ffff"
+                android:textSize="26sp"
+               />
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Just one more step!!"
+                android:textColor="#ffff"
+                android:textSize="16sp"
+               />
+
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="@dimen/dimen24dp"
-                android:paddingEnd="@dimen/dimen24dp"
-                android:layout_marginTop="@dimen/dimen20dp"
-                android:gravity="center"
-                android:text="Become a Member"
-                android:textColor="@color/black"
-                android:textSize="@dimen/dimen30sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="@dimen/dimen30dp"
+                android:layout_marginBottom="@dimen/dimen20dp"
+                android:elevation="@dimen/dimen10dp"
+               app:cardCornerRadius="@dimen/dimen20dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen20dp"
+                    android:orientation="vertical"
+                    >
 
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen10dp"
-                android:layout_marginBottom="@dimen/dimen8dp"
-                android:hint="@string/organisation_name"
-                android:paddingLeft="@dimen/dimen24dp"
-                android:paddingRight="@dimen/dimen24dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Organisation Name"
+                    android:textColor="#00a5ff"
+                    android:layout_marginTop="@dimen/dimen20dp"
+                    />
 
                 <EditText
                     android:id="@+id/userName"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="40dp"
                     android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
-
-                    android:background="@drawable/custom_border"
                     android:inputType="textPersonName"
                     android:padding="@dimen/dimen5dp" />
-            </com.google.android.material.textfield.TextInputLayout>
 
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen8dp"
-                android:layout_marginBottom="@dimen/dimen8dp"
-                android:hint="@string/email"
-                android:paddingLeft="@dimen/dimen24dp"
-                android:paddingRight="@dimen/dimen24dp">
-
-                <EditText
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:textColor="#00a5ff"
+                        android:layout_marginTop="@dimen/dimen20dp"
+                        />
+                    <EditText
                     android:id="@+id/userEmail"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@drawable/custom_border"
+                    android:layout_height="40dp"
                     android:inputType="textEmailAddress"
                     android:padding="@dimen/dimen5dp" />
-            </com.google.android.material.textfield.TextInputLayout>
 
-
-
-
-
-
-
-
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Contact Number"
+                        android:textColor="#00a5ff"
+                        android:layout_marginTop="@dimen/dimen20dp"
+                        />
 
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:layout_marginTop="@dimen/dimen8dp"
                 android:layout_marginBottom="@dimen/dimen8dp"
-                android:paddingLeft="@dimen/dimen24dp"
 
                 >
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="10">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10">
+
+                    <com.hbb20.CountryCodePicker
+                        android:id="@+id/ccp"
+                        android:layout_width="85dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        app:ccp_autoDetectCountry="true"
+                        app:ccp_showNameCode="true"
+                        app:ccp_textSize="@dimen/dimen16sp"
+
+                        />
 
 
-
-            <com.hbb20.CountryCodePicker
-                android:id="@+id/ccp"
-                android:layout_width="85dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:ccp_autoDetectCountry="true"
-                app:ccp_showNameCode="true"
-                android:gravity="center"
-                android:background="@drawable/custom_border"
-                app:ccp_textSize="@dimen/dimen16sp"
-
-                />
+                    <!--            <com.google.android.material.textfield.TextInputLayout-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="wrap_content"-->
+                    <!--                android:layout_marginTop="@dimen/dimen8dp"-->
+                    <!--                android:layout_marginBottom="@dimen/dimen8dp"-->
+                    <!--                android:hint="@string/contact"-->
+                    <!--                android:paddingLeft="@dimen/dimen24dp"-->
+                    <!--                android:layout_weight="8"-->
+                    <!--                android:paddingRight="@dimen/dimen24dp">-->
 
 
-<!--            <com.google.android.material.textfield.TextInputLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="@dimen/dimen8dp"-->
-<!--                android:layout_marginBottom="@dimen/dimen8dp"-->
-<!--                android:hint="@string/contact"-->
-<!--                android:paddingLeft="@dimen/dimen24dp"-->
-<!--                android:layout_weight="8"-->
-<!--                android:paddingRight="@dimen/dimen24dp">-->
+                    <EditText
+                        android:id="@+id/userContact"
+                        android:layout_width="222dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="@dimen/dimen5dp"
+                        android:layout_marginRight="@dimen/dimen5dp"
+                        android:layout_weight="8"
+                        android:digits="1234567890"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:padding="@dimen/dimen5dp" />
 
 
-
-    <EditText
-        android:id="@+id/userContact"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:maxLength="10"
-        android:digits="1234567890"
-        android:layout_marginLeft="@dimen/dimen5dp"
-        android:hint="@string/contact"
-        android:layout_marginRight="@dimen/dimen5dp"
-        android:background="@drawable/custom_border"
-        android:inputType="phone"
-        android:padding="@dimen/dimen5dp"
-        android:layout_weight="8"/>
-
-
-
-
-</TableRow>
+                </TableRow>
             </TableLayout>
 
 
@@ -156,66 +167,43 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen8dp"
-                android:layout_marginBottom="@dimen/dimen8dp"
-                android:hint="@string/password"
-                android:paddingLeft="@dimen/dimen24dp"
-                android:paddingRight="@dimen/dimen24dp"
-                app:passwordToggleContentDescription="Enter Your Password"
-                app:passwordToggleEnabled="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Password"
+                    android:textColor="#00a5ff"
+                    android:layout_marginTop="@dimen/dimen20dp"
+                    />
 
                 <EditText
                     android:id="@+id/userPassword"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/custom_border"
+                    android:layout_height="40dp"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:padding="@dimen/dimen5dp"
                     android:singleLine="true" />
-            </com.google.android.material.textfield.TextInputLayout>
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen8dp"
-                android:layout_marginBottom="@dimen/dimen8dp"
-                android:hint="@string/conform_password"
-                android:paddingLeft="@dimen/dimen24dp"
-                android:paddingRight="@dimen/dimen24dp"
-                app:passwordToggleContentDescription="Confirm Your Password"
-                app:passwordToggleEnabled="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Confirm Password"
+                        android:textColor="#00a5ff"
+                        android:layout_marginTop="@dimen/dimen20dp"
+                        />
 
                 <EditText
                     android:id="@+id/userConfirmPassword"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/custom_border"
+                    android:layout_height="40dp"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:padding="@dimen/dimen5dp"
                     android:singleLine="true" />
-            </com.google.android.material.textfield.TextInputLayout>
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -228,6 +216,8 @@
                 android:text="@string/eight_characters"
                 app:ccp_defaultNameCode="INR"
                 android:textColor="#B2000000"
+                android:layout_marginTop="@dimen/dimen5dp"
+                android:lines="1"
                  />
 
 
@@ -254,5 +244,8 @@
                 android:textSize="@dimen/dimen16sp"
                 android:text="@string/sign_in_already_a_customer" />
         </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+   </RelativeLayout>
     </ScrollView>
 </layout>
