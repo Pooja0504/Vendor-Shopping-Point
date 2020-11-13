@@ -39,4 +39,8 @@ public class SplashActivity extends AppCompatActivity {
             }
         }, SPLASH_TIME_OUT);
     }
+    @Override
+    public void onBackPressed() {
+        return;
+    }
 }

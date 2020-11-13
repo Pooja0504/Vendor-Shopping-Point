@@ -87,24 +87,32 @@
                         android:inputType="textEmailAddress"
                         android:padding="@dimen/dimen10dp" />
 
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dimen20dp"
+                        android:layout_marginTop="@dimen/dimen10dp"
                         android:text="Password"
                         android:textColor="#00a5ff" />
 
-                    <EditText
-                        android:id="@+id/inputPassword"
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:hint="@string/password"
-                        android:imeOptions="actionUnspecified"
-                        android:inputType="textPassword"
-                        android:maxLines="1"
-                        android:padding="@dimen/dimen10dp"
+                        tool:passwordToggleEnabled="true"
+                        android:layout_marginTop="@dimen/dimen10dp"
+                        android:layout_marginBottom="@dimen/dimen5dp"
+                        tool:hintEnabled="false">
 
-                        android:singleLine="true" />
+
+                        <EditText
+                            android:id="@+id/inputPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:maxLines="1"
+                            android:hint="@string/password"
+                            android:padding="@dimen/dimen5dp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
 
                     <TextView
                         android:id="@+id/forgetPassword"

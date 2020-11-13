@@ -174,4 +174,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 //        str.setSpan(new StyleSpan(Typeface.BOLD), 0, boldText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 //        binding.textViewLogin.setText(str);
 //    }
+@Override
+public void onBackPressed() {
+    return;
+}
 }
