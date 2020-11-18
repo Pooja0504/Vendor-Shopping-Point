@@ -43,12 +43,12 @@ import com.google.android.material.snackbar.Snackbar;
 import com.shopping_point.vendor_shopping_point.R;
 import com.shopping_point.vendor_shopping_point.databinding.ActivityHomeBinding;
 import com.shopping_point.vendor_shopping_point.model.NewsFeed;
-import com.shopping_point.vendor_shopping_point.model.UploadPhoto;
+import com.shopping_point.vendor_shopping_point.model.Upload;
 import com.shopping_point.vendor_shopping_point.receiver.NetworkChangeReceiver;
 import com.shopping_point.vendor_shopping_point.storage.LoginUtils;
 import com.shopping_point.vendor_shopping_point.utils.OnNetworkListener;
 import com.shopping_point.vendor_shopping_point.viewModel.NewsFeedViewModel;
-import com.shopping_point.vendor_shopping_point.viewModel.UploadPhotoViewModel;
+import com.shopping_point.vendor_shopping_point.viewModel.UploadProfileViewModel;
 import com.shopping_point.vendor_shopping_point.viewModel.VendorImageViewModel;
 
 import java.io.ByteArrayOutputStream;
@@ -73,7 +73,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private NetworkChangeReceiver mNetworkReceiver;
     private CircleImageView circleImageView,circleImageView2;
     private Uri selectedImage;
-    private UploadPhotoViewModel uploadPhotoViewModel;
+    private UploadProfileViewModel uploadProfileViewModel;
     private VendorImageViewModel vendorImageViewModel;
 Bitmap bitmap;
     String encode_image;
@@ -89,7 +89,7 @@ Bitmap bitmap;
         binding.included.content.addproduct.setOnClickListener(this);
         binding.included.content.activateproduct.setOnClickListener(this);
         binding.included.content.promotions.setOnClickListener(this);
-        uploadPhotoViewModel = ViewModelProviders.of(this).get(UploadPhotoViewModel.class);
+        uploadProfileViewModel = ViewModelProviders.of(this).get(UploadProfileViewModel.class);
         newsFeedViewModel = ViewModelProviders.of(this).get(NewsFeedViewModel.class);
         vendorImageViewModel = ViewModelProviders.of(this).get(VendorImageViewModel.class);
         snack = Snackbar.make(findViewById(android.R.id.content), getResources().getString(R.string.no_internet_connection), Snackbar.LENGTH_INDEFINITE);
@@ -260,33 +260,33 @@ Bitmap bitmap;
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        int id = LoginUtils.getInstance(this).getVendorInfo().getId();
-        if (requestCode == GALLERY_REQUEST && resultCode == RESULT_OK && data != null ) {
+        if (requestCode == GALLERY_REQUEST && resultCode == RESULT_OK) {
+
             Uri path = data.getData();
+
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getApplication().getContentResolver(), path);
-                circleImageView.setImageBitmap(bitmap);
-               circleImageView.setVisibility(View.VISIBLE);
-
-                encode_image= imageToString(bitmap);
-uploadImage(encode_image,id);
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
+            selectedImage = data.getData();
+            circleImageView.setImageURI(selectedImage);
+            encode_image=imageToString(bitmap);
 
+            uploadPhoto(encode_image);
 
         } else if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             circleImageView.setImageBitmap(photo);
 
-            String encodePhoto = imageToString(photo);
-            Toast.makeText(this, encodePhoto, Toast.LENGTH_SHORT).show();
-            uploadImage(encodePhoto,id);
+
+            encode_image=imageToString(photo);
+            uploadPhoto(encode_image);
+
 
         }
     }
@@ -295,33 +295,28 @@ uploadImage(encode_image,id);
         ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
         byte[] imgByte = byteArrayOutputStream.toByteArray();
-        return Base64.encodeToString(imgByte,Base64.DEFAULT);
+        return Base64.encodeToString(imgByte, Base64.DEFAULT);
     }
-
-    private void uploadImage(String encodephoto, int id) {
-
-        Toast.makeText(this, encodephoto, Toast.LENGTH_SHORT).show();
-
+    private void uploadPhoto(String encode_image) {
+        Toast.makeText(this, "IN UPLOADPHOTO FUNC", Toast.LENGTH_SHORT).show();
         ProgressDialog progressDialog = new ProgressDialog(this, R.style.AppTheme_Dialog);
-        progressDialog.setMessage("Profile Uploading");
+        progressDialog.setMessage("Uploading...");
         progressDialog.setCancelable(false);
         progressDialog.show();
-        Toast.makeText(this, "Before upload", Toast.LENGTH_SHORT).show();
-        uploadPhotoViewModel.getUploadPhotoResponseLiveData(new UploadPhoto(encodephoto,id)).observe(this, uploadPhotoApiResponse -> {
-            Toast.makeText(this, "In api response", Toast.LENGTH_SHORT).show();
-            if (!uploadPhotoApiResponse.isError()) {
-                Toast.makeText(this, uploadPhotoApiResponse.getMessage(), Toast.LENGTH_LONG).show();
+        int adminId= LoginUtils.getInstance(this).getVendorInfo().getId();
+        uploadProfileViewModel.getAddBannerResponseLiveData(new Upload(encode_image,adminId)).observe(this, uploadProfileApiResponse -> {
+            if (!uploadProfileApiResponse.isError()) {
+                Toast.makeText(this, uploadProfileApiResponse.getMessage(), Toast.LENGTH_LONG).show();
                 //LoginUtils.getInstance(this).saveUserInfo(addBannerApiResponse.getUser());
                 progressDialog.dismiss();
             }else
             {
                 progressDialog.cancel();
-                Toast.makeText(this, uploadPhotoApiResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, uploadProfileApiResponse.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
     }
-
 
     private void getVendorImage() {
         vendorImageViewModel.getVendorImage(LoginUtils.getInstance(this).getVendorInfo().getId()).observe(this, response -> {

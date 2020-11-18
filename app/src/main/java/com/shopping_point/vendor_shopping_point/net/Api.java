@@ -15,8 +15,8 @@ import com.shopping_point.vendor_shopping_point.model.Product;
 import com.shopping_point.vendor_shopping_point.model.RegisterApiResponse;
 import com.shopping_point.vendor_shopping_point.model.Update;
 import com.shopping_point.vendor_shopping_point.model.UpdateApiResponse;
-import com.shopping_point.vendor_shopping_point.model.UploadPhoto;
-import com.shopping_point.vendor_shopping_point.model.UploadPhotoApiResponse;
+import com.shopping_point.vendor_shopping_point.model.Upload;
+import com.shopping_point.vendor_shopping_point.model.UploadProfileApiResponse;
 import com.shopping_point.vendor_shopping_point.model.Vendor;
 
 import okhttp3.ResponseBody;
@@ -37,9 +37,6 @@ public interface Api {
 
     @GET("vendor/deleteuser.php")
     Call<ResponseBody> deleteAccount(@Query("userId") int userId);
-
-
-
 
     @DELETE("history/remove.php")
     Call<ResponseBody> removeAllFromHistory();
@@ -75,8 +72,8 @@ public interface Api {
     @POST("vendor/addBanner.php")
     Call<AddBannerApiResponse> createBanner(@Body Banner banner);
 
-    @POST("vendor/upload_profile.php")
-    Call<UploadPhotoApiResponse> uploadPhoto(@Body UploadPhoto uploadPhoto);
+    @POST("vendor/upload.php")
+    Call<UploadProfileApiResponse> upload_profile_image(@Body Upload upload);
 
     @GET("vendor/deactivate_product.php")
     Call<ResponseBody> deactivateProduct(@Query("product_id") int product_id);

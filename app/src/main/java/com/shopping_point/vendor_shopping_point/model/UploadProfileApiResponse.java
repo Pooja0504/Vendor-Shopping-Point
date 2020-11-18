@@ -1,12 +1,12 @@
 package com.shopping_point.vendor_shopping_point.model;
 
-public class UploadPhotoApiResponse {
+public class UploadProfileApiResponse {
 
     private boolean error;
     private String message;
 
 
-    public UploadPhotoApiResponse(boolean error, String message) {
+    public UploadProfileApiResponse(boolean error, String message) {
         this.error = error;
         this.message = message;
     }

@@ -188,7 +188,7 @@
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
-                            app:srcCompat="@drawable/slide1" />
+                            app:srcCompat="@drawable/prome" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
