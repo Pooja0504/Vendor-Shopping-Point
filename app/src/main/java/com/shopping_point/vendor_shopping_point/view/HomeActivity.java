@@ -42,17 +42,20 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.shopping_point.vendor_shopping_point.R;
 import com.shopping_point.vendor_shopping_point.databinding.ActivityHomeBinding;
+import com.shopping_point.vendor_shopping_point.model.NewsFeed;
 import com.shopping_point.vendor_shopping_point.model.UploadPhoto;
 import com.shopping_point.vendor_shopping_point.receiver.NetworkChangeReceiver;
 import com.shopping_point.vendor_shopping_point.storage.LoginUtils;
 import com.shopping_point.vendor_shopping_point.utils.OnNetworkListener;
 import com.shopping_point.vendor_shopping_point.utils.Slide;
+import com.shopping_point.vendor_shopping_point.viewModel.NewsFeedViewModel;
 import com.shopping_point.vendor_shopping_point.viewModel.UploadPhotoViewModel;
 import com.shopping_point.vendor_shopping_point.viewModel.VendorImageViewModel;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -75,35 +78,66 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private VendorImageViewModel vendorImageViewModel;
 Bitmap bitmap;
     String encode_image;
+    public  ArrayList<String> poster;
+    private NewsFeedViewModel newsFeedViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         loadLocale(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
-
+        poster=new ArrayList<>();
         binding.included.content.addproduct.setOnClickListener(this);
         binding.included.content.activateproduct.setOnClickListener(this);
         binding.included.content.promotions.setOnClickListener(this);
         uploadPhotoViewModel = ViewModelProviders.of(this).get(UploadPhotoViewModel.class);
+        newsFeedViewModel = ViewModelProviders.of(this).get(NewsFeedViewModel.class);
         vendorImageViewModel = ViewModelProviders.of(this).get(VendorImageViewModel.class);
         snack = Snackbar.make(findViewById(android.R.id.content), getResources().getString(R.string.no_internet_connection), Snackbar.LENGTH_INDEFINITE);
         setUpViews();
-        flipImages(Slide.getSlides());
+        flipImages(poster);
         getVendorImage();
-        
+        getPosters();
         mNetworkReceiver = new NetworkChangeReceiver();
         mNetworkReceiver.setOnNetworkListener(this);
 
 
     }
 
+    private void getPosters() {
+      newsFeedViewModel.getPosters().observe(this, NewsFeedResponse -> {
+
+            List<NewsFeed> newsFeeds = NewsFeedResponse.getPosters();
+            for(int i=0;i<newsFeeds.size();i++)
+            {
+                NewsFeed currentNewsFeed = newsFeeds.get(i);
+
+                String posterUrl =  currentNewsFeed.getImage().replaceAll("\\\\", "/");
+            //   poster.add(posterUrl);
 
 
-    private void flipImages(ArrayList<Integer> images) {
-        for (int image : images) {
+                ImageView imageView = new ImageView(this);
+
+                Glide.with(this)
+                        .load(posterUrl)
+                        .into(imageView);
+
+
+                binding.included.content.imageSlider.addView(imageView);
+            }
+
+
+
+
+        });}
+
+
+    private void flipImages(ArrayList<String> images) {
+        for (String image : images) {
             ImageView imageView = new ImageView(this);
-            imageView.setBackgroundResource(image);
+            Glide.with(this)
+                    .load(image)
+                    .into(imageView);
             binding.included.content.imageSlider.addView(imageView);
 
         }

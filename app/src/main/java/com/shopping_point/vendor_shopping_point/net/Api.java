@@ -53,7 +53,7 @@ public interface Api {
     @GET("vendor/otp.php")
     Call<Otp> getOtp(@Query("email") String email);
 
-    @GET("posters/getPosters.php")
+    @GET("posters/getPostersAdmin.php")
     Call<NewsFeedResponse> getPosters();
 
     @GET("vendor/getNotification.php")
