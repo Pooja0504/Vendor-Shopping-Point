@@ -75,8 +75,8 @@ public class AddBannerActivity extends AppCompatActivity implements View.OnClick
         progressDialog.setMessage("Add Banner");
         progressDialog.setCancelable(false);
         progressDialog.show();
-
-        addBannerViewModel.getAddBannerResponseLiveData(new Banner(encode_image)).observe(this, addBannerApiResponse -> {
+int Vendor_id = LoginUtils.getInstance(this).getVendorInfo().getId();
+        addBannerViewModel.getAddBannerResponseLiveData(new Banner(encode_image,Vendor_id)).observe(this, addBannerApiResponse -> {
             if (!addBannerApiResponse.isError()) {
                 Toast.makeText(this, addBannerApiResponse.getMessage(), Toast.LENGTH_LONG).show();
                 //LoginUtils.getInstance(this).saveUserInfo(addBannerApiResponse.getUser());

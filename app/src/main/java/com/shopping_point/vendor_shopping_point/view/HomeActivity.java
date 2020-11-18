@@ -47,7 +47,6 @@ import com.shopping_point.vendor_shopping_point.model.UploadPhoto;
 import com.shopping_point.vendor_shopping_point.receiver.NetworkChangeReceiver;
 import com.shopping_point.vendor_shopping_point.storage.LoginUtils;
 import com.shopping_point.vendor_shopping_point.utils.OnNetworkListener;
-import com.shopping_point.vendor_shopping_point.utils.Slide;
 import com.shopping_point.vendor_shopping_point.viewModel.NewsFeedViewModel;
 import com.shopping_point.vendor_shopping_point.viewModel.UploadPhotoViewModel;
 import com.shopping_point.vendor_shopping_point.viewModel.VendorImageViewModel;
