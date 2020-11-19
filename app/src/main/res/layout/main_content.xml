@@ -192,7 +192,7 @@
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/language"
+                    android:id="@+id/banner"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
@@ -211,7 +211,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="@dimen/dimen30dp"
                             android:background="@color/lightGray"
-                            android:text="Language"
+                            android:text="Manage Banners"
                             android:textColor="@color/darkBlue"
                             android:textSize="20sp"
                             />

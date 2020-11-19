@@ -89,6 +89,7 @@ Bitmap bitmap;
         binding.included.content.addproduct.setOnClickListener(this);
         binding.included.content.activateproduct.setOnClickListener(this);
         binding.included.content.promotions.setOnClickListener(this);
+        binding.included.content.banner.setOnClickListener(this);
         uploadProfileViewModel = ViewModelProviders.of(this).get(UploadProfileViewModel.class);
         newsFeedViewModel = ViewModelProviders.of(this).get(NewsFeedViewModel.class);
         vendorImageViewModel = ViewModelProviders.of(this).get(VendorImageViewModel.class);
@@ -195,6 +196,11 @@ Bitmap bitmap;
             case R.id.promotions:
                 Intent promotions = new Intent(HomeActivity.this, AddBannerActivity.class);
                 startActivity(promotions);
+                break;
+
+            case R.id.banner:
+                Intent banner = new Intent(HomeActivity.this, Banner_listActivity.class);
+                startActivity(banner);
                 break;
         }
 
