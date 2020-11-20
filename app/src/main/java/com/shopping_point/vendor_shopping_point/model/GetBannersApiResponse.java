@@ -4,16 +4,16 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class NewsFeedResponse1 {
+public class GetBannersApiResponse {
 
     @SerializedName("posters")
-    private List<NewsFeed1> posters;
+    private List<GetBanners> posters;
 
-    public List<NewsFeed1> getPosters1() {
+    public List<GetBanners> getBanners() {
         return posters;
     }
 
-    public void setPosters(List<NewsFeed1> posters) {
+    public void setPosters(List<GetBanners> posters) {
         this.posters = posters;
     }
 }

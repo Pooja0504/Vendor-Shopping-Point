@@ -9,25 +9,24 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.shopping_point.vendor_shopping_point.R;
-import com.shopping_point.vendor_shopping_point.adapter.NewsFeedAdapter1;
+import com.shopping_point.vendor_shopping_point.adapter.GetBannersAdapter;
 import com.shopping_point.vendor_shopping_point.databinding.ActivityBannerListBinding;
-import com.shopping_point.vendor_shopping_point.model.NewsFeedResponse1;
-import com.shopping_point.vendor_shopping_point.viewModel.NewsFeedViewModel1;
+import com.shopping_point.vendor_shopping_point.viewModel.GetBannersViewModel;
 
 
 public class Banner_listActivity extends AppCompatActivity {
 
     private static final String TAG = "NewsFeedActivity";
     private ActivityBannerListBinding binding;
-    private NewsFeedViewModel1 newsFeedViewModel;
-    private NewsFeedAdapter1 newsFeedAdapter;
+    private GetBannersViewModel newsFeedViewModel;
+    private GetBannersAdapter newsFeedAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_banner_list);
 
-        newsFeedViewModel = ViewModelProviders.of(this).get(NewsFeedViewModel1.class);
+        newsFeedViewModel = ViewModelProviders.of(this).get(GetBannersViewModel.class);
 
         setUpRecyclerView();
 
@@ -45,7 +44,7 @@ public class Banner_listActivity extends AppCompatActivity {
 
     private void getPosters() {
         newsFeedViewModel.getPosters1().observe(this, NewsFeedResponse -> {
-            newsFeedAdapter = new NewsFeedAdapter1(getApplicationContext(), NewsFeedResponse.getPosters1());
+            newsFeedAdapter = new GetBannersAdapter(getApplicationContext(), NewsFeedResponse.getBanners(),this);
             binding.banneritemlist.setAdapter(newsFeedAdapter);
             newsFeedAdapter.notifyDataSetChanged();
         });
