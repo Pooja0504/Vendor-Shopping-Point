@@ -125,4 +125,5 @@
     <string name="passs_authentication">Password Authentication</string>
     <string name="logout">Logout</string>
     <string name="add_banner">Promotion</string>
+    <string name="about_app">About App</string>
 </resources>

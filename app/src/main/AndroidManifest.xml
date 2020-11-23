@@ -67,7 +67,7 @@
         </activity>
         <activity
             android:name=".view.NavSettings"
-            android:label="@string/settings"
+            android:label="App info"
             android:parentActivityName=".view.HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

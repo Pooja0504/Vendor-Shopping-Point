@@ -357,7 +357,7 @@ Bitmap bitmap;
         } else if (id == R.id.nav_newsFeed) {
             Intent newsFeedIntent = new Intent(this, NewsFeedActivity.class);
             startActivity(newsFeedIntent);
-        }else if (id == R.id.nav_settings) {
+        }else if (id == R.id.nav_about_app) {
            Intent navsetting = new Intent(this, NavSettings.class);
            startActivity(navsetting);
        }else if (id == R.id.nav_notification) {
