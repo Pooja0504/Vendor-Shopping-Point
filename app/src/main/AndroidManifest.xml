@@ -41,7 +41,7 @@
                 android:value="com.shopping_point.vendor_shopping_point.view.HomeActivity" />
         </activity>
         <activity android:name=".view.AddBannerActivity"
-            android:label="@string/add_products"
+            android:label="@string/add_banner"
             android:parentActivityName=".view.HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
