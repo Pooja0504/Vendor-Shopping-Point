@@ -16,7 +16,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.CategoryActivity"
+        <activity android:name=".view.OrdersActivity"
+            android:label="Manage Orders"
+            android:parentActivityName=".view.HomeActivity"
+            >
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.shopping_point.vendor_shopping_point.view.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".view.CategoryActivity"
             android:label="Add Category"
             android:parentActivityName=".view.AddProductActivity">
             <meta-data
@@ -32,15 +42,14 @@
                 android:value="com.shopping_point.vendor_shopping_point.view.HomeActivity" />
         </activity>
         <activity android:name=".view.UpdateProfileActivity" />
-
-        <activity android:name=".view.AddProductActivity"
+        <activity
+            android:name=".view.AddProductActivity"
             android:label="@string/add_products"
             android:parentActivityName=".view.HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.shopping_point.vendor_shopping_point.view.HomeActivity" />
         </activity>
-
         <activity
             android:name=".view.Banner_listActivity"
             android:label="Banner List"
@@ -49,8 +58,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.shopping_point.vendor_shopping_point.view.HomeActivity" />
         </activity>
-
-        <activity android:name=".view.AddBannerActivity"
+        <activity
+            android:name=".view.AddBannerActivity"
             android:label="@string/add_products"
             android:parentActivityName=".view.HomeActivity">
             <meta-data
@@ -128,7 +137,7 @@
         <activity
             android:name=".view.AuthenticationActivity"
             android:label="@string/passs_authentication"
-            android:parentActivityName=".view.PasswordAssistantActivity" >
+            android:parentActivityName=".view.PasswordAssistantActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.shopping_point.vendor_shopping_point.view.PasswordAssistantActivity" />

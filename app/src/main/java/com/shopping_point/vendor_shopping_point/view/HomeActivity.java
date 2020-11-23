@@ -41,6 +41,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.shopping_point.vendor_shopping_point.R;
+
 import com.shopping_point.vendor_shopping_point.databinding.ActivityHomeBinding;
 import com.shopping_point.vendor_shopping_point.model.NewsFeed;
 import com.shopping_point.vendor_shopping_point.model.Upload;
@@ -86,10 +87,11 @@ Bitmap bitmap;
         loadLocale(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
         poster=new ArrayList<>();
-        binding.included.content.addproduct.setOnClickListener(this);
+        binding.included.content.addProduct.setOnClickListener(this);
         binding.included.content.activateproduct.setOnClickListener(this);
         binding.included.content.promotions.setOnClickListener(this);
         binding.included.content.banner.setOnClickListener(this);
+        binding.included.content.productSell.setOnClickListener(this);
         uploadProfileViewModel = ViewModelProviders.of(this).get(UploadProfileViewModel.class);
         newsFeedViewModel = ViewModelProviders.of(this).get(NewsFeedViewModel.class);
         vendorImageViewModel = ViewModelProviders.of(this).get(VendorImageViewModel.class);
@@ -185,9 +187,10 @@ Bitmap bitmap;
                 showCustomAlertDialog();
                 break;
 
-            case R.id.addproduct:
+            case R.id.addProduct:
                 Intent addproduct = new Intent(getApplicationContext(), AddProductActivity.class);
                 startActivity(addproduct);
+
                 break;
             case R.id.activateproduct:
                 Intent activateproduct = new Intent(HomeActivity.this, MyProductActivity.class);
@@ -202,6 +205,15 @@ Bitmap bitmap;
                 Intent banner = new Intent(HomeActivity.this, Banner_listActivity.class);
                 startActivity(banner);
                 break;
+            case R.id.bannerlst:
+                Intent order = new Intent(HomeActivity.this, OrdersActivity.class);
+                startActivity(order);
+                break;
+            case R.id.productSell:
+                Intent orderintent = new Intent(HomeActivity.this, OrdersActivity.class);
+                startActivity(orderintent);
+                break;
+
         }
 
     }

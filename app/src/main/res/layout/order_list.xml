@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="120dp"
+            android:layout_height="150dp"
+            android:padding="4dp" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/imageView"
+            android:text="Apple MacBook Air Core i5 5th Gen - (8 GB/128 GB SSD/Mac OS Sierra)"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/ShortDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/imageView"
+            android:text="13.3 Inch, 256 GB"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+        <ProgressBar
+            android:id="@+id/progress_bar_productlist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/Rating"
+            android:layout_alignBottom="@+id/status"
+            android:layout_marginTop="53dp"
+            android:layout_marginBottom="53dp"
+            android:visibility="gone" />
+        <TextView
+            android:id="@+id/Rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ShortDesc"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/imageView"
+            android:background="#2BCC7C"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="4.7"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/Price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Rating"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/imageView"
+            android:text="₹ 56990"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+             />
+
+        <TextView
+            android:id="@+id/productRemaining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Price"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/imageView"
+            android:text="Product Remaining"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            />
+
+
+
+
+
+
+        <TextView
+            android:id="@+id/ordercount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/productRemaining"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/imageView"
+            android:text="Order Count"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            />
+
+    </RelativeLayout>
+
+</layout>

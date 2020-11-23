@@ -129,15 +129,6 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyPr
 
 
 
-
-
-
-
-
-
-
-
-
     @Override
     public int getItemCount() {
         if (myProductList == null) {

@@ -11,6 +11,7 @@ import com.shopping_point.vendor_shopping_point.model.MyProductResponse;
 import com.shopping_point.vendor_shopping_point.model.NewsFeedResponse;
 import com.shopping_point.vendor_shopping_point.model.GetBannersApiResponse;
 import com.shopping_point.vendor_shopping_point.model.NotificationResponse;
+import com.shopping_point.vendor_shopping_point.model.OrderApiResponse;
 import com.shopping_point.vendor_shopping_point.model.Otp;
 import com.shopping_point.vendor_shopping_point.model.Product;
 import com.shopping_point.vendor_shopping_point.model.RegisterApiResponse;
@@ -87,4 +88,8 @@ public interface Api {
 
     @GET("admin/remove_banner_vendor.php")
     Call<ResponseBody> removePoster(@Query("poster_id") int poster_id);
+
+
+    @GET("vendor/ordering_details.php")
+    Call<OrderApiResponse> getOrdersDetails(@Query("id")int seller_id);
 }
