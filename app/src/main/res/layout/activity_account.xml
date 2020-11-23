@@ -150,7 +150,7 @@
                             android:drawableStart="@drawable/ic_sad"
                             android:drawablePadding="20dp"
                             android:gravity="start|center"
-                            android:text="@string/delete_my_account"
+                            android:text="Deactivate Your Account"
                             android:textColor="@color/vDarkGray"
                             android:textSize="18sp" />
                     </LinearLayout>

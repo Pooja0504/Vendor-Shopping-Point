@@ -12,8 +12,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.bumptech.glide.Glide;
@@ -145,13 +148,38 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
                 Intent passwordIntent = new Intent(this, PasswordActivity.class);
                 startActivity(passwordIntent);
                 break;
-            case R.id.deleteAccount:
-                deleteAccount();
+            case R.id.deleteAccount: {
+
+                    closeApplication();
+
+            }
                 break;
         }
     }
+    @Override
+    public void onBackPressed() {
+
+    }
+    private void closeApplication() {
+        androidx.appcompat.app.AlertDialog alertDialog = new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.stat_sys_warning)
+                .setTitle("Do you really want to deactivate your account?")
+                .setMessage("For further activation kindley contact admin ")
+                .setPositiveButton("Yes", (dialog, which) -> deleteAccount())
+                .setNegativeButton(R.string.cancel, null)
+                .show();
+
+        alertDialog.getButton(androidx.appcompat.app.AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.colorPrimary));
+        alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.colorPrimary));
+    }
+
 
     private void deleteAccount() {
+
+
+
+
+
         deleteUserViewModel.deleteUser(LoginUtils.getInstance(this).getVendorInfo().getId()).observe(this, responseBody -> {
             if(responseBody!= null){
                 LoginUtils.getInstance(getApplicationContext()).clearAll();
@@ -218,8 +246,5 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
        // Toast.makeText(this, "Hindi", Toast.LENGTH_SHORT).show();
         setEnglishState(this, false);
     }
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
+
 }
