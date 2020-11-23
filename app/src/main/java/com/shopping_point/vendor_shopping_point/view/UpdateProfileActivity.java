@@ -29,11 +29,11 @@ import com.bumptech.glide.request.RequestOptions;
 import com.shopping_point.vendor_shopping_point.R;
 import com.shopping_point.vendor_shopping_point.databinding.ActivityUpdateProfileBinding;
 import com.shopping_point.vendor_shopping_point.model.Update;
-import com.shopping_point.vendor_shopping_point.model.UploadPhoto;
+import com.shopping_point.vendor_shopping_point.model.Upload;
 import com.shopping_point.vendor_shopping_point.storage.LoginUtils;
 import com.shopping_point.vendor_shopping_point.utils.Validation;
 import com.shopping_point.vendor_shopping_point.viewModel.UpdateProfileViewModel;
-import com.shopping_point.vendor_shopping_point.viewModel.UploadPhotoViewModel;
+import com.shopping_point.vendor_shopping_point.viewModel.UploadProfileViewModel;
 import com.shopping_point.vendor_shopping_point.viewModel.VendorImageViewModel;
 
 import java.io.ByteArrayOutputStream;
@@ -49,26 +49,27 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
     private static final String TAG = "UpdateProfileActivity";
     private UpdateProfileViewModel updateProfileViewModel;
     private ActivityUpdateProfileBinding binding;
-    private VendorImageViewModel vendorImageViewModel;
-    private UpdateProfileActivity updateProfileActivity ;
-    private UploadPhotoViewModel uploadPhotoViewModel;
     private Uri selectedImage;
     String encode_image;
     private Bitmap bitmap;
+    private VendorImageViewModel vendorImageViewModel;
+    private UpdateProfileActivity updateProfileActivity ;
+    private UploadProfileViewModel uploadProfileViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         loadLocale(this);
         vendorImageViewModel = ViewModelProviders.of(this).get(VendorImageViewModel.class);
-        uploadPhotoViewModel = ViewModelProviders.of(this).get(UploadPhotoViewModel.class);
+        uploadProfileViewModel = ViewModelProviders.of(this).get(UploadProfileViewModel.class);
         updateProfileActivity=new UpdateProfileActivity();
-         binding = DataBindingUtil.setContentView(this, R.layout.activity_update_profile);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_update_profile);
         binding.name.setText(LoginUtils.getInstance(this).getVendorInfo().getOrganisation_name());
         binding.email.setText(LoginUtils.getInstance(this).getVendorInfo().getEmail());
         binding.contact.setText(LoginUtils.getInstance(this).getVendorInfo().getPhone_no());
 
         binding.profilePicim.setOnClickListener(this);
-        getVendorImage();
+        getAdminImage();
 
         binding.proceed.setOnClickListener(this);
         binding.cancleUpdate.setOnClickListener(this);
@@ -77,7 +78,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
         updateProfileViewModel = ViewModelProviders.of(this).get(UpdateProfileViewModel.class);
         // setBoldStyle();
     }
-    private void getVendorImage() {
+    private void getAdminImage() {
         vendorImageViewModel.getVendorImage(LoginUtils.getInstance(this).getVendorInfo().getId()).observe(this, response -> {
             if (response != null) {
 
@@ -187,6 +188,40 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
         dialog.show();
     }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == GALLERY_REQUEST && resultCode == RESULT_OK) {
+
+            Uri path = data.getData();
+
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getApplication().getContentResolver(), path);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            selectedImage = data.getData();
+            binding.profilePicim.setImageURI(selectedImage);
+            encode_image=imageToString(bitmap);
+
+            uploadPhoto(encode_image);
+
+        } else if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
+            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            binding.profilePicim.setImageBitmap(photo);
+
+
+            encode_image=imageToString(photo);
+            uploadPhoto(encode_image);
+
+
+        }
+    }
+
+
     private void getImageFromGallery() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (UpdateProfileActivity.this.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED &&
@@ -222,37 +257,6 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == GALLERY_REQUEST && resultCode == RESULT_OK) {
-
-            Uri path = data.getData();
-
-            try {
-                bitmap = MediaStore.Images.Media.getBitmap(getApplication().getContentResolver(), path);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            selectedImage = data.getData();
-            binding.profilePicim.setImageURI(selectedImage);
-            encode_image=imageToString(bitmap);
-
-            uploadPhoto(encode_image);
-
-        } else if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
-            Bitmap photo = (Bitmap) data.getExtras().get("data");
-            binding.profilePicim.setImageBitmap(photo);
-
-
-            encode_image=imageToString(photo);
-            uploadPhoto(encode_image);
-
-
-        }
-    }
     private String imageToString(Bitmap bitmap)
     {
         ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
@@ -267,7 +271,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
         progressDialog.setCancelable(false);
         progressDialog.show();
         int adminId= LoginUtils.getInstance(this).getVendorInfo().getId();
-        uploadPhotoViewModel.getUploadPhotoResponseLiveData(new UploadPhoto(encode_image,adminId)).observe(this, uploadProfileApiResponse -> {
+        uploadProfileViewModel.getAddBannerResponseLiveData(new Upload(encode_image,adminId)).observe(this, uploadProfileApiResponse -> {
             if (!uploadProfileApiResponse.isError()) {
                 Toast.makeText(this, uploadProfileApiResponse.getMessage(), Toast.LENGTH_LONG).show();
                 //LoginUtils.getInstance(this).saveUserInfo(addBannerApiResponse.getUser());
@@ -278,8 +282,6 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
                 Toast.makeText(this, uploadProfileApiResponse.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
     }
-
 
 }
