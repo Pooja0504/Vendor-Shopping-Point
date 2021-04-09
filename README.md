@@ -1,6 +1,6 @@
 
 
-# User Shopping Point
+# Vendor Shopping Point Application
 Online e-commerce Store implemented in MVVM Architecture using Backend  written in MySQL and PHP
 
 Now days, a mobile application has bought a lot of changes in shopping. Specially, the new technology called augmented reality system made in feasible an advanced way of information collecting by giving data of the virtual world to real world. 
