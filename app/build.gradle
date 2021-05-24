@@ -74,6 +74,6 @@ dependencies {
     implementation "de.hdodenhof:circleimageview:$CircleImgVersion"
     testImplementation 'junit:junit:4.12'
 
-    implementation 'com.hbb20:ccp:2.4.0'
+     implementation 'com.hbb20:ccp:2.4.0'
 
 }
