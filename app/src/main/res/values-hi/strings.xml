@@ -202,7 +202,7 @@ OTP दर्ज करें</string>
     <string name="notification">Notifications</string>
     <string name="setting">Settings</string>
     <string name="news_feed">News Feed</string>
-    <string name="organisation_name">Organisation Name</string>
+
     <string name="shoping_point">Shopping Point</string>
     <string name="conform_password">Confirm Password</string>
     <string name="s_pref_name">com.shopping_point.vendor_shopping_point</string>
@@ -212,4 +212,38 @@ OTP दर्ज करें</string>
     <string name="s_pref_login_date">sh_pref_login_date</string>
     <string name="new_here_create_an_account">New User? <font color='#008CFF'>Create an Account</font></string>
     <string name="open">Open</string>
+    <string name="shopping_point">Shopping Point</string>
+    <string name="deactivate_your_account">Deactivate Your Account</string>
+    <string name="be_the_face_of_application">Be the face of application!</string>
+    <string name="select_image">Select image</string>
+    <string name="image_of_product">Image Of Product</string>
+    <string name="add_something_new">Add something new!</string>
+    <string name="great_companies_are_built_on_great_products">Great companies are built on great products..</string>
+    <string name="product_name">Product Name</string>
+    <string name="enter_product_name">Enter Product Name</string>
+    <string name="price">Price</string>
+    <string name="enter_price">Enter Price</string>
+    <string name="description">Description</string>
+    <string name="category">Category</string>
+    <string name="add_description">Add Description</string>
+    <string name="brand">Brand</string>
+    <string name="enter_brand_name">Enter Brand Name</string>
+    <string name="quantity">Quantity</string>
+    <string name="enter_quantity">Enter Quantity</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="we_missed_you_login_to_get_started">We missed you! Login to get started</string>
+    <string name="login">Login</string>
+    <string name="keep_your_password_safe">Keep your password safe!</string>
+    <string name="become_a_member">Become A Member</string>
+    <string name="just_one_more_step">Just one more step!!</string>
+    <string name="organisation_name">Organisation Name</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="it_s_time_to_update_your_profile_information">It\'s time to update your profile information!</string>
+    <string name="update_profile_photo">Update profile photo</string>
+    <string name="nike">Nike</string>
+    <string name="vendor_dashboard">Vendor Dashboard</string>
+    <string name="start_selling_now">Start selling now</string>
+    <string name="active_dactivate">Active/Dactivate</string>
+    <string name="product_remaining">Product Remaining</string>
+    <string name="order_count">Order Count</string>
 </resources>

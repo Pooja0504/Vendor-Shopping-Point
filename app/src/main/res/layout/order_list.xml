@@ -79,7 +79,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/imageView"
-            android:text="Product Remaining"
+            android:text="@string/product_remaining"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             />
 
@@ -96,7 +96,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/imageView"
-            android:text="Order Count"
+            android:text="@string/order_count"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             />
 

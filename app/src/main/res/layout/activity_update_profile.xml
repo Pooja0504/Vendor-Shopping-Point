@@ -38,7 +38,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="It's time to update your profile information!"
+                    android:text="@string/it_s_time_to_update_your_profile_information"
                     android:textColor="#ffff"
                     android:textSize="16sp" />
 
@@ -77,7 +77,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/dimen10dp"
-                                android:text="Update profile photo"
+                                android:text="@string/update_profile_photo"
                                 android:layout_gravity="center"
                                 android:textColor="#00a5ff" />
 
@@ -85,7 +85,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/dimen20dp"
-                                android:text="Email"
+                                android:text="@string/email"
                                 android:textColor="#00a5ff" />
 
                             <EditText

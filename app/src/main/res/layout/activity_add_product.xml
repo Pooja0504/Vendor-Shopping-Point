@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:text="Add something new!"
+                android:text="@string/add_something_new"
                 android:textColor="#ffff"
                 android:textSize="26sp"
                 android:textStyle="bold" />
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:text="Great companies are built on great products.."
+                android:text="@string/great_companies_are_built_on_great_products"
                 android:textColor="#ffff"
                 android:textSize="16sp" />
 
@@ -72,14 +72,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Product Name"
+                            android:text="@string/product_name"
                             android:textColor="#00a5ff" />
 
                         <EditText
                             android:id="@+id/productname"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:hint="Enter Product Name"
+                            android:hint="@string/enter_product_name"
                             android:inputType="textEmailAddress"
                             android:padding="@dimen/dimen10dp" />
 
@@ -87,14 +87,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dimen20dp"
-                            android:text="Price"
+                            android:text="@string/price"
                             android:textColor="#00a5ff" />
 
                         <EditText
                             android:id="@+id/price"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:hint="Enter Price"
+                            android:hint="@string/enter_price"
                             android:inputType="number"
                             android:padding="@dimen/dimen10dp" />
 
@@ -103,14 +103,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dimen20dp"
-                            android:text="Description"
+                            android:text="@string/description"
                             android:textColor="#00a5ff" />
 
                         <EditText
                             android:id="@+id/description"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:hint="Add Description"
+                            android:hint="@string/add_description"
                             android:inputType="text"
                             android:padding="@dimen/dimen10dp" />
 
@@ -118,7 +118,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dimen20dp"
-                            android:text="Category"
+                            android:text="@string/category"
                             android:textColor="#00a5ff" />
 
                         <androidx.appcompat.widget.AppCompatSpinner
@@ -131,14 +131,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dimen20dp"
-                            android:text="Brand"
+                            android:text="@string/brand"
                             android:textColor="#00a5ff" />
 
                         <EditText
                             android:id="@+id/brand"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:hint="Enter Brand Name"
+                            android:hint="@string/enter_brand_name"
                             android:inputType="textEmailAddress"
                             android:padding="@dimen/dimen10dp" />
 
@@ -146,14 +146,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dimen20dp"
-                            android:text="Quantity"
+                            android:text="@string/quantity"
                             android:textColor="#00a5ff" />
 
                         <EditText
                             android:id="@+id/quantity"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:hint="Enter Quantity"
+                            android:hint="@string/enter_quantity"
                             android:inputType="textEmailAddress"
                             android:padding="@dimen/dimen10dp" />
 

@@ -24,8 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="154dp"
-                android:text="Vendor
-                 Dashboard"
+                android:text="@string/vendor_dashboard"
                 android:textColor="@color/darkBlue"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -41,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="39dp"
-                android:text="Start selling now"
+                android:text="@string/start_selling_now"
                 android:textColor="@color/darkBlue"
 
                 app:layout_constraintEnd_toEndOf="parent"

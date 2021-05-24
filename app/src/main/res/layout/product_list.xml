@@ -82,7 +82,7 @@
             android:gravity="center"
             android:paddingRight="20dp"
             android:showText="true"
-            android:text="Active/Dactivate"
+            android:text="@string/active_dactivate"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:textColor="@color/black"
             android:thumb="@drawable/thumb"

@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginBottom="@dimen/dimen10dp"
-                android:text="Be the face of application!"
+                android:text="@string/be_the_face_of_application"
                 android:textColor="#ffff"
                 android:textSize="18sp" />
 
@@ -64,7 +64,7 @@
                             android:gravity="center"
                             android:paddingStart="@dimen/dimen24dp"
                             android:paddingEnd="@dimen/dimen24dp"
-                            android:text="Add Banner"
+                            android:text="@string/add_banner"
                             android:textColor="@color/blue"
                             android:textSize="@dimen/dimen30sp"
                             android:textStyle="bold" />
@@ -78,7 +78,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_margin="10dp"
-                            android:text="select image"
+                            android:text="@string/select_image"
                             android:textAllCaps="false"
                             android:textColor="#000"
                             android:textSize="16sp" />
@@ -88,7 +88,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="@dimen/dimen150dp"
                             android:layout_gravity="center"
-                            android:contentDescription="Image Of Product"
+                            android:contentDescription="@string/image_of_product"
                             tools:src="@drawable/slide2" />
 
                         <RelativeLayout
