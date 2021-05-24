@@ -68,6 +68,7 @@
     <string name="answerFour">If you have selected the option of Self-Pick Up for your order, then once the item has reached its designated hub or location, you will receive a confirmation SMS on the number provided in the order that the item is ready to be collected. Once the item is at its designated hub or location and the SMS notification is issued, the item will be available for collection for 4 working days. If you experience any problems collecting your item from the designated hub or location, please contact Customer Support for assistance.</string>
     <string name="inquiryFive">Why I got multiple shipments for same order?</string>
     <string name="answerFive">When you purchase products from different sellers in an order, each seller will have a separate shipment and the product or products from each seller will be delivered to you separately. If you want to have all of the items shipped in one shipment, you will have to place the order for all items from the same seller.</string>
+
     <string name="current_password">Current password</string>
     <string name="new_password">New Password</string>
     <string name="re_type_new_password">Re-type new password</string>

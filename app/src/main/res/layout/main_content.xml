@@ -6,8 +6,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="750dp"
+        android:layout_height="match_parent"
         android:background="@color/white"
+        android:paddingBottom="@dimen/dimen20dp"
         tools:context=".view.HomeActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout

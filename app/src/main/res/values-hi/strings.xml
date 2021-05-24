@@ -1,64 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
-    <string name="app_name">Vendor-Shopping-Point</string>
-    <string name="open">Open</string>
-    <string name="close">Close</string>
-    <string name="s_pref_name">com.shopping_point.vendor_shopping_point</string>
-    <string name="s_pref_login_status">com.shopping_point.vendor_shopping_point</string>
-    <string name="s_pref_login_name">sh_pref_login_name</string>
-    <string name="s_pref_login_email">sh_pref_login_email</string>
-    <string name="s_pref_login_date">sh_pref_login_date</string>
-    <string name="new_here_create_an_account">New User? <font color='#008CFF'>Create an Account</font></string>
-    <string name="splash">Splash screen</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="name">Name</string>
-    <string name="address">Address</string>
-    <string name="mobile_number">Mobile Number</string>
-    <string name="delete_account">Delete Account</string>
-    <string name="register">Register</string>
-    <string name="sign_up">Sign Up</string>
-    <string name="sign_out">Sign Out</string>
-    <string name="forget_password">Forgot Password?</string>
-    <string name="sign_in">Sign In</string>
-    <string name="new_customer_create_your_account">New Customer? <font color='#008CFF'>Create Your Account</font></string>
+    <string name="app_name">
+शॉपिंग पॉइंट</string>
+    <string name="splash">
+स्प्लैश स्क्रीन</string>
+    <string name="email">ईमेल</string>
+    <string name="password">
+कुंजिका</string>
+    <string name="name">नाम</string>
+    <string name="address">
+पता</string>
+    <string name="mobile_number">मोबाइल नंबर</string>
+    <string name="delete_account">
+खाता हटा दो</string>
+    <string name="register">
+रजिस्टर करें</string>
+    <string name="sign_up">साइन अप करें</string>
+    <string name="sign_out">
+प्रस्थान करें</string>
+    <string name="forget_password">
+पासवर्ड भूल गए?</string>
+    <string name="sign_in">
+साइन इन करें</string>
+    <string name="new_customer_create_your_account">
+नए ग्राहक?<font color='#008CFF'>
+अपने खाते बनाएँ</font></string>
     <string name="_2020_shoppingpoint" />
-    <string name="eight_characters">Password must be eight characters.</string>
-    <string name="create_your_account">Sign up</string>
-    <string name="sign_in_already_a_customer">Already a member?<font color='#008CFF'> Sign-in</font></string>
+    <string name="eight_characters">पासवर्ड कम से कम 8 वर्णों का होना चाहिए</string>
+    <string name="create_your_account">
+साइन अप करें</string>
+    <string name="sign_in_already_a_customer">
+पहले से सदस्य हैं?<font color='#008CFF'>
+साइन इन करें</font></string>
     <!--    <string name="boldText">Sign-in.</string>-->
     <!--    <string name="normalText">" "Already a customer?</string>-->
-    <string name="enter_at_least_3_characters">Enter at least 3 characters</string>
-    <string name="email_required">Email Required</string>
-    <string name="enter_a_valid_email_address">Enter a valid email address</string>
-    <string name="password_required">Password Required</string>
-    <string name="password__at_least_8_characters">Password should be at least 8 characters</string>
-    <string name="loading">loading...</string>
-    <string name="Phone_Required">Phone Required</string>
-    <string name="Name_Required">Organisation Name Required</string>
-    <string name="conform_password">Confirm Password</string>
-    <string name="contact">Contact No</string>
-    <string name="organisation_name">Organisation Name</string>
-    <string name="shoping_point">Shopping Point</string>
-    <string name="save">Save</string>
-    <string name="profile_picture">Profile Picture</string>
+    <string name="enter_at_least_3_characters">
+कम से कम 3 वर्ण दर्ज करें</string>
+    <string name="email_required">ईमेल अनिवार्य</string>
+    <string name="enter_a_valid_email_address">
+मान्य ईमेल पता दर्ज करें</string>
+    <string name="password_required">
+पासवर्ड आवश्यक</string>
+    <string name="password__at_least_8_characters">पासवर्ड कम से कम 8 अक्षर का होना चाहिए</string>
+
+
+
+    <string name="no_internet_connection">
+कोई इंटरनेट कनेक्शन नहीं</string>
+
+    <string name="profile_picture">प्रोफ़ाइल फोटो</string>
     <string name="shoppingpoint.com">info@shopingpoint.com</string>
-    <string name="no_internet_connection">No Internet Connection</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="home">Home</string>
-    <string name="my_account">My Account</string>
-    <string name="news_feed">News Feed</string>
-    <string name="add_product">Add Product</string>
-    <string name="notification">Notifications</string>
-    <string name="setting">Settings</string>
-    <string name="languages">Languages</string>
-    <string name="choose_language">Choose Language</string>
-    <string name="english">English</string>
-    <string name="hindi"> Hindi</string>
-    <string name="all_removed">All Products removed from History</string>
-    <string name="hi_how_can_we_help">Hi! How Can We Help?</string>
-    <string name="help_center">Help Center</string>
+
+    <string name="navigation_drawer_open">
+नेविगेशन दराज खोलें</string>
+    <string name="navigation_drawer_close">
+नेविगेशन ड्रॉअर बंद करें</string>
+
+
+    <string name="my_account">
+मेरा खाता</string>
+
+
+    <string name="take_picture">
+तस्वीर ले लो</string>
+    <string name="use_gallery">
+गैलरी का उपयोग करें</string>
+    <string name="choose_profile_picture">
+प्रोफ़ाइल चित्र चुनें</string>
+
+    <string name="languages">
+बोली</string>
+
+    <string name="help_center">
+सहायता केंद्र</string>
+    <string name="delete_my_account">
+खाता हटा दो</string>
+
+    <string name="add_product">
+उत्पाद जोड़ें</string>
+
+
+
+    <string name="save">
+सहेजें</string>
+
+    <string name="change_password">पासवर्ड बदलें</string>
+    <string name="current_password">
+वर्तमान पासवर्ड</string>
+    <string name="new_password">
+नया पासवर्ड</string>
+    <string name="re_type_new_password">
+पुन: लिखें नया पासवर्ड</string>
+    <string name="cancel">
+रद्द करना</string>
+
+
+
+    <string name="save_changes">परिवर्तनों को सुरक्षित करें</string>
+
+    <string name="password_not_match">
+पासवर्ड मैच नहीं कर रहा है</string>
+    <string name="enter_current_password">
+कृपया अपना वर्तमान पासवर्ड दर्ज करें</string>
+
+    <string name="want_to_exit">क्या आप वास्तव में बाहर निकलना चाहते हैं?</string>
+    <string name="ok">
+ठीक</string>
+
+    <string name="loading">
+लोड हो रहा है...</string>
+
+
+    <string name="english">
+अंग्रेज़ी</string>
+
+    <string name="choose_language">
+भाषा चुनें</string>
+
+    <string name="password_assistance">
+पासवर्ड सहायता</string>
+    <string name="enter_the_email_address_associated_with_your_account">
+अपने खाते से संबद्ध ईमेल पता दर्ज करें।</string>
+    <string name="proceed">
+जारी रखें</string>
+    <string name="email_address">
+ईमेल पता</string>
+    <string name="authentication_required">
+प्रमाणीकरण आवश्यक</string>
+    <string name="enter_otp">
+OTP दर्ज करें</string>
+    <string name="description2">आपकी सुरक्षा के लिए, हमें आपके अनुरोध को अधिकृत करने की आवश्यकता है। हमने <b>शॉपिंग पॉईंट</b> खरीदारी बिंदु से ईमेल %1$s पर एक कोड भेजा है। कृपया इसे नीचे दर्ज करें।</string>
+    <string name="enter_your_email">
+कृपया अपना सही ईमेल दर्ज करें</string>
+    <string name="incorrect_code">
+गलत कोड</string>
+    <string name="resend_otp">
+ओटीपी पुनः भेजें</string>
+    <string name="counter">60</string>
+    <string name="you_have_exceeded_number_of_requests">
+आपने अनुरोधों की संख्या को पार कर लिया है।</string>
+    <string name="poster">
+पोस्टर</string>
+    <string name="close">
+बंद करे</string>
+
+
+
+
+    <string name="contact">संपर्क नंबर</string>
+
+    <string name="about">करीबन</string>
+    <string name="desc3"><b>टीमशॉप्पी द्वारा विकसित - पुणे, भारत</b></string>
+    <string name="version">विवरण</string>
+    <string name="check_update">अपडेट के लिए देखें</string>
+    <string name="feedback">Feedback</string>
+    <string name="desc_feedback">तकनीकी मुद्दों की रिपोर्ट करने के लिए।</string>
+    <string name="try_amp_buy_at_home"><font color='#008CFF'>कोशिश करना </font>और<font color='#008CFF'> खरीद</font> घर पर।</string>
+    <string name="desc_about">शॉपिंग प्वाइंट एप्लीकेशन जो आपको वर्चुअल ट्रायल रूम की सुविधा देता है।</string>
+    <string name="check_updates">अपडेट की जांच करने के लिए यहां टैप करें।</string>
+    <string name="version_build">वर्जन 0.0.1 बिल्ड 1</string>
+    <string name="help">मदद</string>
+    <string name="update">आधुनिकीकरणअ</string>
+    <string name="desc_feedback_link"><font color='#008CFF'>यहां क्लिक करें </font></string>
+    <string name="update_profile">अपडेट प्रोफाइल</string>
+    <string name="hindi">Hindi</string>
+
+    <string name="add_banner">बैनर जोड़ें</string>
+
+    <string name="home">घर</string>
+    <string name="about_app">ऐप के बारे में</string>
+    <string name="logout">लॉगआउट</string>
+    <string name="Name_Required">नाम जरूरी</string>
+    <string name="Phone_Required">फोन जरूरी</string>
+
+
+
+
+    <string name="pass_authentication">Password Authentication</string>
+    <string name="passs_authentication">Password Authentication</string>
+    <string name="notifications">Notifications</string>
+    <string name="settings">Settings</string>
+    <string name="my_products">My Products</string>
+    <string name="activate_products">Activate Products</string>
+    <string name="add_products">Add Products</string>
+    <string name="add_image">Add Image</string>
+    <string name="upload_to_server">Upload</string>
+    <string name="faq">FAQ\'s</string>
     <string name="inquiryOne">I was charged extra shipping charges?</string>
     <string name="answerOne">Shopping Point does not charge customers any extra shipping charges. All applicable charges are mentioned in the invoice. Please make sure to check the item price plus the shipping charges at the checkout page before completing your purchase.\n\nIf the courier representative demands or has charged you more than the amount mentioned on your order invoice, please contact Customer Service immediately for assistance.</string>
     <string name="inquiryTwo">Where is My Order?</string>
@@ -69,58 +197,19 @@
     <string name="answerFour">If you have selected the option of Self-Pick Up for your order, then once the item has reached its designated hub or location, you will receive a confirmation SMS on the number provided in the order that the item is ready to be collected. Once the item is at its designated hub or location and the SMS notification is issued, the item will be available for collection for 4 working days. If you experience any problems collecting your item from the designated hub or location, please contact Customer Support for assistance.</string>
     <string name="inquiryFive">Why I got multiple shipments for same order?</string>
     <string name="answerFive">When you purchase products from different sellers in an order, each seller will have a separate shipment and the product or products from each seller will be delivered to you separately. If you want to have all of the items shipped in one shipment, you will have to place the order for all items from the same seller.</string>
-    <string name="current_password">Current password</string>
-    <string name="new_password">New Password</string>
-    <string name="re_type_new_password">Re-type new password</string>
-    <string name="cancel">Cancel</string>
-    <string name="save_changes">Save Changes</string>
-    <string name="change_password">Change Password</string>
-    <string name="password_not_match">Password Does not match</string>
-    <string name="enter_current_password">Please Enter your current password</string>
-    <string name="authentication_required">Authentication Required</string>
-    <string name="enter_otp">Enter OTP</string>
-    <string name="description2">For your security, we need to authenticate your request. We\'ve sent a code from <b>Shoping Point</b> to the email %1$s. Please enter it below.</string>
-    <string name="enter_your_email">Please Enter your correct email</string>
-    <string name="incorrect_code">Incorrect Code</string>
-    <string name="resend_otp">Resend OTP</string>
-    <string name="counter">60</string>
-    <string name="you_have_exceeded_number_of_requests">You have exceeded number of requests.</string>
-    <string name="proceed">Continue</string>
-    <string name="email_address">Email Address</string>
-    <string name="password_assistance">Password assistance</string>
-    <string name="enter_the_email_address_associated_with_your_account">Enter the email address associated with your account.</string>
-    <string name="poster">poster</string>
-    <string name="delete_my_account">Delete account</string>
-    <string name="take_picture">Take Picture</string>
-    <string name="use_gallery">Use Gallery</string>
-    <string name="choose_profile_picture">Choose profile Picture</string>
-    <string name="want_to_exit">Do you really want to exit?</string>
-    <string name="ok">OK</string>
-    <string name="notifications">Notifications</string>
-    <string name="settings">Settings</string>
-    <string name="my_products">My Products</string>
-    <string name="activate_products">Activate Products</string>
-    <string name="add_products">Add Products</string>
-    <string name="add_image">Add Image</string>
-    <string name="upload_to_server">Upload</string>
-    <string name="faq">FAQ\'s</string>
-    <string name="update_profile">Update Profile</string>
-    <string name="update">Update</string>
-    <string name="about">About</string>
-    <string name="desc3"><b>Developed by TeamShoppy - Pune, India</b></string>
-    <string name="version">Version</string>
-    <string name="check_update">Check for update</string>
-    <string name="feedback">Feedback</string>
-    <string name="desc_feedback">to report technical issues or suggest new features.</string>
-    <string name="try_amp_buy_at_home"><font color='#008CFF'>Try </font>&amp;<font color='#008CFF'> Buy</font> at home.</string>
-    <string name="desc_about">Shopping point application that gives you the facility of virual trial room.</string>
-    <string name="check_updates">Tap here to check for updates.</string>
-    <string name="version_build">Version 0.0.1 Build 1</string>
-    <string name="help">Help</string>
-    <string name="desc_feedback_link"><font color='#008CFF'>Click here </font></string>
-    <string name="pass_authentication">Password Authentication</string>
-    <string name="passs_authentication">Password Authentication</string>
-    <string name="logout">Logout</string>
-    <string name="add_banner">Promotion</string>
-    <string name="about_app">About App</string>
+    <string name="all_removed">All Products removed from History</string>
+    <string name="hi_how_can_we_help">Hi! How Can We Help?</string>
+    <string name="notification">Notifications</string>
+    <string name="setting">Settings</string>
+    <string name="news_feed">News Feed</string>
+    <string name="organisation_name">Organisation Name</string>
+    <string name="shoping_point">Shopping Point</string>
+    <string name="conform_password">Confirm Password</string>
+    <string name="s_pref_name">com.shopping_point.vendor_shopping_point</string>
+    <string name="s_pref_login_status">com.shopping_point.vendor_shopping_point</string>
+    <string name="s_pref_login_name">sh_pref_login_name</string>
+    <string name="s_pref_login_email">sh_pref_login_email</string>
+    <string name="s_pref_login_date">sh_pref_login_date</string>
+    <string name="new_here_create_an_account">New User? <font color='#008CFF'>Create an Account</font></string>
+    <string name="open">Open</string>
 </resources>
