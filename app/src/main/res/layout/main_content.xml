@@ -98,7 +98,7 @@
                             android:layout_marginTop="30dp"
                             android:background="@color/lightGray"
                             android:gravity="center"
-                            android:text="Add Product"
+                            android:text="@string/add_products"
                             android:textColor="@color/darkBlue"
                             android:textSize="20sp" />
 
@@ -135,8 +135,8 @@
                             android:background="@color/lightGray"
 
                             android:textColor="@color/darkBlue"
-                            android:text="Activate Product"
-                            android:textSize="20sp"
+                            android:text="@string/activate_products"
+                            android:textSize="19sp"
                             />
 
                         <ImageView
@@ -180,7 +180,7 @@
                             android:layout_centerHorizontal="true"
                             android:textColor="@color/darkBlue"
                             android:background="@color/lightGray"
-                            android:text="Promotions"
+                            android:text="@string/promotions"
                             android:textSize="20sp"
                             />
 
@@ -213,9 +213,9 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="@dimen/dimen30dp"
                             android:background="@color/lightGray"
-                            android:text="Manage Banners"
+                            android:text="@string/manage_banners"
                             android:textColor="@color/darkBlue"
-                            android:textSize="20sp"
+                            android:textSize="19sp"
                             />
 
                         <ImageView
@@ -258,10 +258,21 @@
                             android:layout_marginTop="10dp"
                             android:background="@color/lightGray"
                             android:gravity="center"
-                            android:text="Manage Orders "
+                            android:text="@string/manage_orders"
                             android:textColor="@color/darkBlue"
                             android:textSize="20sp" />
+                        <TextView
+                            android:id="@+id/txtVendor"
+                            android:layout_width="match_parent"
+                            android:layout_height="75dp"
+                            android:text="@string/view_total_remaining_products_and_total_products_selled"
+                            android:gravity="top|center"
 
+                            android:textColor="@color/white"
+
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/dimen5dp"
+                            />
 
                         <TextView
 

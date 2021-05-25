@@ -157,4 +157,8 @@
     <string name="active_dactivate">Active/Dactivate</string>
     <string name="product_remaining">Product Remaining</string>
     <string name="order_count">Order Count</string>
+    <string name="promotions">Promotions</string>
+    <string name="manage_banners">Manage Banners</string>
+    <string name="manage_orders">Manage Orders</string>
+    <string name="view_total_remaining_products_and_total_products_selled">View Total Remaining Products and Total Products Selled</string>
 </resources>

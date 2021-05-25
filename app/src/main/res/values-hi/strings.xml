@@ -164,7 +164,7 @@ OTP दर्ज करें</string>
     <string name="update">आधुनिकीकरणअ</string>
     <string name="desc_feedback_link"><font color='#008CFF'>यहां क्लिक करें </font></string>
     <string name="update_profile">अपडेट प्रोफाइल</string>
-    <string name="hindi">Hindi</string>
+    <string name="hindi">हिंदी</string>
 
     <string name="add_banner">बैनर जोड़ें</string>
 
@@ -177,9 +177,9 @@ OTP दर्ज करें</string>
 
 
 
-    <string name="pass_authentication">Password Authentication</string>
-    <string name="passs_authentication">Password Authentication</string>
-    <string name="notifications">Notifications</string>
+    <string name="pass_authentication">पासवर्ड प्रमाणीकरण</string>
+    <string name="passs_authentication">पासवर्ड प्रमाणीकरण</string>
+    <string name="notifications">सूचनाएँ</string>
     <string name="settings">Settings</string>
     <string name="my_products">My Products</string>
     <string name="activate_products">Activate Products</string>
@@ -246,4 +246,8 @@ OTP दर्ज करें</string>
     <string name="active_dactivate">Active/Dactivate</string>
     <string name="product_remaining">Product Remaining</string>
     <string name="order_count">Order Count</string>
+    <string name="promotions">Promotions</string>
+    <string name="manage_banners">Manage Banners</string>
+    <string name="manage_orders">Manage Orders</string>
+    <string name="view_total_remaining_products_and_total_products_selled">View Total Remaining Products and Total Products Selled</string>
 </resources>
