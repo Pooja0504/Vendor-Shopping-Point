@@ -254,4 +254,7 @@ OTP दर्ज करें</string>
     <string name="remaining_products">Remaining Products : </string>
     <string name="active">Active</string>
     <string name="inactive">Inactive</string>
+
+    <string name="add_category">Add Category</string>
+    <string name="banner_list">Banner List</string>
 </resources>

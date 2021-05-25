@@ -17,7 +17,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".view.OrdersActivity"
-            android:label="Manage Orders"
+            android:label="@string/manage_orders"
             android:parentActivityName=".view.HomeActivity"
             >
 
@@ -27,7 +27,7 @@
         </activity>
         <activity
             android:name=".view.CategoryActivity"
-            android:label="Add Category"
+            android:label="@string/add_category"
             android:parentActivityName=".view.AddProductActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -58,7 +58,7 @@
         </activity>
         <activity
             android:name=".view.Banner_listActivity"
-            android:label="Banner List"
+            android:label="@string/banner_list"
             android:parentActivityName=".view.HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
