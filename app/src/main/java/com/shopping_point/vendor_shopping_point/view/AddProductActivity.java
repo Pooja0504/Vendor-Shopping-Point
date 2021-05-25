@@ -19,6 +19,7 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
+
 import com.shopping_point.vendor_shopping_point.R;
 import com.shopping_point.vendor_shopping_point.adapter.CategoryAdapter;
 import com.shopping_point.vendor_shopping_point.viewModel.CategoryViewModel;
@@ -60,7 +61,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         binding.upload.setOnClickListener(this);
 
 
-        Toast.makeText(this, "BEFORE", Toast.LENGTH_SHORT).show();
+
         categoryViewModel.getCategory().observe(this, CategoryResponse -> {
             List<Category> list=  CategoryResponse.getCategory();
 
