@@ -73,10 +73,10 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyOrderVie
 
             Integer Price = order.getProductPrice();
             holder.binding.Price.setText(Price + " ₹ ");
-
-
-     holder.binding.ordercount.setText(" total Product selled : " + order.getOrderCount() + " ");
-     holder.binding.productRemaining.setText("Remaining Products : "+ order.getProductQuantity() + " ");
+            String total_product_selled=ordersActivity.getString(R.string.total_product_selled);
+            String remaining_products=ordersActivity.getString(R.string.remaining_products);
+     holder.binding.ordercount.setText(total_product_selled + order.getOrderCount() + " ");
+     holder.binding.productRemaining.setText(remaining_products+ order.getProductQuantity() + " ");
 
 
 

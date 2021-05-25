@@ -161,4 +161,8 @@
     <string name="manage_banners">Manage Banners</string>
     <string name="manage_orders">Manage Orders</string>
     <string name="view_total_remaining_products_and_total_products_selled">View Total Remaining Products and Total Products Selled</string>
+    <string name="total_product_selled"> Total Products selled : </string>
+    <string name="remaining_products">Remaining Products : </string>
+    <string name="active">Active</string>
+    <string name="inactive">Inactive</string>
 </resources>

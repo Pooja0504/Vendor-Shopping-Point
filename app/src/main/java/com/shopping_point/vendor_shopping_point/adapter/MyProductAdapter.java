@@ -76,11 +76,11 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyPr
 
             if(myProduct.getIsActive().equals("1")) {
 
-                holder.binding.status.setText("Active");
+                holder.binding.status.setText(R.string.active);
                 holder.binding.status.setChecked(true);
 
             }else {
-                holder.binding.status.setText("Inactive");
+                holder.binding.status.setText(R.string.inactive);
                 holder.binding.status.setChecked(false);
             }
 
@@ -99,7 +99,7 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyPr
 
                                 holder.binding.progressBarProductlist.setVisibility(View.INVISIBLE);
 
-                                holder.binding.status.setText("Active");
+                                holder.binding.status.setText(R.string.active);
 
                                 // Toast.makeText(mContext, responseBody.string(), Toast.LENGTH_SHORT).show();
 
@@ -111,7 +111,7 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyPr
 
                                 holder.binding.progressBarProductlist.setVisibility(View.INVISIBLE);
 
-                                holder.binding.status.setText("Inactive");
+                                holder.binding.status.setText(R.string.inactive);
 
                                 //Toast.makeText(mContext, responseBody.string(), Toast.LENGTH_SHORT).show();
 
