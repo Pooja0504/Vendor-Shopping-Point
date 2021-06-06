@@ -72,11 +72,11 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|start"
                             android:layout_margin="5dp"
-                            android:background="@drawable/custom_button"
+                            android:background="@color/white"
                             android:padding="@dimen/dimen5dp"
                             android:text="@string/take_picture"
                             android:textAllCaps="false"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/blue" />
 
                         <Button
                             android:id="@+id/useGallery"
@@ -86,9 +86,9 @@
                             android:layout_margin="5dp"
                             android:padding="5dp"
                             android:text="@string/use_gallery"
-                            android:background="@drawable/custom_button"
+                            android:background="@color/white"
                             android:textAllCaps="false"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/blue" />
                     </FrameLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
